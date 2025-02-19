@@ -103,8 +103,8 @@ const Footer = () => {
       <div className="border-t">
         <div className="container mx-auto py-5 flex md:flex-row flex-col-reverse  justify-between items-center">
           <p className="text-xs text-gray-700 mt-2 md:mt-0">
-            &copy; Copyright 2022. All Rights Reserved. | GymdoStore by
-            Mahamudul Hasan
+            &copy; Copyright 2025. All Rights Reserved. | GymdoStore by
+            Kamrul Hassan
           </p>
           <img src={payCopyright} alt="payment Copyright" className="w-52" />
         </div>
