@@ -15,7 +15,6 @@ const Header = () => {
         <Link to={"/"}>
           <img src={logo} alt="gymdo logo" className="w-36" />
         </Link>
-
         <NavItems />
 
         <div className="flex gap-4 text-2xl">
