@@ -30,7 +30,7 @@ export const BtnSecondary = () => {
           ></path>
         </svg>
       </span>
-      Explore All
+      Explore Our All Trips
     </Link>
   );
 };

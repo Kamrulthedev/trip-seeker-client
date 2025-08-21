@@ -65,9 +65,9 @@ const productApiSlice = baseApiSlice.injectEndpoints({
 });
 
 export const {
-  useAddProductMutation, // Hook for adding a product mutation
-  useGetProductsQuery, // Hook for fetching products with query parameters
-  useGetProductQuery, // Hook for fetching a single product by ID
-  useUpdateProductMutation, // Hook for updating a product
-  useDeleteProductMutation, // Hook for deleting a product
+  useAddProductMutation,
+  useGetProductsQuery, 
+  useGetProductQuery, 
+  useUpdateProductMutation, 
+  useDeleteProductMutation, 
 } = productApiSlice;
