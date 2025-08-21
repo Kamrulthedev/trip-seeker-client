@@ -7,6 +7,6 @@ export interface IProduct {
   price: number;
   description: string;
   imageUrl: string;
+  discount?: string; // Changed to string to match your data
   rating: number;
-  discount: number;
 }

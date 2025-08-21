@@ -32,6 +32,36 @@ const ClothesAndEquipment = () => {
     },
     {
       _id: "2",
+      name: "Romantic Getaway: Maldives Honeymoon",
+      category: "Couple_Escape",
+      price: 1200,
+      description: "Perfect for couples seeking a memorable escape. Enjoy pristine beaches and luxurious resorts.",
+      imageUrl: "https://placehold.co/400x300/e0e0e0/000000?text=Couple+Escape",
+      discount: '20%',
+      rating: 4.8,
+    },
+    {
+      _id: "3",
+      name: "Romantic Getaway: Maldives Honeymoon",
+      category: "Couple_Escape",
+      price: 1200,
+      description: "Perfect for couples seeking a memorable escape. Enjoy pristine beaches and luxurious resorts.",
+      imageUrl: "https://placehold.co/400x300/e0e0e0/000000?text=Couple+Escape",
+      discount: '20%',
+      rating: 4.8,
+    },
+    {
+      _id: "4",
+      name: "Romantic Getaway: Maldives Honeymoon",
+      category: "Couple_Escape",
+      price: 1200,
+      description: "Perfect for couples seeking a memorable escape. Enjoy pristine beaches and luxurious resorts.",
+      imageUrl: "https://placehold.co/400x300/e0e0e0/000000?text=Couple+Escape",
+      discount: '20%',
+      rating: 4.8,
+    },
+    {
+      _id: "5",
       name: "Family Fun Adventure: Thailand Explorer",
       category: "Family_Tour",
       price: 2500,
@@ -41,7 +71,17 @@ const ClothesAndEquipment = () => {
       rating: 4.7,
     },
     {
-      _id: "3",
+      _id: "6",
+      name: "Family Fun Adventure: Thailand Explorer",
+      category: "Family_Tour",
+      price: 2500,
+      description: "An unforgettable adventure for the whole family. Discover ancient temples and vibrant markets.",
+      imageUrl: "https://placehold.co/400x300/d0d0d0/000000?text=Family+Tour",
+      discount: '20%',
+      rating: 4.7,
+    },
+    {
+      _id: "7",
       name: "Friends' Thrill Seekers: European Backpacking",
       category: "Group_Adventure",
       price: 900,
@@ -51,7 +91,7 @@ const ClothesAndEquipment = () => {
       rating: 4.5,
     },
     {
-      _id: "4",
+      _id: "8",
       name: "Luxury Beach Retreat: Bora Bora Excursion",
       category: "Luxury_Trip",
       price: 3500,
@@ -61,7 +101,7 @@ const ClothesAndEquipment = () => {
       rating: 4.9,
     },
     {
-      _id: "5",
+      _id: "9",
       name: "Budget Backpacker's Dream: Vietnam Trek",
       category: "Budget_Travel",
       price: 500,
@@ -71,7 +111,7 @@ const ClothesAndEquipment = () => {
       rating: 4.2,
     },
     {
-      _id: "6",
+      _id: "10",
       name: "Couple's Serenity Spa Retreat",
       category: "Couple_Escape",
       price: 1500,
@@ -81,7 +121,7 @@ const ClothesAndEquipment = () => {
       rating: 4.6,
     },
     {
-      _id: "7",
+      _id: "11",
       name: "Family Wildlife Safari: Kenya",
       category: "Family_Tour",
       price: 4000,
@@ -91,7 +131,7 @@ const ClothesAndEquipment = () => {
       rating: 4.9,
     },
     {
-      _id: "8",
+      _id: "12",
       name: "Friends' Mountain Trek: Nepal",
       category: "Group_Adventure",
       price: 1100,
@@ -101,7 +141,7 @@ const ClothesAndEquipment = () => {
       rating: 4.4,
     },
     {
-      _id: "9",
+      _id: "13",
       name: "Luxury Cruise: Caribbean Escape",
       category: "Luxury_Trip",
       price: 5000,
@@ -111,7 +151,7 @@ const ClothesAndEquipment = () => {
       rating: 5.0,
     },
     {
-      _id: "10",
+      _id: "14",
       name: "Budget City Break: Prague",
       category: "Budget_Travel",
       price: 300,
@@ -132,25 +172,33 @@ const ClothesAndEquipment = () => {
     { key: "Budget_Travel", label: "Budget Travel" },
   ];
 
-  
+
+
 
   const renderProductCards = () => {
     if (isLoading) {
-      return Array.from({ length: 8 }).map((_, index) => (
+      return Array.from({ length: 4 }).map((_, index) => (
         <ProductCardLoader key={index} />
       ));
     }
 
-    return products?.data?.map((product: IProduct) => (
+    // Filter and slice the local data to show only 4 items per category
+    const filteredProducts = travelPackages
+      .filter((pkg) => pkg.category === category)
+      .slice(0, 4);
+
+    return filteredProducts.map((product: IProduct) => (
       <ProductCard key={product._id} productDetails={product} />
     ));
   };
+
+
 
   return (
     <div className="container mx-auto px-5 my-20">
       <SectionHead title="🏝️ Trip Packages Tailored Just for You" />
 
-      <Tabs defaultValue="Fitness">
+      <Tabs defaultValue="Trips">
         {/* For large devices */}
         <TabsList className="hidden md:grid md:w-1/2 w-full grid-cols-5 mx-auto mt-5 mb-10">
           {categories.map((cat) => (
