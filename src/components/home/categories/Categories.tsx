@@ -6,9 +6,9 @@ import CategoryItem from "./CategoryItem";
 const Categories = () => {
   return (
     <div className="container mx-auto md:-mt-16 md:grid grid-cols-3 gap-5 mt-10 space-y-5 md:space-y-0">
-      <CategoryItem img={category1} category={"Fitness"} />
-      <CategoryItem img={category3} category={"equipment"} />
-      <CategoryItem img={category2} category={"clothing"} />
+      <CategoryItem img={category1} category={"Couple & Friends Escape"} />
+      <CategoryItem img={category2} category={"Explorer’s Special"} />
+      <CategoryItem img={category3} category={"Family & Group Trips"} />
     </div>
   );
 };
