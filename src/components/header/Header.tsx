@@ -13,11 +13,25 @@ const Header = () => {
         <ResponsiveNav />
         <Logo></Logo>
         <NavItems />
+
+
         <div className="flex gap-4 text-2xl lg:-mr-10">
-          <HiOutlineSearch className="hidden md:inline-block" />
-          <HiOutlineUser />
-          <CartSheet />
+          {/* Search Button */}
+            <button className="relative overflow-hidden rounded-lg p-1 text-gray-700 transition-all duration-300 hover:text-green-700 hover:border-2 hover:border-green-500">
+            <HiOutlineSearch className="hidden md:inline-block" />
+          </button>
+
+          {/* User Button */}
+          <button className="relative overflow-hidden rounded-lg p-1 text-gray-700 transition-all duration-300 hover:text-green-700 hover:border-2 hover:border-green-500">
+            <HiOutlineUser />
+          </button>
+
+          {/* Cart Button with Ripple */}
+         <button className="relative overflow-hidden rounded-lg p-1 text-gray-700 transition-all duration-300 hover:text-green-700 hover:border-2 hover:border-green-500">
+            <CartSheet />
+          </button>
         </div>
+
       </div>
     </header>
   );
