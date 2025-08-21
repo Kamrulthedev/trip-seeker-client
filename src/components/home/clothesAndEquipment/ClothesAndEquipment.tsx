@@ -6,10 +6,20 @@ import ProductCard from "../../card/ProductCard";
 import { BtnSecondary } from "../../ui/BtnSecondary";
 import { ProductCardLoader } from "../../ui/loader/ProductCardLoader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../ui/tabs";
+import { Menu } from "lucide-react";
 
 const ClothesAndEquipment = () => {
   const [category, setCategory] = useState("Fitness");
   const { data: products, isLoading } = useGetProductsQuery({ category });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const categories = [
+    { key: "Fitness", label: "Couple Escape" },
+    { key: "Mens_Clothing", label: "Family Tour" },
+    { key: "Group_Adventure", label: "Group Adventure" },
+    { key: "Luxury_Trip", label: "Luxury Trip" },
+    { key: "Womans_Clothing", label: "Budget Travel" },
+  ];
 
   const renderProductCards = () => {
     if (isLoading) {
@@ -24,42 +34,56 @@ const ClothesAndEquipment = () => {
   };
 
   return (
-    <div className="container mx-auto px-5 my-20 ">
-      <SectionHead title="clothes & equipment" />
+    <div className="container mx-auto px-5 my-20">
+      <SectionHead title="🏝️ Trip Packages Tailored Just for You" />
+
       <Tabs defaultValue="Fitness">
-        <TabsList className="md:grid md:w-1/2 w-full grid-cols-3 mx-auto mt-5 mb-10">
-          <TabsTrigger onClick={() => setCategory("Fitness")} value="Fitness">
-            FITNESS
-          </TabsTrigger>
-          <TabsTrigger
-            onClick={() => setCategory("Mens_Clothing")}
-            value="Mens_Clothing"
-          >
-            MEN'S CLOTHES
-          </TabsTrigger>
-          <TabsTrigger
-            onClick={() => setCategory("Womans_Clothing")}
-            value="Womans_Clothing"
-          >
-            WOMAN'S CLOTHES
-          </TabsTrigger>
+        {/* For large devices */}
+        <TabsList className="hidden md:grid md:w-1/2 w-full grid-cols-5 mx-auto mt-5 mb-10">
+          {categories.map((cat) => (
+            <TabsTrigger
+              key={cat.key}
+              onClick={() => setCategory(cat.key)}
+              value={cat.key}
+            >
+              {cat.label}
+            </TabsTrigger>
+          ))}
         </TabsList>
-        <TabsContent value="Fitness">
-          <div className="grid md:grid-cols-4 gap-8">
-            {renderProductCards()}
-          </div>
-        </TabsContent>
-        <TabsContent value="Mens_Clothing">
-          <div className="grid md:grid-cols-4 gap-8">
-            {renderProductCards()}
-          </div>
-        </TabsContent>
-        <TabsContent value="Womans_Clothing">
-          <div className="grid md:grid-cols-4 gap-8">
-            {renderProductCards()}
-          </div>
-        </TabsContent>
+
+        {/* For small devices - Three dots dropdown */}
+        <div className="md:hidden flex justify-center mt-5 mb-10 relative">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 border rounded-lg shadow-sm flex items-center gap-2"
+          >
+            <Menu className="w-5 h-5" /> Categories
+          </button>
+          {isMenuOpen && (
+            <div className="absolute top-12 z-10 bg-white shadow-lg border rounded-lg w-48">
+              {categories.map((cat) => (
+                <div
+                  key={cat.key}
+                  onClick={() => {
+                    setCategory(cat.key);
+                    setIsMenuOpen(false);
+                  }}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                >
+                  {cat.label}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {categories.map((cat) => (
+          <TabsContent key={cat.key} value={cat.key}>
+            <div className="grid md:grid-cols-4 gap-8">{renderProductCards()}</div>
+          </TabsContent>
+        ))}
       </Tabs>
+
       <div className="flex justify-center items-center mt-5">
         <BtnSecondary />
       </div>

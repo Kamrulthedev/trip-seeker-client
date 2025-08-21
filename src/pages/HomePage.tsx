@@ -12,7 +12,6 @@ const HomePage = () => {
     <div>
       <Banner />
       <Categories />
-      {/* <WhyChoose /> */}
       <ClothesAndEquipment />
       <ReasonsToShop />
       <PhotoGallery />
