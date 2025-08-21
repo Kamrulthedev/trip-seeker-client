@@ -14,6 +14,7 @@ const Header = () => {
         <ResponsiveNav />
         <Link to={"/"}>
           <img src={logo} alt="gymdo logo" className="w-36" />
+          <h1>TRIP SEEKER</h1>
         </Link>
         <NavItems />
 
