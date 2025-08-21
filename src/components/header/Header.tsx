@@ -13,7 +13,7 @@ const Header = () => {
         <ResponsiveNav />
         <Logo></Logo>
         <NavItems />
-        <div className="flex gap-4 text-2xl">
+        <div className="flex gap-4 text-2xl lg:-mr-10">
           <HiOutlineSearch className="hidden md:inline-block" />
           <HiOutlineUser />
           <CartSheet />

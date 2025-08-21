@@ -27,7 +27,12 @@ const ResponsiveNav = () => {
           <div>
             <DrawerHeader>
               <DrawerTitle className="flex justify-center items-center border-b">
-                <img src={logo} alt="gymdo logo" className="w-36 mb-2" />
+                <img
+                    src={logo}
+                    alt="Trip Seeker Logo"
+                    className="lg:w-12 lg:h-12 md:w-12 md:h-12 w-10 h-10 rounded-full object-cover ring-2 border-bg-gradient-to-r from-blue-500 to-green-500 ring-offset-2 shadow-md
+                     transition-transform duration-300 ease-in-out hover:rotate-12 mb-2"
+                />
               </DrawerTitle>
             </DrawerHeader>
             <nav className="mt-4">
