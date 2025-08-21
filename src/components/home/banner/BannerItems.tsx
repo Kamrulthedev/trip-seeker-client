@@ -4,7 +4,8 @@ import video2 from "../../../assets/videos/banner1.mp4";
 import video3 from "../../../assets/videos/banner3.mp4";
 import { setCategory } from "../../../redux/features/filterProducts/filterSlice";
 import { useAppDispatch } from "../../../redux/hooks";
-import { BtnPrimary } from "../../ui/BtnPrimary";
+import { BtnPrimary } from "../../../utils/BtnPrimary";
+
 
 export const BannerItem1 = () => {
   return (
@@ -17,15 +18,19 @@ export const BannerItem1 = () => {
         muted
       />
       <div className="absolute inset-0 flex justify-start items-center">
-        <div className="container mx-auto text-white px-4 sm:px-6 md:px-12 lg:px-20">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 text-white">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2 font-bold">
             Explore Cox’s Bazar & Chittagong Like Never Before
           </h1>
-          <p className="text-sm sm:text-lg mb-6">
+          <p className="text-white text-sm sm:text-lg mb-6">
             Discover the best experiences in Bangladesh
           </p>
           <Link to="/services">
-            <BtnPrimary text="Our Services" title="Our Services" />
+            <BtnPrimary
+              text="Our Services"
+              title="Our Services"
+              className="bg-gradient-to-r from-blue-600 to-green-500 text-white"
+            />
           </Link>
         </div>
       </div>
@@ -45,15 +50,19 @@ export const BannerItem2 = () => {
       />
       <div className="absolute inset-0 flex justify-center items-center text-center">
         <div className="px-4 sm:px-6 md:px-12 lg:px-20 text-white">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2 font-bold">
             Bangladesh – Your Travel Partner to the Sea & Hills
           </h1>
-          <p className="text-sm sm:text-lg mb-6">
+          <p className="text-white text-sm sm:text-lg mb-6">
             Experience nature, culture, and adventure
           </p>
           <div className="flex justify-center">
             <Link to="/services">
-              <BtnPrimary text="Our Services" title="Our Services" />
+              <BtnPrimary
+                text="Our Services"
+                title="Our Services"
+                className="bg-gradient-to-r from-blue-600 to-green-500 text-white"
+              />
             </Link>
           </div>
         </div>
@@ -75,10 +84,10 @@ export const BannerItem3 = () => {
       />
       <div className="absolute inset-0 flex justify-end items-center text-center lg:text-right">
         <div className="px-4 sm:px-6 md:px-12 lg:px-20 text-white">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2 font-bold">
             Explore Beaches, Hills & Culture of Bangladesh
           </h1>
-          <p className="text-sm sm:text-lg mb-6">
+          <p className="text-white text-sm sm:text-lg mb-6">
             Your adventure starts here
           </p>
           <div className="flex justify-center lg:justify-end">
@@ -86,7 +95,11 @@ export const BannerItem3 = () => {
               to="/services"
               onClick={() => dispatch(setCategory("Travel"))}
             >
-              <BtnPrimary text="Our Services" title="Our Services" />
+              <BtnPrimary
+                text="Our Services"
+                title="Our Services"
+                className="bg-gradient-to-r from-blue-600 to-green-500 text-white"
+              />
             </Link>
           </div>
         </div>

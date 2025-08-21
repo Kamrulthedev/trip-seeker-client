@@ -22,7 +22,7 @@ const CategoryItem = ({ img, category }: { img: string; category: string }) => {
           to={`products?category=${category}`}
           onClick={() => dispatch(setCategory(category))}
         >
-          <BtnPrimaryMini text="Start" title="Service" />
+          <BtnPrimaryMini text="Start" title="Trip" />
         </Link>
       </div>
     </div>
