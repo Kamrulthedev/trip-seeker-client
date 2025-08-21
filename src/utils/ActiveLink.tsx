@@ -10,25 +10,16 @@ const ActiveLink = ({ to, children }: IActiveLinkProps) => {
         to={to}
         className={({ isActive }) =>
           isActive
-            ? "text-primary border-b-2 border-primary pb-0.5"
-            : "cursor-pointer group flex flex-col hover:text-primary transition-colors ease-in-out duration-150"
+            ? "relative font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-green-500 to-blue-600 bg-[length:200%_200%] animate-gradient-x border-b-2 border-transparent bg-clip-border border-gradient-to-r from-blue-600 to-green-500"
+            : "relative font-semibold text-gray-700 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:via-green-500 hover:to-blue-600 hover:bg-[length:200%_200%] hover:animate-gradient-x transition-all ease-in-out duration-300"
         }
       >
         {children}
-        <span className="bg-primary h-0.5 w-0 group-hover:w-full transition-all ease-in-out duration-150"></span>
       </NavLink>
     </li>
+
   );
 };
 
 export default ActiveLink;
-{
-  /* <li
-key={item.path}
-className="cursor-pointer group flex flex-col hover:text-primary transition-colors ease-in-out duration-150"
->
-<Link to={item.path}>{item.name} </Link>
-<span className="bg-primary h-0.5 w-0 group-hover:w-full transition-all ease-in-out duration-150"></span>
-</li>
-) */
-}
+

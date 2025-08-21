@@ -1,6 +1,7 @@
 export const naveItems = [
   { name: "Home", path: "/" },
-  { name: "Products", path: "/products" },
-  { name: "Manage Product", path: "/manage-product" },
+  {name: "Dicover", path: "/discover"},
+  { name: "Trips", path: "/trips" },
   { name: "About Us", path: "/about" },
+  { name: "Contact Us", path: "/contact" },
 ];
