@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import video1 from "../../../assets/videos/banner1.mp4";
-import video2 from "../../../assets/videos/banner2.mp4";
+import video1 from "../../../assets/videos/banner5.mp4";
+import video2 from "../../../assets/videos/banner1.mp4";
 import video3 from "../../../assets/videos/banner3.mp4";
 import { setCategory } from "../../../redux/features/filterProducts/filterSlice";
 import { useAppDispatch } from "../../../redux/hooks";
@@ -18,15 +18,14 @@ export const BannerItem1 = () => {
       />
       <div className="absolute inset-0 flex justify-start items-center">
         <div className="container mx-auto text-white px-4 sm:px-6 md:px-12 lg:px-20">
-          <p className="uppercase text-sm sm:text-lg tracking-widest font-semibold">
-            Need-IT-Now
-          </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2">
-            GYM Collection
+            Explore Cox’s Bazar & Chittagong Like Never Before
           </h1>
-          <p className="text-sm sm:text-lg mb-6">Limit Offer 10% off</p>
-          <Link to="/products">
-            <BtnPrimary text="Stat Shop" title="Shop Now" />
+          <p className="text-sm sm:text-lg mb-6">
+            Discover the best experiences in Bangladesh
+          </p>
+          <Link to="/services">
+            <BtnPrimary text="Our Services" title="Our Services" />
           </Link>
         </div>
       </div>
@@ -46,16 +45,15 @@ export const BannerItem2 = () => {
       />
       <div className="absolute inset-0 flex justify-center items-center text-center">
         <div className="px-4 sm:px-6 md:px-12 lg:px-20 text-white">
-          <p className="uppercase text-sm sm:text-lg tracking-widest font-semibold">
-            Need-IT-Now
-          </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2">
-            Clothing Collection
+            Bangladesh – Your Travel Partner to the Sea & Hills
           </h1>
-          <p className="text-sm sm:text-lg mb-6">Limit Offer 10% off</p>
+          <p className="text-sm sm:text-lg mb-6">
+            Experience nature, culture, and adventure
+          </p>
           <div className="flex justify-center">
-            <Link to="/products">
-              <BtnPrimary text="Stat Shop" title="Shop Now" />
+            <Link to="/services">
+              <BtnPrimary text="Our Services" title="Our Services" />
             </Link>
           </div>
         </div>
@@ -77,19 +75,18 @@ export const BannerItem3 = () => {
       />
       <div className="absolute inset-0 flex justify-end items-center text-center lg:text-right">
         <div className="px-4 sm:px-6 md:px-12 lg:px-20 text-white">
-          <p className="uppercase text-sm sm:text-lg tracking-widest font-semibold">
-            Need-IT-Now
-          </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-4 mb-2">
-            Fitness Collection
+            Explore Beaches, Hills & Culture of Bangladesh
           </h1>
-          <p className="text-sm sm:text-lg mb-6">Limit Offer 40% off</p>
+          <p className="text-sm sm:text-lg mb-6">
+            Your adventure starts here
+          </p>
           <div className="flex justify-center lg:justify-end">
             <Link
-              to={`/products?category=Fitness`}
-              onClick={() => dispatch(setCategory("Fitness"))}
+              to="/services"
+              onClick={() => dispatch(setCategory("Travel"))}
             >
-              <BtnPrimary text="Stat Shop" title="Shop Now" />
+              <BtnPrimary text="Our Services" title="Our Services" />
             </Link>
           </div>
         </div>
