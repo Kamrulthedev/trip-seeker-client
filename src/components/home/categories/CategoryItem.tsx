@@ -9,7 +9,7 @@ const CategoryItem = ({ img, category }: { img: string; category: string }) => {
     <div className="z-10 group overflow-hidden relative">
       <img
         src={img}
-        className="group-hover:scale-105 transition-all duration-700 ease-in-out"
+        className="group-hover:scale-105 h-full transition-all duration-700 ease-in-out"
       />
       <div
         className="absolute 
