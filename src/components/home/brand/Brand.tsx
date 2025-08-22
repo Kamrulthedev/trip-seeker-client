@@ -8,10 +8,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay } from "swiper/modules";
 import brand1 from "../../../assets/images/brand/1.png";
-import brand2 from "../../../assets/images/brand/2.png";
-import brand3 from "../../../assets/images/brand/3.png";
-import brand4 from "../../../assets/images/brand/4.png";
-import brand5 from "../../../assets/images/brand/5.png";
+import brand2 from "../../../assets/images/brand/1.png";
+import brand3 from "../../../assets/images/brand/1.png";
+import brand4 from "../../../assets/images/brand/1.png";
+import brand5 from "../../../assets/images/brand/1.png";
 const Brand = () => {
   const brandImages = [brand1, brand2, brand3, brand4, brand5];
   return (
