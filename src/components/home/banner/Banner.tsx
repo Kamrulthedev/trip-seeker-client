@@ -1,11 +1,10 @@
-import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade"; // Import fade effect styles
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 // import required modules
@@ -38,8 +37,8 @@ export default function Banner() {
             color: #ffffff;
             background-color: rgba(0, 0, 0, 0.3);
             border-radius: 50%;
-            width: 44px;
-            height: 44px;
+            width: 28px;
+            height: 28px;
             transition: background-color 0.3s ease;
           }
           .mySwiper .swiper-button-next:hover, .mySwiper .swiper-button-prev:hover {
@@ -53,13 +52,13 @@ export default function Banner() {
       </style>
       <Swiper
         spaceBetween={30}
-        effect={"fade"} // Use fade effect for smoother video transitions
-        navigation={true} // Enable navigation arrows
+        effect={"fade"} 
+        navigation={true}
         pagination={{
           clickable: true,
         }}
         autoplay={{
-          delay: 7000, // Increased delay for video content
+          delay: 10000, 
           disableOnInteraction: false,
         }}
         loop={true}
