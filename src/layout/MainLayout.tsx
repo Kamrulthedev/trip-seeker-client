@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const MainLayout = () => {
  const location = useLocation(); 
-
   return (
     <div>
       <Header />

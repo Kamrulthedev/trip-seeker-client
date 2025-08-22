@@ -6,11 +6,7 @@ import { FishOff } from "lucide-react";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 
 
-
 const Cart = () => {
-
-
-
   
   return (
     <section>
