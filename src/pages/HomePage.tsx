@@ -11,6 +11,7 @@ const HomePage = () => {
       <Categories />
       <Agensys></Agensys>
       <Explore></Explore>
+      
       <PhotoGallery />
       <Agensys></Agensys>
     </div>

@@ -27,7 +27,7 @@ const Agensys = () => {
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl">
-            Trusted by World-Class Agencies
+            Trusted by Bangladesh-Class Agencies
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             We are proud to collaborate with some of the best in the industry.
