@@ -1,34 +1,79 @@
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import "./styles.css";
+import "swiper/css/effect-fade"; // Import fade effect styles
+import "swiper/css/navigation";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay, EffectFade, Navigation } from "swiper/modules";
+
+// Import your newly animated banner items
 import { BannerItem1, BannerItem2, BannerItem3 } from "./BannerItems";
 
-export default function App() {
+// This component now holds the Swiper configuration
+export default function Banner() {
   return (
     <>
+      {/* You can add these styles to your global CSS file instead */}
+      <style>
+        {`
+          .mySwiper .swiper-pagination-bullet {
+            background-color: #ffffff;
+            width: 10px;
+            height: 10px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+          }
+          .mySwiper .swiper-pagination-bullet-active {
+            background-color: #22c55e; /* green-500 */
+            width: 25px;
+            border-radius: 5px;
+            opacity: 1;
+          }
+          .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            transition: background-color 0.3s ease;
+          }
+          .mySwiper .swiper-button-next:hover, .mySwiper .swiper-button-prev:hover {
+             background-color: rgba(0, 0, 0, 0.5);
+          }
+           .mySwiper .swiper-button-next::after, .mySwiper .swiper-button-prev::after {
+            font-size: 1.25rem;
+            font-weight: bold;
+           }
+        `}
+      </style>
       <Swiper
+        spaceBetween={30}
+        effect={"fade"} // Use fade effect for smoother video transitions
+        navigation={true} // Enable navigation arrows
         pagination={{
-          dynamicBullets: true,
+          clickable: true,
         }}
-        modules={[Pagination]}
+        autoplay={{
+          delay: 7000, // Increased delay for video content
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        modules={[EffectFade, Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide>
-          <BannerItem1 />
+          {({ isActive }) => (isActive ? <BannerItem1 /> : null)}
         </SwiperSlide>
         <SwiperSlide>
-          <BannerItem2 />
+          {({ isActive }) => (isActive ? <BannerItem2 /> : null)}
         </SwiperSlide>
         <SwiperSlide>
-          <BannerItem3 />
+          {({ isActive }) => (isActive ? <BannerItem3 /> : null)}
         </SwiperSlide>
       </Swiper>
     </>

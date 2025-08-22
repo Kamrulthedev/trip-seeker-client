@@ -57,8 +57,8 @@ const BannerSlide = ({ videoSrc, title, subtitle, buttonLink, textAlignment = 's
           className={`container mx-auto text-white px-6 md:px-12 lg:px-20 ${textAlignClass}`}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }} 
+          whileInView="visible" // Animate when the slide is in view
+          viewport={{ once: true }} // Animate only once per slide
         >
           <motion.h1
             className="text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-md mb-4"
@@ -99,7 +99,7 @@ export const BannerItem2 = () => (
     <BannerSlide 
         videoSrc={video2}
         title="Bangladesh – Your Travel Partner to the Sea & Hills"
-        subtitle="Experience nature, culture, and adventure"
+        // subtitle="Experience nature, culture, and adventure"
         buttonLink="/services"
         textAlignment="center"
         contentAlignment="center"
@@ -110,7 +110,7 @@ export const BannerItem3 = () => (
     <BannerSlide 
         videoSrc={video3}
         title="Explore Beaches, Hills & Culture of Bangladesh"
-        subtitle="Your adventure starts here"
+        // subtitle="Your adventure starts here"
         buttonLink="/services"
         textAlignment="right"
         contentAlignment="end"
