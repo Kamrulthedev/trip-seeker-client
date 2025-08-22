@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import video1 from "../../../assets/videos/banner5.mp4";
 import video2 from "../../../assets/videos/banner1.mp4";
 import video3 from "../../../assets/videos/banner3.mp4";
-import { setCategory } from "../../../redux/features/filterProducts/filterSlice";
-import { useAppDispatch } from "../../../redux/hooks";
 import { BtnPrimary } from "../../ui/BtnPrimary";
 
 export const BannerItem1 = () => {
@@ -63,7 +61,6 @@ export const BannerItem2 = () => {
 };
 
 export const BannerItem3 = () => {
-  const dispatch = useAppDispatch();
   return (
     <div className="relative w-screen h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
       <video
@@ -84,7 +81,6 @@ export const BannerItem3 = () => {
           <div className="flex justify-center lg:justify-end">
             <Link
               to="/services"
-              onClick={() => dispatch(setCategory("Travel"))}
             >
               <BtnPrimary text="Our Services" title="Our Services" />
             </Link>

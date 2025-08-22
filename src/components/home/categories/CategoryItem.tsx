@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import { setCategory } from "../../../redux/features/filterProducts/filterSlice";
-import { useAppDispatch } from "../../../redux/hooks";
 import { BtnPrimaryMini } from "../../ui/BtnPrimary";
 
 const CategoryItem = ({ img, category }: { img: string; category: string }) => {
-  const dispatch = useAppDispatch();
   return (
     <div className="z-10 group overflow-hidden relative">
       <img
@@ -20,7 +17,6 @@ const CategoryItem = ({ img, category }: { img: string; category: string }) => {
         </h2>
         <Link
           to={`products?category=${category}`}
-          onClick={() => dispatch(setCategory(category))}
         >
           <BtnPrimaryMini text="Start" title="Trip" />
         </Link>

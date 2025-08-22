@@ -1,5 +1,3 @@
-import { setSort } from "../../../redux/features/filterProducts/filterSlice";
-import { useAppDispatch } from "../../../redux/hooks";
 import {
   Select,
   SelectContent,
@@ -11,9 +9,9 @@ import {
 } from "../../ui/select";
 
 const SortProduct = () => {
-  const dispatch = useAppDispatch();
+
   return (
-    <Select onValueChange={(value) => dispatch(setSort(value))}>
+    <Select >
       <SelectTrigger className="w-[140px]">
         <SelectValue placeholder="Sort" />
       </SelectTrigger>

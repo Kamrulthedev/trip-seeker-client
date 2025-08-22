@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
-import { setSearch } from "../../../redux/features/filterProducts/filterSlice";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+
 
 const FilterBySearch: React.FC = () => {
-  const dispatch = useAppDispatch();
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const filter = useAppSelector((state) => state.filter);
-  console.log(filter);
+
 
   // State to track the latest search term
   const [latestSearchTerm, setLatestSearchTerm] = useState<string>("");
@@ -15,13 +12,12 @@ const FilterBySearch: React.FC = () => {
   // useEffect to dispatch setSearch after 5 seconds of inactivity
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch(setSearch(latestSearchTerm));
     }, 500);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [latestSearchTerm, dispatch]);
+  }, []);
 
   // Handle input change and update local state
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

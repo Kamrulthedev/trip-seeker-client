@@ -1,10 +1,7 @@
-import { setCategory } from "../../../redux/features/filterProducts/filterSlice";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { categories } from "../../../utils/categories";
+
 
 const FilterByCategories = () => {
-  const dispatch = useAppDispatch();
-  const { category } = useAppSelector((state) => state.filter);
+
 
   return (
     <div>
@@ -16,17 +13,7 @@ const FilterByCategories = () => {
       </div>
 
       <div className="flex flex-col items-start space-y-2 mt-5">
-        {categories.map((item) => (
-          <span
-            key={item}
-            onClick={() => dispatch(setCategory(item))}
-            className={`text-gray-800 hover:ml-3 transition-all hover:text-primary cursor-pointer text-sm hover:font-semibold ${
-              category === item ? "text-primary font-semibold" : ""
-            }`}
-          >
-            {item}
-          </span>
-        ))}
+       
       </div>
     </div>
   );

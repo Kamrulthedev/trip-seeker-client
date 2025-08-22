@@ -8,7 +8,6 @@ import FilterByCategories from "../components/products/filter/FilterByCategories
 import FilterByPrice from "../components/products/filter/FilterByPrice";
 import FilterBySearch from "../components/products/filter/FilterBySearch";
 import SortProduct from "../components/products/filter/SortProduct";
-import ResponsiveFilter from "../components/products/responsiveFilter/ResponsiveFilter";
 import { Button } from "../components/ui/button";
 import {
   Pagination,
@@ -69,8 +68,6 @@ const Products = () => {
               <SortProduct />
             </div>
           </div>
-
-          <ResponsiveFilter show={showResponsiveFilter} />
 
           <div className="grid md:grid-cols-4 gap-5 mt-10 gap-y-10 min-h-96">
           </div>
