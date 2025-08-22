@@ -1,10 +1,8 @@
-import { HiOutlineSearch } from "react-icons/hi";
+import { HiCake, HiOutlineSearch } from "react-icons/hi";
 import { HiOutlineUser } from "react-icons/hi2";
-
 import NavItems from "./Nav/NavItems";
 import ResponsiveNav from "./Nav/ResponsiveNav";
 import Logo from "./Nav/Logo";
-import Cart from "../../pages/Cart";
 
 const Header = () => {
   return (
@@ -26,10 +24,9 @@ const Header = () => {
 
           {/* Cart Button with Ripple */}
          <button className="relative overflow-hidden rounded-lg p-1 text-gray-700 transition-all duration-300 hover:text-green-700 hover:border-2 hover:border-green-500">
-            <Cart />
+            <HiCake />
           </button>
         </div>
-
       </div>
     </header>
   );
