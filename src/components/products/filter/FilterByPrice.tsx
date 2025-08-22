@@ -1,5 +1,4 @@
-import { setPrice } from "../../../redux/features/filterProducts/filterSlice";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+
 import { priceRanges } from "../../../utils/priceRange";
 import { Checkbox } from "../../ui/checkbox";
 
