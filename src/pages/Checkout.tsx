@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,9 +8,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../components/ui/breadcrumb";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   HiMiniArrowPath,
   HiMiniCreditCard,
@@ -25,8 +24,7 @@ import { Label } from "../components/ui/label";
 import PrimaryLoader from "../components/ui/loader/PrimaryLoader";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Textarea } from "../components/ui/textarea";
-import { clearCart } from "../redux/features/cart/cartSlice";
-import { useCreateOrderMutation } from "../redux/features/order/orderApi";
+
 
 const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState("COD");
@@ -39,27 +37,6 @@ const Checkout = () => {
   const [postalCode, setPostalCode] = useState<number>(0);
   const [city, setCity] = useState("");
 
-  const { cartItems, total, totalItems } = useAppSelector(
-    (state) => state.cart
-  );
-  console.log(cartItems);
-  const [createOrder, { isLoading, isSuccess, isError, error }] =
-    useCreateOrderMutation();
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
-  const TAX_RATE = 0.01; // 10% tax rate
-  const SHIPPING = 7;
-  const COD_CHARGE = 0.1;
-  const subtotal = total; // assuming `total` is the sum of all item prices
-  const tax = subtotal * TAX_RATE;
-  const totalWithTax = subtotal + tax;
-  let totalAmount;
-  if (paymentMethod === "COD") {
-    totalAmount = (totalWithTax + SHIPPING + COD_CHARGE).toFixed(2);
-  } else {
-    totalAmount = (totalWithTax + SHIPPING).toFixed(2);
-  }
 
   const handlePlaceOrder = () => {
     const errors: string[] = [];
@@ -87,32 +64,9 @@ const Checkout = () => {
       return;
     }
 
-    const orderInfo = {
-      products: cartItems,
-      shippingInfo: {
-        name: `${fullName.firstName} ${fullName.lastName}`,
-        contact,
-        address,
-        postalCode,
-        city,
-      },
-      paymentMethod,
-      totalAmount: Number(totalAmount),
-    };
 
-    createOrder(orderInfo);
-  };
 
-  useEffect(() => {
-    if (isSuccess) {
-      toast.success("Order created successfully");
-      navigate("/");
-      dispatch(clearCart());
-    }
-    if (isError) {
-      toast.error((error as any).data.message);
-    }
-  }, [isSuccess, isError, navigate, error, dispatch]);
+  }
   return (
     <section>
       <Breadcrumb className="my-5 py-6 bg-gray-100">
@@ -136,7 +90,6 @@ const Checkout = () => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      {isLoading && <PrimaryLoader />}
       <div className="relative container mx-auto md:grid grid-cols-12 mt-4 md:mb-20 mb-10 gap-10 space-y-5 md:space-y-0">
         <aside className="col-span-7">
           <form>
@@ -257,8 +210,7 @@ const Checkout = () => {
           </div>
           <div className="space-y-2">
             <p className="text-lg flex items-center justify-between">
-              <span>{totalItems} Items</span>{" "}
-              <span>${subtotal.toFixed(2)}</span>
+
             </p>
             <p className="text-lg flex items-center justify-between">
               <span>Shippings</span> <span>$7.00</span>
@@ -270,13 +222,11 @@ const Checkout = () => {
                 <span>COD Charge</span> <span>10%</span>
               </p>
             )}
-            <p className="text-lg flex items-center justify-between">
-              <span>Total (tax incl.)</span> <span>${totalAmount}</span>
-            </p>
+         
           </div>
 
           <button
-            disabled={totalItems <= 0 || isLoading}
+    
             onClick={handlePlaceOrder}
             className="rounded-sm mt-5 text-white p-4 w-full flex items-center justify-center gap-2 text-xl uppercase bg-primary transition-all ease-in-out duration-300 group"
           >

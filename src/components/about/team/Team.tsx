@@ -1,7 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { ITeamMember } from "../../../types";
-import TeamMemberLoader from "../../ui/loader/TeamMemberLoader";
-import TeamMemberCard from "./TeamMemberCard";
+import { Swiper } from "swiper/react";
+
 
 const Team = () => {
 
@@ -54,19 +52,7 @@ const Team = () => {
             },
           }}
         >
-          {/* {isLoading ? (
-            <div className="grid grid-cols-3 gap-x-7">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <TeamMemberLoader key={index} />
-              ))}
-            </div>
-          ) : (
-            data?.data.map((item: ITeamMember) => (
-              <SwiperSlide>
-                <TeamMemberCard item={item} />{" "}
-              </SwiperSlide>
-            ))
-          )} */}
+        
         </Swiper>
       </div>
     </div>
