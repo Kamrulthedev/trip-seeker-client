@@ -1,11 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useGetTeamMembersQuery } from "../../../redux/features/teamMember/teamMemberApi";
 import { ITeamMember } from "../../../types";
 import TeamMemberLoader from "../../ui/loader/TeamMemberLoader";
 import TeamMemberCard from "./TeamMemberCard";
 
 const Team = () => {
-  const { data, isLoading } = useGetTeamMembersQuery({});
 
   return (
     <div className="container mx-auto grid md:grid-cols-12">
@@ -56,7 +54,7 @@ const Team = () => {
             },
           }}
         >
-          {isLoading ? (
+          {/* {isLoading ? (
             <div className="grid grid-cols-3 gap-x-7">
               {Array.from({ length: 3 }).map((_, index) => (
                 <TeamMemberLoader key={index} />
@@ -68,7 +66,7 @@ const Team = () => {
                 <TeamMemberCard item={item} />{" "}
               </SwiperSlide>
             ))
-          )}
+          )} */}
         </Swiper>
       </div>
     </div>

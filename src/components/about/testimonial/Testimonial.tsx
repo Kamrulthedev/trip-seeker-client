@@ -1,19 +1,14 @@
 import SectionHead from "../../../utils/SectionHead";
-import TestimonialCard from "./TestimonialCard";
 // Import Swiper React components
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useGetTestimonialsQuery } from "../../../redux/features/testimonial/testimonialApi";
+import { Swiper } from "swiper/react";
 
-import { ITestimonial } from "../../../types";
-import TestimonialLoader from "../../ui/loader/TestimonialLoader";
 
 const Testimonial = () => {
-  const { data, isLoading } = useGetTestimonialsQuery({});
 
   return (
     <div className="container mx-auto  my-20">
@@ -44,7 +39,7 @@ const Testimonial = () => {
         }}
         modules={[Autoplay]}
       >
-        {isLoading ? (
+        {/* {isLoading ? (
           <div className="grid grid-cols-3 gap-x-7">
             {Array.from({ length: 3 }).map((_, index) => (
               <TestimonialLoader key={index} />
@@ -56,7 +51,7 @@ const Testimonial = () => {
               <TestimonialCard item={item} />
             </SwiperSlide>
           ))
-        )}
+        )} */}
       </Swiper>
     </div>
   );
