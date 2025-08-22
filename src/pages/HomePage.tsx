@@ -6,7 +6,7 @@ import PhotoGallery from "../components/home/photoGallery/PhotoGallery";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-slate-50">
       <Banner />
       <Categories />
       <Explore></Explore>

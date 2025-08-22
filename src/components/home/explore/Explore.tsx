@@ -1,107 +1,96 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from 'react-router-dom';
-import mainImageUrl from "../../../assets/images/categories/banner1.jpg";
+import mainImageUrl from "../../../assets/images/explore/explore1.jpg";
+import mainImageUrl1 from "../../../assets/images/explore/explore3.jpg";
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { BtnPrimary } from '../../ui/BtnPrimary';
 
 
-const Button = ({ children, className, ...props }: any) => (
-  <button 
-    className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${className}`}
-    {...props}
-  >
-    {children}
-  </button>
-);
-// --- End of Mocking ---
 
-
-// Animation Variants
-const containerVariants : any = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-  },
+// --- Animation Variants ---
+const containerVariants: any = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.2, delayChildren: 0.1 },
+    },
 };
 
 const itemVariants: any = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
-  },
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: 'easeOut' },
+    },
 };
 
-const imageContainerVariants:any = {
+const imageContainerVariants: any = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }, // A nice ease-out-expo curve
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
     },
-  };
+};
 
 
 const Explore = () => {
-  return (
-    <section className="bg-white font-sans">
-      <motion.div 
-        className="container mx-auto grid min-h-[80vh] grid-cols-1 items-center gap-12 px-4 py-16 lg:grid-cols-2 lg:gap-20"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        {/* --- Text Content --- */}
-        <motion.article className="flex flex-col items-start text-left">
-          <motion.h1 
-            className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
-            variants={itemVariants}
-          >
-            Discover Your <br />
-            <span className="text-violet-600">Perfect Nest</span>
-          </motion.h1>
-          <motion.p 
-            className="mt-6 max-w-lg text-lg leading-8 text-gray-600"
-            variants={itemVariants}
-          >
-            Explore our curated collection of furniture designed to bring comfort,
-            style, and personality to every corner of your home. Find pieces that
-            truly reflect you.
-          </motion.p>
-          <motion.div variants={itemVariants} className="mt-10">
-            <Link to="/products">
-              <Button className="group bg-gray-900 text-white hover:bg-gray-800 h-12 px-8 text-lg">
-                Shop Now
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-          </motion.div>
-        </motion.article>
+    return (
+        <section className="bg-slate-50 font-sans overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    className="grid grid-cols-1 items-center gap-12 py-16 md:py-20 lg:grid-cols-2 lg:gap-16"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    {/* --- Text Content (Order 2 on mobile, 1 on desktop) --- */}
+                    <motion.article className="flex flex-col items-start text-center lg:text-left order-2 lg:order-1">
+                        <motion.h1
+                            className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-5xl md:text-6xl"
+                            variants={itemVariants}
+                        >
+                            Explore Beaches, Hills &
+                            <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">Culture of Bangladesh</span>
+                        </motion.h1>
+                        <motion.p
+                            className="mt-6 max-w-lg mx-auto lg:mx-0 text-lg leading-8 text-gray-600"
+                            variants={itemVariants}
+                        >
+                            From the serene beaches of Cox's Bazar to the lush green hills of Bandarban, embark on an unforgettable journey to discover the hidden gems and rich cultural heritage of Bangladesh.
+                        </motion.p>
+                        <motion.div variants={itemVariants} className="mt-10 w-full flex justify-center lg:justify-start">
+                            <Link to="/tours" className=' border border-green-500 rounded-md'>
+                                <BtnPrimary text="Explore Tours" title="Explore Tours" />
+                            </Link>
+                        </motion.div>
+                    </motion.article>
 
-        {/* --- Image Container --- */}
-        <motion.article 
-            className="relative hidden lg:block"
-            variants={imageContainerVariants}
-        >
-          <div className="relative h-[550px] w-full rounded-lg bg-violet-100">
-            <img
-              src={mainImageUrl}
-              alt="Comfortable modern sofa"
-              className="absolute top-4 right-4 h-full w-full rounded-lg object-cover shadow-2xl"
-            />
-             <img
-              src={mainImageUrl}
-              alt="Stylish wooden chair"
-              className="absolute -bottom-8 -left-8 h-64 w-64 rounded-lg object-cover shadow-2xl border-4 border-white"
-            />
-          </div>
-        </motion.article>
-      </motion.div>
-    </section>
-  );
+                    {/* --- Image Container (Order 1 on mobile, 2 on desktop) --- */}
+                    <motion.article
+                        className="relative w-full max-w-lg mx-auto lg:max-w-none h-[400px] sm:h-[500px] order-1 lg:order-2"
+                        variants={imageContainerVariants}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-teal-100 to-emerald-200 rounded-3xl transform -rotate-6"></div>
+                        <img
+                            src={mainImageUrl}
+                            alt="Cox's Bazar, Bangladesh"
+                            className="absolute w-[85%] h-[85%] top-0 left-0 rounded-2xl object-cover shadow-2xl"
+                        />
+                        <img
+                            src={mainImageUrl1}
+                            alt="Tea Gardens in Sreemangal, Bangladesh"
+                            className="absolute w-[60%] h-[60%] bottom-0 right-0 rounded-2xl object-cover shadow-2xl border-4 border-white"
+                        />
+                    </motion.article>
+                </motion.div>
+            </div>
+        </section>
+    );
 };
+
 
 export default Explore;
