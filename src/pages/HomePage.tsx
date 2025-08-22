@@ -9,6 +9,7 @@ const HomePage = () => {
     <div className="bg-slate-50">
       <Banner />
       <Categories />
+      <Agensys></Agensys>
       <Explore></Explore>
       <PhotoGallery />
       <Agensys></Agensys>
