@@ -7,13 +7,13 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
   const { name, price, thumbnail, rating, location } = service || {};
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.stopPropagation();
+    e.stopPropagation(); // Prevents the card's onClick from firing
     console.log("Added to cart:", service);
     alert(`"${name}" added to your cart!`);
   };
 
   const handleAddToWishlist = (e: React.MouseEvent) => {
-    e.stopPropagation();
+    e.stopPropagation(); // Prevents the card's onClick from firing
     console.log("Added to wishlist:", service);
     alert(`"${name}" added to your wishlist!`);
   };
@@ -28,7 +28,7 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
       {/* Background Image */}
       <img src={thumbnail} alt={name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
       
-      {/* Gradient Overlay */}
+      {/* Gradient Overlay to make text readable */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
       {/* Top Content (Rating & Wishlist) */}
