@@ -1,5 +1,5 @@
 
-const homeServices = () => {
+const HomeServices = () => {
     return (
         <div>
             
@@ -7,4 +7,4 @@ const homeServices = () => {
     );
 };
 
-export default homeServices;
+export default HomeServices;
