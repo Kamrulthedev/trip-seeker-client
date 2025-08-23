@@ -7,10 +7,15 @@ import { ServiceCard } from "./HomeServices";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceDetailModal } from './HomeService';
+import Beach1 from "../../../assets/images/Service/Beach1.jpg";
+import Beach2 from "../../../assets/images/Service/Beach2.jpg";
+import Beach3 from "../../../assets/images/Service/Beach3.jpg";
+import Beach4 from "../../../assets/images/Service/Beach4.jpg";
+
 
 // --- Mock Data for Travel Services with Features ---
 const allTravelServices = [
-  { id: 'beach01', name: 'Cox\'s Bazar Sunrise Tour', price: 120, thumbnail: 'https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', images: ['https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', 'https://images.unsplash.com/photo-1588253969500-3075a331dfa9?q=80&w=800', 'https://images.unsplash.com/photo-1618751939022-835a23534bda?q=80&w=800', 'https://images.unsplash.com/photo-1590523277543-a94d28524035?q=80&w=800'], rating: 4.8, location: 'Cox\'s Bazar, Bangladesh', category: 'Beach Tours', description: 'Experience the breathtaking beauty of the worlds longest natural sea beach...', features: ["সব ধরনের হোটেল ও রিসোর্ট বুকিং", "নিরাপদে যাতায়াতের জন্য ট্রান্সপোর্ট সুবিধা", "সকালের নাস্তা থেকে শুরু করে দুপুরের এবং রাতের খাবারের ব্যবস্থা", "কক্সবাজারের সব জনপ্রিয় স্থানে ট্যুর"] },
+  { id: 'beach01', name: 'Cox\'s Bazar Sunrise Tour', price: 120, thumbnail: Beach1, images: [ Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'Cox\'s Bazar, Bangladesh', category: 'Beach Tours', description: 'Experience the breathtaking beauty of the worlds longest natural sea beach...', features: ["সব ধরনের হোটেল ও রিসোর্ট বুকিং", "নিরাপদে যাতায়াতের জন্য ট্রান্সপোর্ট সুবিধা", "সকালের নাস্তা থেকে শুরু করে দুপুরের এবং রাতের খাবারের ব্যবস্থা", "কক্সবাজারের সব জনপ্রিয় স্থানে ট্যুর"] },
 
   { id: 'beach02', name: 'Saint Martin\'s Coral Island', price: 250, thumbnail: 'https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800', images: ['https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800'], rating: 4.9, location: 'Saint Martin, Bangladesh', category: 'Beach Tours', description: 'A 2-day trip to the beautiful coral island of Saint Martin...', features: ["AC Bus Ticket (Round Trip)", "Ship Ticket (Round Trip)", "Breakfast, Lunch, Dinner", "Full-time Tour Guide"] },
 
