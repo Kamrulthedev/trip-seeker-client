@@ -19,25 +19,34 @@ import inaniImage4 from "../../../assets/images/Service/inaniImage4.jpg";
 import inaniTamil from "../../../assets/images/Service/inaniTamil.png";
 
 
+import patuertek1 from "../../../assets/images/Service/patuertek1.jpg"; 
+import patuertek2 from "../../../assets/images/Service/patuertek2.jpg"; 
+import patuertek3 from "../../../assets/images/Service/patuertek3.jpg"; 
+import patuertek4 from "../../../assets/images/Service/patuertek4.jpg"; 
+import patuertekTamil from "../../../assets/images/Service/patuertekTamil.jpg"; 
+
+
+
+
 // --- Mock Data for Travel Services with Features ---
 const allTravelServices = [
   { id: 'beach01', name: 'Cox\'s Bazar Sunrise Tour', price: 120, thumbnail: Beach1, images: [ Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'Cox\'s Bazar, Bangladesh', category: 'Beach Tours', description: 'Experience the breathtaking beauty of the worlds longest natural sea beach...', features: ["সব ধরনের হোটেল ও রিসোর্ট বুকিং", "নিরাপদে যাতায়াতের জন্য ট্রান্সপোর্ট সুবিধা", "সকালের নাস্তা থেকে শুরু করে দুপুরের এবং রাতের খাবারের ব্যবস্থা", "কক্সবাজারের সব জনপ্রিয় স্থানে ট্যুর"] },
 
   { id: 'beach02', name: 'Saint Martin\'s Coral Island', price: 250, thumbnail: inaniTamil, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: 'Saint Martin, Bangladesh', category: 'Beach Tours', description: 'A 2-day trip to the beautiful coral island of Saint Martin...', features: ["AC Bus Ticket (Round Trip)", "Ship Ticket (Round Trip)", "Breakfast, Lunch, Dinner", "Full-time Tour Guide"] },
 
-  { id: 'mountain01', name: 'Bandarban Hills & Clouds', price: 180, thumbnail: 'https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800', images: ['https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800'], rating: 4.7, location: 'Bandarban, Bangladesh', category: 'Mountain Treks', description: 'Trek through the stunning hills of Bandarban...', features: ["Local Transport (Chander Gari)", "Resort Accommodation", "All Meals Included", "Entry Fees to Tourist Spots"] },
+  { id: 'mountain01', name: 'Bandarban Hills & Clouds', price: 180, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.7, location: 'Bandarban, Bangladesh', category: 'Mountain Treks', description: 'Trek through the stunning hills of Bandarban...', features: ["Local Transport (Chander Gari)", "Resort Accommodation", "All Meals Included", "Entry Fees to Tourist Spots"] },
 
-  { id: 'cultural01', name: 'Historic Dhaka City Tour', price: 90, thumbnail: 'https://images.unsplash.com/photo-1596422846543-3d0773151e23?q=80&w=800', images: ['https://images.unsplash.com/photo-1596422846543-3d0773151e23?q=80&w=800'], rating: 4.6, location: 'Dhaka, Bangladesh', category: 'Cultural Trips', description: 'Explore the rich history of Old Dhaka...', features: ["Private Air-Conditioned Car", "English Speaking Guide", "All Entry Tickets", "Lunch at a Local Restaurant"] },
+  { id: 'cultural01', name: 'Historic Dhaka City Tour', price: 90, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.6, location: 'Dhaka, Bangladesh', category: 'Cultural Trips', description: 'Explore the rich history of Old Dhaka...', features: ["Private Air-Conditioned Car", "English Speaking Guide", "All Entry Tickets", "Lunch at a Local Restaurant"] },
 
-  { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: 'https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800', images: ['https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800'], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach...', features: ["Hotel Accommodation", "Transport Facility", "Breakfast Included", "Guided Tour"] },
+  { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach...', features: ["Hotel Accommodation", "Transport Facility", "Breakfast Included", "Guided Tour"] },
 
-  { id: 'mountain02', name: 'Sajek Valley Expedition', price: 220, thumbnail: 'https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800', images: ['https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800'], rating: 4.9, location: 'Sajek, Rangamati', category: 'Mountain Treks', description: 'Live above the clouds in the stunning Sajek Valley...', features: ["Round Trip Transport", "Cottage Stay", "All Meals", "Local Guide"] },
+  { id: 'mountain02', name: 'Sajek Valley Expedition', price: 220, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.9, location: 'Sajek, Rangamati', category: 'Mountain Treks', description: 'Live above the clouds in the stunning Sajek Valley...', features: ["Round Trip Transport", "Cottage Stay", "All Meals", "Local Guide"] },
 
-  { id: 'cultural02', name: 'Sundarbans Mangrove Safari', price: 350, thumbnail: 'https://images.unsplash.com/photo-1547902243-6d5a1a5b3f71?q=80&w=800', images: ['https://images.unsplash.com/photo-1547902243-6d5a1a5b3f71?q=80&w=800'], rating: 4.8, location: 'Sundarbans, Khulna', category: 'Cultural Trips', description: 'Venture into the worlds largest mangrove forest...', features: ["3 Days 2 Nights Cruise", "All Meals on Board", "Forest Permits & Fees", "Armed Forest Guard"] },
+  { id: 'cultural02', name: 'Sundarbans Mangrove Safari', price: 350, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.8, location: 'Sundarbans, Khulna', category: 'Cultural Trips', description: 'Venture into the worlds largest mangrove forest...', features: ["3 Days 2 Nights Cruise", "All Meals on Board", "Forest Permits & Fees", "Armed Forest Guard"] },
 
-   { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: 'https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800', images: ['https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800'], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach...', features: ["Hotel Accommodation", "Transport Facility", "Breakfast Included", "Guided Tour"] },
+   { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach...', features: ["Hotel Accommodation", "Transport Facility", "Breakfast Included", "Guided Tour"] },
 
-  { id: 'cultural03', name: 'Ancient Puthia Temple City', price: 110, thumbnail: 'https://images.unsplash.com/photo-1628042835452-71589c9a35e7?q=80&w=800', images: ['https://images.unsplash.com/photo-1628042835452-71589c9a35e7?q=80&w=800'], rating: 4.5, location: 'Puthia, Rajshahi', category: 'Cultural Trips', description: 'Discover the largest number of historically important Hindu structures...', features: ["Private Transport", "Local Guide", "Entry Fees", "Lunch"] },
+  { id: 'cultural03', name: 'Ancient Puthia Temple City', price: 110, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4],rating: 4.5, location: 'Puthia, Rajshahi', category: 'Cultural Trips', description: 'Discover the largest number of historically important Hindu structures...', features: ["Private Transport", "Local Guide", "Entry Fees", "Lunch"] },
 ];
 
 const categories = ["Beach Tours", "Mountain Treks", "Cultural Trips"];
