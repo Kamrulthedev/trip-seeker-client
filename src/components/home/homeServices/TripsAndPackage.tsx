@@ -12,12 +12,18 @@ import Beach2 from "../../../assets/images/Service/Beach2.jpg";
 import Beach3 from "../../../assets/images/Service/Beach3.jpg";
 import Beach4 from "../../../assets/images/Service/Beach4.jpg";
 
+import inaniImage1 from "../../../assets/images/Service/inaniImage1.jpg";
+import inaniImage2 from "../../../assets/images/Service/inaniImage2.png";
+import inaniImage3 from "../../../assets/images/Service/inaniImage3.png";
+import inaniImage4 from "../../../assets/images/Service/inaniImage4.jpg";
+import inaniTamil from "../../../assets/images/Service/inaniTamil.png";
+
 
 // --- Mock Data for Travel Services with Features ---
 const allTravelServices = [
   { id: 'beach01', name: 'Cox\'s Bazar Sunrise Tour', price: 120, thumbnail: Beach1, images: [ Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'Cox\'s Bazar, Bangladesh', category: 'Beach Tours', description: 'Experience the breathtaking beauty of the worlds longest natural sea beach...', features: ["সব ধরনের হোটেল ও রিসোর্ট বুকিং", "নিরাপদে যাতায়াতের জন্য ট্রান্সপোর্ট সুবিধা", "সকালের নাস্তা থেকে শুরু করে দুপুরের এবং রাতের খাবারের ব্যবস্থা", "কক্সবাজারের সব জনপ্রিয় স্থানে ট্যুর"] },
 
-  { id: 'beach02', name: 'Saint Martin\'s Coral Island', price: 250, thumbnail: 'https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800', images: ['https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800'], rating: 4.9, location: 'Saint Martin, Bangladesh', category: 'Beach Tours', description: 'A 2-day trip to the beautiful coral island of Saint Martin...', features: ["AC Bus Ticket (Round Trip)", "Ship Ticket (Round Trip)", "Breakfast, Lunch, Dinner", "Full-time Tour Guide"] },
+  { id: 'beach02', name: 'Saint Martin\'s Coral Island', price: 250, thumbnail: inaniTamil, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: 'Saint Martin, Bangladesh', category: 'Beach Tours', description: 'A 2-day trip to the beautiful coral island of Saint Martin...', features: ["AC Bus Ticket (Round Trip)", "Ship Ticket (Round Trip)", "Breakfast, Lunch, Dinner", "Full-time Tour Guide"] },
 
   { id: 'mountain01', name: 'Bandarban Hills & Clouds', price: 180, thumbnail: 'https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800', images: ['https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800'], rating: 4.7, location: 'Bandarban, Bangladesh', category: 'Mountain Treks', description: 'Trek through the stunning hills of Bandarban...', features: ["Local Transport (Chander Gari)", "Resort Accommodation", "All Meals Included", "Entry Fees to Tourist Spots"] },
 
