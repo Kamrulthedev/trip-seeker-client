@@ -2,36 +2,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from 'framer-motion';
 // import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { HomeServiceDetailModal } from "./HomeService";
 import { ServiceCardLoader } from "../../ui/loader/ServiceCardLoader";
 import { ServiceCard } from "./HomeServices";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ServiceDetailModal } from './HomeService';
 
-// --- Mock Data for Travel Services ---
+// --- Mock Data for Travel Services with Features ---
 const allTravelServices = [
-  { id: 'beach01', name: 'Cox\'s Bazar Sunrise Tour', price: 120, thumbnail: 'https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', images: ['https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', 'https://images.unsplash.com/photo-1588253969500-3075a331dfa9?q=80&w=800', 'https://images.unsplash.com/photo-1618751939022-835a23534bda?q=80&w=800', 'https://images.unsplash.com/photo-1590523277543-a94d28524035?q=80&w=800'], rating: 4.8, location: 'Cox\'s Bazar, Bangladesh', category: 'Beach Tours', description: 'Experience the breathtaking beauty of the worlds longest natural sea beach. This tour includes a guided visit to Himchari National Park and Inani Beach, with opportunities for parasailing.' },
-
-  { id: 'beach02', name: 'Saint Martin\'s Coral Island', price: 250, thumbnail: 'https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800', images: ['https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800', 'https://images.unsplash.com/photo-1624555130298-eafde7861039?q=80&w=800', 'https://images.unsplash.com/photo-1589913589384-2278b5a4b78b?q=80&w=800', 'https://images.unsplash.com/photo-1605537932112-52a55988a536?q=80&w=800'], rating: 4.9, location: 'Saint Martin, Bangladesh', category: 'Beach Tours', description: 'A 2-day trip to the beautiful coral island of Saint Martin. Enjoy snorkeling, scuba diving, and fresh seafood on this serene getaway.' },
-
-  { id: 'mountain01', name: 'Bandarban Hills & Clouds', price: 180, thumbnail: 'https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800', images: ['https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800', 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=800', 'https://images.unsplash.com/photo-1572003818344-36a5a805757d?q=80&w=800', 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800'], rating: 4.7, location: 'Bandarban, Bangladesh', category: 'Mountain Treks', description: 'Trek through the stunning hills of Bandarban. This package includes visits to Nilgiri, Chimbuk Hill, and a stay in a traditional tribal cottage.' },
-
-  { id: 'cultural01', name: 'Historic Dhaka City Tour', price: 90, thumbnail: 'https://images.unsplash.com/photo-1596422846543-3d0773151e23?q=80&w=800', images: ['https://images.unsplash.com/photo-1596422846543-3d0773151e23?q=80&w=800', 'https://images.unsplash.com/photo-1605649487212-47566102d312?q=80&w=800', 'https://images.unsplash.com/photo-1561571994-3c6d6893b137?q=80&w=800', 'https://images.unsplash.com/photo-1615903998787-2387313391e9?q=80&w=800'], rating: 4.6, location: 'Dhaka, Bangladesh', category: 'Cultural Trips', description: 'Explore the rich history of Old Dhaka. Visit key landmarks like Lalbagh Fort, Ahsan Manzil (Pink Palace), and experience a traditional rickshaw ride.' },
-
-  { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: 'https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800', images: ['https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800'], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach. A unique experience in Kuakata, including a visit to the nearby mangrove forest.' },
-
-  { id: 'mountain02', name: 'Sajek Valley Expedition', price: 220, thumbnail: 'https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800', images: ['https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800'], rating: 4.9, location: 'Sajek, Rangamati', category: 'Mountain Treks', description: 'Live above the clouds in the stunning Sajek Valley. This 3-day tour offers breathtaking views, tribal culture, and serene nature.' },
-
-  { id: 'cultural02', name: 'Sundarbans Mangrove Safari', price: 350, thumbnail: 'https://images.unsplash.com/photo-1547902243-6d5a1a5b3f71?q=80&w=800', images: ['https://images.unsplash.com/photo-1547902243-6d5a1a5b3f71?q=80&w=800'], rating: 4.8, location: 'Sundarbans, Khulna', category: 'Cultural Trips', description: 'Venture into the worlds largest mangrove forest, a UNESCO World Heritage site. A thrilling boat safari with chances to spot the Royal Bengal Tiger.' },
-
-  { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: 'https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800', images: ['https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800'], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach. A unique experience in Kuakata, including a visit to the nearby mangrove forest.' },
-
-  { id: 'cultural03', name: 'Ancient Puthia Temple City', price: 110, thumbnail: 'https://images.unsplash.com/photo-1628042835452-71589c9a35e7?q=80&w=800', images: ['https://images.unsplash.com/photo-1628042835452-71589c9a35e7?q=80&w=800'], rating: 4.5, location: 'Puthia, Rajshahi', category: 'Cultural Trips', description: 'Discover the largest number of historically important Hindu structures in Bangladesh. A day trip exploring the magnificent terracotta temples.' },
+  { id: 'beach01', name: 'Cox\'s Bazar Sunrise Tour', price: 120, thumbnail: 'https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', images: ['https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', 'https://images.unsplash.com/photo-1588253969500-3075a331dfa9?q=80&w=800', 'https://images.unsplash.com/photo-1618751939022-835a23534bda?q=80&w=800', 'https://images.unsplash.com/photo-1590523277543-a94d28524035?q=80&w=800'], rating: 4.8, location: 'Cox\'s Bazar, Bangladesh', category: 'Beach Tours', description: 'Experience the breathtaking beauty of the worlds longest natural sea beach...', features: ["সব ধরনের হোটেল ও রিসোর্ট বুকিং", "নিরাপদে যাতায়াতের জন্য ট্রান্সপোর্ট সুবিধা", "সকালের নাস্তা থেকে শুরু করে দুপুরের এবং রাতের খাবারের ব্যবস্থা", "কক্সবাজারের সব জনপ্রিয় স্থানে ট্যুর"] },
+  { id: 'beach02', name: 'Saint Martin\'s Coral Island', price: 250, thumbnail: 'https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800', images: ['https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800'], rating: 4.9, location: 'Saint Martin, Bangladesh', category: 'Beach Tours', description: 'A 2-day trip to the beautiful coral island of Saint Martin...', features: ["AC Bus Ticket (Round Trip)", "Ship Ticket (Round Trip)", "Breakfast, Lunch, Dinner", "Full-time Tour Guide"] },
+  { id: 'mountain01', name: 'Bandarban Hills & Clouds', price: 180, thumbnail: 'https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800', images: ['https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800'], rating: 4.7, location: 'Bandarban, Bangladesh', category: 'Mountain Treks', description: 'Trek through the stunning hills of Bandarban...', features: ["Local Transport (Chander Gari)", "Resort Accommodation", "All Meals Included", "Entry Fees to Tourist Spots"] },
+  { id: 'cultural01', name: 'Historic Dhaka City Tour', price: 90, thumbnail: 'https://images.unsplash.com/photo-1596422846543-3d0773151e23?q=80&w=800', images: ['https://images.unsplash.com/photo-1596422846543-3d0773151e23?q=80&w=800'], rating: 4.6, location: 'Dhaka, Bangladesh', category: 'Cultural Trips', description: 'Explore the rich history of Old Dhaka...', features: ["Private Air-Conditioned Car", "English Speaking Guide", "All Entry Tickets", "Lunch at a Local Restaurant"] },
+  { id: 'beach03', name: 'Kuakata "Daughter of the Sea"', price: 150, thumbnail: 'https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800', images: ['https://images.unsplash.com/photo-1627895429920-ce3c2a02e0b1?q=80&w=800'], rating: 4.7, location: 'Kuakata, Bangladesh', category: 'Beach Tours', description: 'Witness both sunrise and sunset from the same beach...', features: ["Hotel Accommodation", "Transport Facility", "Breakfast Included", "Guided Tour"] },
+  { id: 'mountain02', name: 'Sajek Valley Expedition', price: 220, thumbnail: 'https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800', images: ['https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800'], rating: 4.9, location: 'Sajek, Rangamati', category: 'Mountain Treks', description: 'Live above the clouds in the stunning Sajek Valley...', features: ["Round Trip Transport", "Cottage Stay", "All Meals", "Local Guide"] },
+  { id: 'cultural02', name: 'Sundarbans Mangrove Safari', price: 350, thumbnail: 'https://images.unsplash.com/photo-1547902243-6d5a1a5b3f71?q=80&w=800', images: ['https://images.unsplash.com/photo-1547902243-6d5a1a5b3f71?q=80&w=800'], rating: 4.8, location: 'Sundarbans, Khulna', category: 'Cultural Trips', description: 'Venture into the worlds largest mangrove forest...', features: ["3 Days 2 Nights Cruise", "All Meals on Board", "Forest Permits & Fees", "Armed Forest Guard"] },
+  { id: 'cultural03', name: 'Ancient Puthia Temple City', price: 110, thumbnail: 'https://images.unsplash.com/photo-1628042835452-71589c9a35e7?q=80&w=800', images: ['https://images.unsplash.com/photo-1628042835452-71589c9a35e7?q=80&w=800'], rating: 4.5, location: 'Puthia, Rajshahi', category: 'Cultural Trips', description: 'Discover the largest number of historically important Hindu structures...', features: ["Private Transport", "Local Guide", "Entry Fees", "Lunch"] },
 ];
 
 const categories = ["Beach Tours", "Mountain Treks", "Cultural Trips"];
 
-
+// --- Component 4: TripsAndPackage (Main Component) ---
 export const TripsAndPackage = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [selectedService, setSelectedService] = useState<any>(null);
@@ -60,11 +51,10 @@ export const TripsAndPackage = () => {
           </div>
         </div>
         
-        {/* UPDATED: grid-cols-2 for small devices */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {isLoading
             ? Array.from({ length: 4 }).map((_, index) => <ServiceCardLoader key={index} />)
-            : filteredServices.slice(0, 8).map(service => (<ServiceCard key={service.id} service={service} onDetailsClick={handleDetailsClick} />))
+            : filteredServices.slice(0, 4).map(service => (<ServiceCard key={service.id} service={service} onDetailsClick={handleDetailsClick} />))
           }
         </div>
 
@@ -74,7 +64,7 @@ export const TripsAndPackage = () => {
             </Link>
         </div>
       </div>
-      <HomeServiceDetailModal service={selectedService} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ServiceDetailModal service={selectedService} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

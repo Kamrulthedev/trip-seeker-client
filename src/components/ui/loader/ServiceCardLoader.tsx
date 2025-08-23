@@ -6,13 +6,8 @@ const Skeleton = ({ className }: { className?: string }) => (
 
 export function ServiceCardLoader() {
   return (
-    <div className="flex flex-col space-y-4">
-      <Skeleton className="h-64 w-full rounded-xl" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-3/4" />
-        <Skeleton className="h-4 w-1/2" />
-        <Skeleton className="h-6 w-1/4 mt-2" />
-      </div>
+    <div className="relative rounded-xl overflow-hidden h-80 sm:h-96">
+      <Skeleton className="w-full h-full" />
     </div>
   );
 }
