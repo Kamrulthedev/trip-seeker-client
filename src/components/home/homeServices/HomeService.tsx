@@ -1,108 +1,99 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState, useEffect } from "react";
+import { X } from 'lucide-react';
 
-import { Dialog, DialogContent, DialogOverlay } from "@radix-ui/react-dialog";
-import { useEffect, useState } from "react";
-import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi";
-import { toast } from "sonner";
-import BtnAddToCart from "../../ui/BtnAddToCart";
-import PrimaryLoader from "../../ui/loader/PrimaryLoader";
-
-const HomeService = () => {
-  const { isOpen, product, isLoading, onClose } = useAppSelector(
-    (state) => state.quickView
+// This is a mock for shadcn/ui Dialog for a runnable example.
+// In your project, you would import { Dialog, DialogContent } from "@/components/ui/dialog"
+const Dialog = ({ open, onOpenChange, children }: { open: boolean, onOpenChange: (open: boolean) => void, children: React.ReactNode }) => {
+  if (!open) return null;
+  return (
+    <div 
+      className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center"
+      onClick={() => onOpenChange(false)}
+    >
+      {children}
+    </div>
   );
-  const { _id, stock, name, price, description, image, thumbnail } =
-    product as any;
+};
+const DialogContent = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+  <div 
+    className={`relative bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto ${className}`}
+    onClick={(e) => e.stopPropagation()}
+  >
+    {children}
+  </div>
+);
 
-  const [quantity, setQuantity] = useState(1);
-  const [thumbnailUrl, setThumbnailUrl] = useState(thumbnail);
 
-  const { cartItems } = useAppSelector((state) => state.cart);
-  const inCart = cartItems.find((item) => item.id === _id);
+export const HomeServiceDetailModal = ({ service, isOpen, onClose }: { service: any, isOpen: boolean, onClose: () => void }) => {
+  const [currentImage, setCurrentImage] = useState(service?.images[0]);
+  const [travelers, setTravelers] = useState(1);
 
   useEffect(() => {
-    setThumbnailUrl(thumbnail);
-  }, [thumbnail]);
+    // Reset to the first image when the service changes
+    if (service) {
+      setCurrentImage(service.images[0]);
+      setTravelers(1);
+    }
+  }, [service]);
 
-  const dispatch = useAppDispatch();
+  if (!service) return null;
 
-  const handleAddToCart = (product: any) => {
-    dispatch(addToCart({ ...product, id: product?._id, quantity }));
-  };
-
-  const handleClose = () => {
-    dispatch(closeQuickViewModal());
+  const handleBookNow = () => {
+    console.log("Booking Details:", {
+      serviceId: service.id,
+      serviceName: service.name,
+      travelers: travelers,
+      totalPrice: service.price * travelers,
+    });
+    alert(`Booking confirmed for ${travelers} person(s) on the "${service.name}" tour!`);
     onClose();
   };
-  const handleIncrementQuantity = () => {
-    if (stock <= quantity) {
-      toast.warning("Out of stock");
-    } else {
-      setQuantity(quantity + 1);
-    }
-  };
-  return isLoading ? (
-    <PrimaryLoader />
-  ) : (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogOverlay />
-      <DialogContent className="w-screen grid grid-cols-2 space-x-3">
-        <div>
-          <img src={thumbnailUrl} alt={name} />
-          <div className="grid grid-cols-3 gap-4 mt-2">
-            {Array.from({ length: 3 }).map((_, index) => (
-              <img
-                onClick={() => setThumbnailUrl(image)}
-                key={index}
-                src={image}
-                alt={name}
-              />
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-0">
+        {/* Image Gallery */}
+        <div className="relative flex flex-col p-4">
+          <div className="relative w-full h-80 rounded-lg overflow-hidden mb-4">
+            <img src={currentImage} alt={service.name} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div className="grid grid-cols-4 gap-2">
+            {service.images.map((img: string, index: number) => (
+              <button key={index} onClick={() => setCurrentImage(img)} className={`rounded-md overflow-hidden border-2 ${currentImage === img ? 'border-blue-500' : 'border-transparent'}`}>
+                <img src={img} alt={`${service.name} view ${index + 1}`} className="w-full h-20 object-cover" />
+              </button>
             ))}
           </div>
         </div>
-        <div>
-          <div className="border-b border-gray-300 pb-4">
-            <h2 className="text-xl font-bold pb-1">{name}</h2>
-            <p>
-              {stock > 0 ? (
-                <span>{stock} In stock</span>
-              ) : (
-                <span className="text-rose-600">Out of stock</span>
-              )}
-            </p>
-            <p className="text-primary">${price} USD</p>
-          </div>
-          <p className="pt-4 text-gray-700">{description}</p>
-          <div className="flex items-center mt-10 gap-6 ">
-            <div className="border-2 border-gray-300  font-bold text-xl flex items-center space-x-2">
-              <span className="px-3 w-10">{quantity}</span>
-              <div className="flex flex-col items-center border-l border-gray-300 ">
-                <button
-                  onClick={handleIncrementQuantity}
-                  className="px-3 py-0.5 border-b border-gray-300  hover:text-primary"
-                >
-                  <HiOutlinePlus />
-                </button>
-                <button
-                  disabled={quantity <= 1}
-                  onClick={() => setQuantity(quantity - 1)}
-                  className="px-3 py-0.5  hover:text-primary"
-                >
-                  <HiOutlineMinus />
-                </button>
+
+        {/* Service Details */}
+        <div className="flex flex-col p-6">
+          <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><X size={24} /></button>
+          <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full self-start">{service.category}</span>
+          <h2 className="text-3xl font-bold text-gray-800 mt-3">{service.name}</h2>
+          <p className="text-3xl font-light text-green-600 my-4">${service.price}<span className="text-base text-gray-500">/person</span></p>
+          <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
+          
+          <div className="border-t pt-6 mt-auto">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                <label htmlFor="travelers" className="font-medium text-gray-700">Travelers:</label>
+                <input 
+                  type="number" 
+                  id="travelers"
+                  min="1"
+                  value={travelers}
+                  onChange={(e) => setTravelers(Math.max(1, parseInt(e.target.value) || 1))}
+                  className="w-20 rounded-md border-gray-300 text-center font-bold"
+                />
               </div>
-            </div>
-            <div onClick={() => handleAddToCart(product as any)}>
-              <BtnAddToCart
-                title={
-                  inCart
-                    ? "Already in cart"
-                    : stock <= 0
-                    ? "Out of stock"
-                    : "Add to cart"
-                }
-                disable={inCart ? true : false || stock <= 0}
-              />
+              <button 
+                onClick={handleBookNow}
+                className="bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform"
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </div>
@@ -110,4 +101,3 @@ const HomeService = () => {
     </Dialog>
   );
 };
-export default HomeService;

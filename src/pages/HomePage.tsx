@@ -3,7 +3,7 @@ import Agensys from "../components/home/agensys/Agensys";
 import Categories from "../components/home/categories/Categories";
 import Explore from "../components/home/explore/Explore";
 import PhotoGallery from "../components/home/photoGallery/PhotoGallery";
-import HomeServices from "../components/home/homeServices/HomeServices";
+import { TripsAndPackage } from "../components/home/homeServices/TripsAndPackage";
 
 const HomePage = () => {
   return (
@@ -12,7 +12,7 @@ const HomePage = () => {
       <Categories />
       <Agensys></Agensys>
       <Explore></Explore>
-      <HomeServices></HomeServices>
+      <TripsAndPackage></TripsAndPackage>
       <PhotoGallery />
       <Agensys></Agensys>
     </div>
