@@ -5,6 +5,7 @@ import { HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi";
 import { HiMiniCheckBadge, HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import HomeService from "./HomeService";
 
 export interface IProductCardProps {
   key?: string;
@@ -53,7 +54,7 @@ const HomeServices = () => {
 
     return (
         <div>
-            <ProductQuickViewModal />
+            <HomeService />
             <div>
                 <div className="relative group overflow-hidden">
                     <img src={thumbnail} alt="" />
