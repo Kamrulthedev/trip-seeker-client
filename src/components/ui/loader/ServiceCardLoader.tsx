@@ -1,6 +1,6 @@
 import { Skeleton } from "../skeleton";
 
-export function ProductCardLoader() {
+export function ServiceCardLoader() {
   return (
     <div className="flex flex-col space-y-5">
       <Skeleton className="h-[250px] w-full rounded-xl" />

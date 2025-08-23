@@ -3,6 +3,8 @@ import { useState } from "react";
 import SectionHead from "../../../utils/SectionHead";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { BtnSecondary } from "../../ui/BtnSecondary";
+import { ServiceCardLoader } from "../../ui/loader/ServiceCardLoader";
+import HomeServices from "./HomeServices";
 
 const TripsAndPackage = () => {
   const [category, setCategory] = useState("Fitness");
@@ -11,12 +13,12 @@ const TripsAndPackage = () => {
   const renderProductCards = () => {
     if (isLoading) {
       return Array.from({ length: 8 }).map((_, index) => (
-        <ProductCardLoader key={index} />
+        <ServiceCardLoader key={index} />
       ));
     }
 
     return products?.data?.map((product: any) => (
-      <ProductCard key={product._id} productDetails={product} />
+      <HomeServices key={product._id} productDetails={product} />
     ));
   };
 
