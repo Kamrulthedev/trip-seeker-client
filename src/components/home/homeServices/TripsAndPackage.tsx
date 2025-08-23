@@ -24,6 +24,7 @@ import patuertek2 from "../../../assets/images/Service/patuertek2.jpg";
 import patuertek3 from "../../../assets/images/Service/patuertek3.jpg"; 
 import patuertek4 from "../../../assets/images/Service/patuertek4.jpg"; 
 import patuertekTamil from "../../../assets/images/Service/patuertekTamil.jpg"; 
+import { BtnPrimary } from '../../ui/BtnPrimary';
 
 
 
@@ -80,17 +81,15 @@ export const TripsAndPackage = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {isLoading
             ? Array.from({ length: 4 }).map((_, index) => <ServiceCardLoader key={index} />)
             : filteredServices.slice(0, 4).map(service => (<ServiceCard key={service.id} service={service} onDetailsClick={handleDetailsClick} />))
           }
         </div>
 
-        <div className="text-center mt-16">
-            <Link to="/services">
-                <button className="bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform">Explore More Services</button>
-            </Link>
+        <div className="text-center mt-16  hover:scale-105 transition-transform flex justify-center">
+            <BtnPrimary text="Our Services" title="Our Services" />
         </div>
       </div>
       <ServiceDetailModal service={selectedService} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
