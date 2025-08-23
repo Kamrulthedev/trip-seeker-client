@@ -20,27 +20,37 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
 
   return (
     <motion.div
-      className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
+      className="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer h-80 sm:h-96"
       onClick={() => onDetailsClick(service)}
       whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
+      transition={{ type: "spring", stiffness: 300 }}
     >
-      <div className="relative">
-        <img src={thumbnail} alt={name} className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
-        <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-800 flex items-center gap-1">
-          <Star size={16} className="text-yellow-500 fill-yellow-500" />
-          <span>{rating}</span>
-        </div>
-        {/* Hover Action Buttons */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button onClick={handleAddToCart} className="bg-white rounded-full p-3 shadow-md hover:bg-green-500 hover:text-white transition-colors"><ShoppingCart size={20} /></button>
-          <button onClick={handleAddToWishlist} className="bg-white rounded-full p-3 shadow-md hover:bg-rose-500 hover:text-white transition-colors"><Heart size={20} /></button>
-        </div>
+      {/* Background Image */}
+      <img src={thumbnail} alt={name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+      {/* Top Content (Rating & Wishlist) */}
+      <div className="absolute top-4 right-4 flex items-center gap-2">
+         <button onClick={handleAddToWishlist} className="bg-white/20 backdrop-blur-sm text-white rounded-full p-2 shadow-md hover:bg-rose-500 transition-colors"><Heart size={20} /></button>
       </div>
-      <div className="p-5">
-        <p className="text-gray-500 text-sm">{location}</p>
-        <h3 className="text-lg font-bold text-gray-800 truncate mt-1 group-hover:text-blue-600 transition-colors">{name}</h3>
-        <p className="text-xl font-semibold text-green-600 mt-2">${price} <span className="text-sm font-normal text-gray-500">/ person</span></p>
+      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-white flex items-center gap-1">
+          <Star size={16} className="text-yellow-400 fill-yellow-400" />
+          <span>{rating}</span>
+      </div>
+
+      {/* Bottom Content (Title, Price, etc.) */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+        <p className="text-sm font-medium">{location}</p>
+        {/* On extra-small screens, title is hidden for a cleaner look */}
+        <h3 className="text-xl font-bold truncate mt-1 hidden sm:block">{name}</h3>
+        <div className="flex justify-between items-center mt-2">
+            <p className="text-2xl font-semibold">${price} <span className="text-base font-normal opacity-80">/ person</span></p>
+            <button onClick={handleAddToCart} className="bg-green-500 rounded-full p-3 shadow-md hover:bg-green-600 transition-colors">
+                <ShoppingCart size={20} />
+            </button>
+        </div>
       </div>
     </motion.div>
   );
