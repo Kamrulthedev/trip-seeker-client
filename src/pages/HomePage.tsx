@@ -15,8 +15,8 @@ const HomePage = () => {
       <Explore></Explore>
       <TripsAndPackage></TripsAndPackage>
       <Winners></Winners>
-      
       <PhotoGallery />
+      
       <Agensys></Agensys>
     </div>
   );
