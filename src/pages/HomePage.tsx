@@ -5,6 +5,7 @@ import Explore from "../components/home/explore/Explore";
 import PhotoGallery from "../components/home/photoGallery/PhotoGallery";
 import { TripsAndPackage } from "../components/home/homeServices/TripsAndPackage";
 import Winners from "../components/home/winners/Winners";
+import Plan from "../components/home/plan/Plan";
 
 const HomePage = () => {
   return (
@@ -16,8 +17,7 @@ const HomePage = () => {
       <TripsAndPackage></TripsAndPackage>
       <Winners></Winners>
       <PhotoGallery />
-      
-      <Agensys></Agensys>
+     <Plan></Plan>
     </div>
   );
 };
