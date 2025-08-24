@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from 'framer-motion';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
+import { ImageLoader } from "../../ui/loader/ImageLoader";
 
 // Component 4: ServiceCard
 export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetailsClick: (service: any) => void }) => {
@@ -23,7 +24,11 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
 
   return (
     <motion.div className="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer h-80 sm:h-96" onClick={() => onDetailsClick(service)} whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 300 }}>
-      <img src={thumbnail} alt={name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+      <ImageLoader
+        src={thumbnail}
+        alt={service.name}
+        className="w-full h-80 rounded-lg overflow-hidden mb-4"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
       <div className="absolute top-4 right-4 flex items-center gap-2">
         <button onClick={handleAddToWishlist} className="bg-white/20 backdrop-blur-sm text-white rounded-full p-2 shadow-md hover:bg-rose-500 transition-colors"><Heart size={20} /></button>
