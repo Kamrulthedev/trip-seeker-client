@@ -295,7 +295,7 @@ export const TripsAndPackage = () => {
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">🌊 আপনার পরবর্তী অ্যাডভেঞ্চার এখান থেকেই শুরু হোক! বাংলাদেশের অদ্ভুত সুন্দর কক্সবাজার আপনাকে ডাকছে। বিশ্বের দীর্ঘতম সমুদ্রসৈকতের অনন্ত ঢেউ, সূর্যাস্তের মনোমুগ্ধকর দৃশ্য আর নিরবচ্ছিন্ন নীল আকাশে হারিয়ে যান।</p>
         </motion.div>
         <div className="flex justify-center my-10">
-          <div className="flex flex-wrap justify-center gap-2 bg-slate-200 p-1.5 rounded-lg">
+          <div className="flex flex-wrap justify-center gap-2 bg-gradient-to-r from-blue-200 to-green-200 text-white p-1.5 rounded-lg">
             {categories.map(category => (
               <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 sm:px-6 py-2 text-sm sm:text-base font-semibold rounded-md transition-colors duration-300 ${activeCategory === category ? 'bg-white text-blue-600 shadow' : 'text-gray-600 hover:bg-slate-300/50'}`}>{category}</button>
             ))}
