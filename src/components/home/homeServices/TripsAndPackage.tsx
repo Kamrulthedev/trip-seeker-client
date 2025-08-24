@@ -310,7 +310,7 @@ export const TripsAndPackage = () => {
         </div>
 
         <div className="text-center mt-16 flex justify-center">
-            <BtnPrimary text="সকল সার্ভিস দেখুন" title="সকল সার্ভিস দেখুন" />
+            <BtnPrimary text="সকল প্যাকেজ দেখুন" title="সকল প্যাকেজ দেখুন" />
         </div>
       </div>
       <ServiceDetailModal service={selectedService} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

@@ -54,7 +54,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ img, category }) => {
             {category}
           </h2>
           <Link to={`/products?category=${encodeURIComponent(category)}`}>
-            <BtnPrimaryMini text="প্যাকেজ দেখুন" title="Start Trip" />
+            <BtnPrimaryMini text="প্যাকেজ সমূহ " title="প্যাকেজ দেখুন" />
           </Link>
         </motion.div>
       </div>
