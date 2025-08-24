@@ -1,66 +1,107 @@
+import { motion } from 'framer-motion';
 
-
-
-const glowButtonClasses = `
+// Common classes for buttons
+const baseButtonClasses = `
   relative overflow-hidden font-sans font-bold text-sm
   tracking-wider uppercase transition-all duration-300 ease-in-out
-  cursor-pointer border-0 rounded-md
+  cursor-pointer border rounded-md
   flex items-center justify-center
- 
   group
 `;
 
+// Default text style for blue color
+const blueTextStyle = {
+  color: '#F9FAFB',
+};
+
+// Hover text style with gradient
+const hoverTextGradientStyle = {
+  backgroundImage: `linear-gradient(to right, #F9FAFB
+, #F9FAFB
+)`,
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+};
+
+// 1. Primary Button Component with animated blur border and text hover
 export const BtnPrimary = ({ text, title }: { text: string; title: string }) => {
   return (
     <div className="flex justify-center">
-      <button
-        className={`${glowButtonClasses} w-[148px] h-[46px] btn-primary-group
-        border-1 hover:text-green-400
-        
-        transition-shadow duration-300]`}
+      <motion.button
+        className={`${baseButtonClasses} w-[148px] h-[46px]
+        shadow-lg transition-shadow duration-300
+        bg-transparent backdrop-filter backdrop-blur-sm`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <span className="absolute inset-0 w-full h-full border-2 "></span>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <p className="absolute inset-0 w-full h-full flex items-center justify-center
-          transition-all duration-400 ease-in-out text-primary group-hover:opacity-0">{title}</p>
-          <p className="absolute inset-0 w-full h-full flex items-center justify-center
-          transition-all duration-400 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">{text}</p>
+        {/* Animated and blurred border */}
+        <motion.div
+          className="absolute inset-[-10px] rounded-md bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)] filter blur-md opacity-100 group-hover:blur-md transition-all duration-500 z-0"
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Button content */}
+        <div className="relative z-20 w-full h-full flex items-center justify-center bg-transparent rounded-md">
+          <p
+            className="absolute inset-0 w-full h-full flex items-center justify-center
+            transition-all duration-400 ease-in-out group-hover:opacity-0"
+            style={blueTextStyle}
+          >
+            {title}
+          </p>
+          <p
+            className="absolute inset-0 w-full h-full flex items-center justify-center
+            transition-all duration-400 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+            style={hoverTextGradientStyle}
+          >
+            {text}
+          </p>
         </div>
-      </button>
+      </motion.button>
     </div>
   );
 };
 
 
-
-
-const slideInButtonClasses = `
-  relative overflow-hidden font-sans font-bold text-sm
-  tracking-wider uppercase transition-all duration-300 ease-in-out
-  cursor-pointer border-0 rounded-md
-  flex items-center justify-center
-  bg-transparent
-  group
-`;
-
+// 2. Mini Button Component with animated blur border and text hover
 export const BtnPrimaryMini = ({ text, title }: { text: string; title: string }) => {
   return (
     <div className="flex justify-center">
-      <button
-        className={`${slideInButtonClasses} w-[148px] h-[46px]
-        border-2 border-primary-orange
-        text-primary-orange hover:text-white`}
+      <motion.button
+        className={`${baseButtonClasses} w-[100px] h-[33px]
+        shadow-lg transition-shadow duration-300
+        bg-transparent backdrop-filter backdrop-blur-sm`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <span className="absolute inset-0 w-full h-full bg-primary-orange
-        transform translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-in-out"></span>
-        
-        <div className="relative w-full h-full flex items-center justify-center">
-          <p className="absolute inset-0 w-full h-full flex items-center justify-center
-          transition-all duration-400 ease-in-out group-hover:-translate-y-full text-primary-orange group-hover:text-white">{title}</p>
-          <p className="absolute inset-0 w-full h-full flex items-center justify-center
-          transition-all duration-400 ease-in-out translate-y-full group-hover:translate-y-0 text-white">{text}</p>
+        {/* Animated and blurred border */}
+        <motion.div
+          className="absolute inset-[-5px] rounded-md bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)] filter blur-md opacity-100 group-hover:blur-md transition-all duration-500 z-0"
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Button content */}
+        <div className="relative z-20 w-full h-full flex items-center justify-center bg-transparent rounded-md">
+          <p
+            className="absolute inset-0 w-full h-full flex items-center justify-center
+            transition-all duration-400 ease-in-out group-hover:opacity-0"
+            style={blueTextStyle}
+          >
+            {title}
+          </p>
+          <p
+            className="absolute inset-0 w-full h-full flex items-center justify-center
+            transition-all duration-400 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+            style={hoverTextGradientStyle}
+          >
+            {text}
+          </p>
         </div>
-      </button>
+      </motion.button>
     </div>
   );
 };
