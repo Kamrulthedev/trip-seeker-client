@@ -13,9 +13,9 @@ const ImageLoader = ({ src, alt, className }: { src: string, alt: string, classN
       {isLoading && (
         <div className="absolute inset-0 bg-slate-200 animate-pulse rounded-lg"></div>
       )}
-      <img 
-        src={src} 
-        alt={alt} 
+      <img
+        src={src}
+        alt={alt}
         className={`w-full h-full object-cover transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
         onLoad={() => setIsLoading(false)}
       />
@@ -40,7 +40,7 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
     alert(`Booking confirmed for ${travelers} person(s) on the "${service.name}" tour!`);
     onClose();
   };
-  
+
   const handleRatingClick = () => {
     console.log("রেটিং কেন্সেল");
     alert("Rating button clicked! Check console.");
@@ -51,7 +51,7 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
     hidden: { opacity: 0 },
   };
 
-  const modalVariants:any = {
+  const modalVariants: any = {
     hidden: { y: "10vh", opacity: 0 },
     visible: { y: "0", opacity: 1, transition: { type: "spring", stiffness: 300, damping: 30 } },
     exit: { y: "10vh", opacity: 0, transition: { duration: 0.2 } },
@@ -75,17 +75,17 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
           >
             {/* Image Gallery */}
             <div className="relative flex flex-col p-4">
-              <ImageLoader 
-                src={currentImage} 
-                alt={service.name} 
+              <ImageLoader
+                src={currentImage}
+                alt={service.name}
                 className="w-full h-80 rounded-lg overflow-hidden mb-4"
               />
               <div className="grid grid-cols-4 gap-2">
                 {service.images.map((img: string, index: number) => (
                   <button key={index} onClick={() => setCurrentImage(img)} className={`rounded-md overflow-hidden border-2 transition-all ${currentImage === img ? 'border-blue-500 scale-105' : 'border-transparent'}`}>
-                    <ImageLoader 
-                      src={img} 
-                      alt={`${service.name} view ${index + 1}`} 
+                    <ImageLoader
+                      src={img}
+                      alt={`${service.name} view ${index + 1}`}
                       className="w-full h-20"
                     />
                   </button>
@@ -95,19 +95,23 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
 
             {/* Service Details */}
             <div className="flex flex-col p-6 bg-slate-50">
-              <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors"><X size={24} /></button>
+              <button
+                onClick={onClose}
+                className=" absolute top-4 right-4 flex items-center justify-center text-red-600 hover:text-red-500 transition-all duration-200 rounded-full active:scale-90 hover:rotate-90 p-2 bg-gray-100 shadow-sm lg:p-0 lg:bg-transparent lg:shadow-none">
+                <X size={24} />
+              </button>
               <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full self-start">{service.category}</span>
               <h2 className="text-3xl font-bold text-gray-800 mt-3">{service.name}</h2>
-              
+
               <div className="flex items-center gap-4 my-4">
                 <p className="text-3xl font-light text-green-600">৳{service.price}<span className="text-base text-gray-500">/person</span></p>
                 <button onClick={handleRatingClick} className="flex items-center gap-1 text-yellow-500 font-semibold">
                   <Star size={20} className="fill-current" /> {service.rating}
                 </button>
               </div>
-              
+
               <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
-              
+
               <div className="bg-white p-4 rounded-lg border">
                 <h4 className="font-bold text-gray-700 mb-2">আমাদের প্যাকেজে যা যা থাকছে:</h4>
                 <ul className="space-y-2 text-gray-600">
@@ -116,12 +120,12 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
                   ))}
                 </ul>
               </div>
-              
+
               <div className="border-t pt-6 mt-6">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
                     <label htmlFor="travelers" className="font-medium text-gray-700">Travelers:</label>
-                    <input type="number" id="travelers" min="1" value={travelers} onChange={(e) => setTravelers(Math.max(1, parseInt(e.target.value) || 1))} className="w-20 rounded-md border-gray-300 text-center font-bold"/>
+                    <input type="number" id="travelers" min="1" value={travelers} onChange={(e) => setTravelers(Math.max(1, parseInt(e.target.value) || 1))} className="w-20 rounded-md border-gray-300 text-center font-bold" />
                   </div>
                   <button onClick={handleBookNow} className="bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform">Book Now</button>
                 </div>
