@@ -1,59 +1,95 @@
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { motion } from 'framer-motion';
+import { Search } from 'lucide-react';
+import { ImageLoader } from "../../ui/loader/ImageLoader";
+import g1 from "../../../assets/images/gallery/g1.jpg";
+import g2 from "../../../assets/images/gallery/g2.jpg";
+import g3 from "../../../assets/images/gallery/g6.jpg";
+import g4 from "../../../assets/images/gallery/g6.jpg";
+import g5 from "../../../assets/images/gallery/g3.jpg";
+import g6 from "../../../assets/images/gallery/g4.jpg";
+import g7 from "../../../assets/images/gallery/g7.jpg";
 
-// import image
-import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
-import ig1 from "../../../assets/images/gallery/ig1.jpg";
-import ig10 from "../../../assets/images/gallery/ig10.jpg";
-import ig3 from "../../../assets/images/gallery/ig3.jpg";
-import ig4 from "../../../assets/images/gallery/ig4.jpg";
-import ig5 from "../../../assets/images/gallery/ig5.jpg";
-import ig6 from "../../../assets/images/gallery/ig6.jpg";
-import ig8 from "../../../assets/images/gallery/ig8.jpg";
-import ig9 from "../../../assets/images/gallery/ig9.jpg";
-import SectionHead from "../../../utils/SectionHead";
+
+// A new, smarter layout configuration
+const photos = [
+  { src: g1, alt: "Cox's Bazar Beach", className: "col-span-12 md:col-span-6 row-span-2" }, 
+  { src: g2, alt: "Sajek Valley", className: "col-span-12 md:col-span-6" }, 
+  { src: g3, alt: "Bandarban Hills", className: "col-span-12 md:col-span-3" }, 
+  { src: g4, alt: "Saint Martin's Island", className: "col-span-12 md:col-span-3" }, 
+  { src: g5, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" },
+  { src: g6, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" },
+  { src: g7, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" }, 
+];
+
+// --- Framer Motion Variants ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 200, damping: 20 },
+  },
+};
 
 const PhotoGallery = () => {
-  const photos = [
-    { src: ig1, className: "col-span-12 sm:col-span-6 md:col-span-2" },
-    { src: ig4, className: "col-span-12 sm:col-span-6 md:col-span-2" },
-    { src: ig3, className: "col-span-12 sm:col-span-6 md:col-span-2" },
-    { src: ig8, className: "col-span-12 sm:col-span-6 md:col-span-2" },
-    { src: ig6, className: "col-span-12 sm:col-span-6 md:col-span-4" },
-    { src: ig10, className: "col-span-12 sm:col-span-6 md:col-span-4" },
-    { src: ig8, className: "col-span-12 sm:col-span-6 md:col-span-2" },
-    { src: ig9, className: "col-span-12 sm:col-span-6 md:col-span-4" },
-    { src: ig5, className: "col-span-12 sm:col-span-6 md:col-span-2" },
-    { src: ig8, className: "col-span-12 sm:col-span-6 md:col-span-4" },
-    { src: ig9, className: "col-span-12 sm:col-span-6 md:col-span-4" },
-    { src: ig4, className: "col-span-12 sm:col-span-6 md:col-span-4" },
-  ];
-
   return (
-    <div className="py-10 bg-gray-100">
-      <SectionHead title="Healthy Individuals Gallery" />
+    <div className="bg-slate-50 py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
+            ভ্রমণের ডায়েরি থেকে কিছু মুহূর্ত
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+            আমাদের ক্যামেরায় ধারণ করা বাংলাদেশের অসাধারণ কিছু স্থানের ছবি দেখুন।
+          </p>
+        </motion.div>
 
-      <PhotoProvider>
-        <div className="grid grid-cols-12 gap-3 p-4">
-          {photos.map((photo, index) => (
-            <PhotoView key={index} src={photo.src}>
-              <div
-                data-aos="zoom-in"
-                className={`relative overflow-hidden group ${photo.className}`}
+        {/* Photo Grid - Updated for a dynamic "quilted" layout */}
+        <PhotoProvider>
+          <motion.div
+            className="grid grid-cols-12 auto-rows-[250px] gap-4"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {photos.map((photo, index) => (
+              <motion.div
+                key={index}
+                className={`relative overflow-hidden rounded-xl shadow-lg group cursor-pointer ${photo.className}`}
+                variants={itemVariants}
               >
-                <img
-                  alt={`img${index + 1}`}
-                  src={photo.src}
-                  className="w-full h-64 object-cover transition-transform duration-300 transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <HiOutlineMagnifyingGlass className="text-5xl cursor-pointer text-white" />
-                </div>
-              </div>
-            </PhotoView>
-          ))}
-        </div>
-      </PhotoProvider>
+                <PhotoView src={photo.src}>
+                  <>
+                    <ImageLoader src={photo.src} alt={photo.alt} className="rounded-xl" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all duration-300 group-hover:bg-opacity-50 group-hover:opacity-100">
+                      <Search className="text-5xl text-white transform scale-0 group-hover:scale-100 transition-transform duration-300" />
+                    </div>
+                  </>
+                </PhotoView>
+              </motion.div>
+            ))}
+          </motion.div>
+        </PhotoProvider>
+      </div>
     </div>
   );
 };
