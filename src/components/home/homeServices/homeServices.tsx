@@ -9,13 +9,13 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevents the card's onClick from firing
     console.log("Added to cart:", service);
-    alert(`"${name}" added to your cart!`);
+    alert(`"${name}" আপনার কার্টে যোগ করা হয়েছে!`);
   };
 
   const handleAddToWishlist = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevents the card's onClick from firing
     console.log("Added to wishlist:", service);
-    alert(`"${name}" added to your wishlist!`);
+    alert(`"${name}" আপনার পছন্দের তালিকায় যোগ করা হয়েছে!`);
   };
 
   return (
@@ -33,10 +33,10 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
 
       {/* Top Content (Rating & Wishlist) */}
       <div className="absolute top-4 right-4 flex items-center gap-2">
-         <button onClick={handleAddToWishlist} className="bg-white/20 backdrop-blur-sm text-white rounded-full p-2 shadow-md hover:bg-rose-500 transition-colors border border-green-400 hover:border-none"><Heart size={20} /></button>
+         <button onClick={handleAddToWishlist} className="bg-white/20 backdrop-blur-sm text-white rounded-full p-2 shadow-md hover:bg-rose-500 transition-colors"><Heart size={20} /></button>
       </div>
-      <div className="absolute border border-green-400 hover:border-none top-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-white flex items-center gap-1">
-          <Star size={16} className="text-yellow-400 fill-yellow-400 " />
+      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-white flex items-center gap-1">
+          <Star size={16} className="text-yellow-400 fill-yellow-400" />
           <span>{rating}</span>
       </div>
 
@@ -46,8 +46,8 @@ export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetai
         {/* On extra-small screens, title is hidden for a cleaner look */}
         <h3 className="text-xl font-bold truncate mt-1 hidden sm:block">{name}</h3>
         <div className="flex justify-between items-center mt-2">
-            <p className="text-2xl font-semibold">${price} <span className="text-base font-normal opacity-80">/ person</span></p>
-            <button onClick={handleAddToCart} className="bg-gradient-to-r from-blue-600 to-green-500 rounded-full p-3 shadow-md hover:bg-green-600 transition-colors">
+            <p className="text-2xl font-semibold">৳{price} <span className="text-base font-normal opacity-80">/ জন</span></p>
+            <button onClick={handleAddToCart} className="bg-green-500 rounded-full p-3 shadow-md hover:bg-green-600 transition-colors">
                 <ShoppingCart size={20} />
             </button>
         </div>
