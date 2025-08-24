@@ -31,12 +31,12 @@ import { BtnPrimary } from '../../ui/BtnPrimary';
 const allTravelServices = [
   // Couple & Friends Escape
   { id: 'cpl01', name: 'কক্সবাজার সূর্যোদয় ট্যুর', price: 4500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'কক্সবাজার, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বিশ্বের দীর্ঘতম প্রাকৃতিক সমুদ্র সৈকতের শ্বাসরুদ্ধকর সৌন্দর্য উপভোগ করুন।', features: ["৩ তারকা হোটেলে থাকার ব্যবস্থা", "নিরাপদ যাতায়াতের জন্য এসি বাস", "সকালের নাস্তা এবং রাতের খাবার", "হিমছড়ি ও ইনানী বিচে ভ্রমণ"] },
-  { id: 'cpl02', name: 'সেন্ট মার্টিন প্রবাল দ্বীপ', price: 7500, thumbnail: inaniTamil, images: [inaniTamil, Beach2], rating: 4.9, location: 'সেন্ট মার্টিন, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বাংলাদেশের একমাত্র প্রবাল দ্বীপে ২ দিনের একটি অসাধারণ ভ্রমণ।', features: ["এসি বাস ও জাহাজের টিকিট", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "স্নোরকেলিং এবং স্কুবা ডাইভিং", "সার্বক্ষণিক ট্যুর গাইড"] },
+  { id: 'cpl02', name: 'সেন্ট মার্টিন প্রবাল দ্বীপ', price: 7500, thumbnail: inaniTamil, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: 'সেন্ট মার্টিন, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বাংলাদেশের একমাত্র প্রবাল দ্বীপে ২ দিনের একটি অসাধারণ ভ্রমণ।', features: ["এসি বাস ও জাহাজের টিকিট", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "স্নোরকেলিং এবং স্কুবা ডাইভিং", "সার্বক্ষণিক ট্যুর গাইড"] },
   { id: 'cpl03', name: 'সাজেক ভ্যালি মেঘের রাজ্য', price: 6500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.9, location: 'সাজেক, রাঙ্গামাটি', category: 'Couple & Friends Escape', description: 'মেঘের উপরে বসবাসের এক অসাধারণ অভিজ্ঞতা অর্জন করুন।', features: ["রাউন্ড ট্রিপ ট্রান্সপোর্ট (চান্দের গাড়ি)", "ইকো-ফ্রেন্ডলি কটেজে থাকা", "প্রতিদিনের তিন বেলা খাবার", "স্থানীয় দর্শনীয় স্থান ভ্রমণ"] },
   { id: 'cpl04', name: 'টাঙ্গুয়ার হাওর ভ্রমণ', price: 5500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: 'সুনামগঞ্জ, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বাংলাদেশের দ্বিতীয় বৃহত্তম মিঠাপানির জলাভূমিতে নৌকায় রাত্রিযাপন।', features: ["হাউসবোটে থাকার ব্যবস্থা", "সকল খাবার (স্থানীয় মেনু)", "ওয়াচ টাওয়ার ও ছোট ছোট গ্রাম ভ্রমণ", "নিরাপত্তা সরঞ্জাম"] },
   
   // Explorer’s Special
-  { id: 'exp01', name: 'বান্দরবান ট্রেকিং অভিযান', price: 8000, thumbnail: patuertekTamil, images: [patuertekTamil], rating: 4.7, location: 'বান্দরবান, বাংলাদেশ', category: 'Explorer’s Special', description: 'বান্দরবানের অত্যাশ্চর্য পাহাড়ের মধ্য দিয়ে ট্রেকিং করুন।', features: ["স্থানীয় পরিবহন (চান্দের গাড়ি)", "রিসোর্টে থাকার ব্যবস্থা", "প্রতিদিনের খাবার", "জনপ্রিয় স্থানসমূহে প্রবেশ ফি"] },
+  { id: 'exp01', name: 'বান্দরবান ট্রেকিং অভিযান', price: 8000, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.7, location: 'বান্দরবান, বাংলাদেশ', category: 'Explorer’s Special', description: 'বান্দরবানের অত্যাশ্চর্য পাহাড়ের মধ্য দিয়ে ট্রেকিং করুন।', features: ["স্থানীয় পরিবহন (চান্দের গাড়ি)", "রিসোর্টে থাকার ব্যবস্থা", "প্রতিদিনের খাবার", "জনপ্রিয় স্থানসমূহে প্রবেশ ফি"] },
   { id: 'exp02', name: 'সুন্দরবন ম্যানগ্রোভ সাফারি', price: 12500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'সুন্দরবন, খুলনা', category: 'Explorer’s Special', description: 'বিশ্বের বৃহত্তম ম্যানগ্রোভ বনে একটি রোমাঞ্চকর নৌকা সাফারি।', features: ["৩ দিন ২ রাত ক্রুজ জাহাজে থাকা", "সকল খাবার", "বন বিভাগের অনুমতি ও ফি", "সশস্ত্র বন প্রহরী"] },
   { id: 'exp03', name: 'নাফাখুম জলপ্রপাত অভিযান', price: 7800, thumbnail: 'https://images.unsplash.com/photo-1572003818344-36a5a805757d?q=80&w=800', images: ['https://images.unsplash.com/photo-1572003818344-36a5a805757d?q=80&w=800'], rating: 4.6, location: 'বান্দরবান, বাংলাদেশ', category: 'Explorer’s Special', description: 'বাংলাদেশের অন্যতম সুন্দর জলপ্রপাত নাফাখুমে একটি চ্যালেঞ্জিং ট্রেকিং।', features: ["গাইড এবং পোর্টার", "থাকার জন্য আদিবাসী বাড়ি", "সকল খাবার", "নিরাপত্তা ও প্রাথমিক চিকিৎসা"] },
   { id: 'exp04', name: 'হামহাম জলপ্রপাত ও রাজকান্দি', price: 6200, thumbnail: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=800', images: ['https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=800'], rating: 4.5, location: 'মৌলভীবাজার, সিলেট', category: 'Explorer’s Special', description: 'সিলেটের গহীন জঙ্গলে অবস্থিত হামহাম জলপ্রপাতে রোমাঞ্চকর অভিযান।', features: ["ট্রান্সপোর্ট ও স্থানীয় গাইড", "সকালের নাস্তা ও দুপুরের খাবার", "লাইফ জ্যাকেট", "প্রবেশ ফি"] },
@@ -86,8 +86,8 @@ export const TripsAndPackage = () => {
           }
         </div>
 
-        <div className="text-center mt-16">
-            <BtnPrimary text="সকল সার্ভিস দেখুন" title="Our Services" />
+        <div className="text-center mt-16 flex justify-center">
+            <BtnPrimary text="সকল সার্ভিস দেখুন" title="সকল সার্ভিস দেখুন" />
         </div>
       </div>
       <ServiceDetailModal service={selectedService} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
