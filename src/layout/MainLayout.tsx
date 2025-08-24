@@ -5,42 +5,52 @@ import Header from "../components/header/Header";
 import Newsletter from "../components/newsletter/Newsletter";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
 
 
-const BtnPrimaryMini = ({ text, title, onClick }: any) => (
-  <motion.button
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-    onClick={onClick}
-    style={{
-      background: "linear-gradient(270deg, #2563eb, #22c55e, #2563eb)", // blue → green → blue
-      backgroundSize: "200% 200%",
-      animation: "gradientMove 12s ease infinite", // slow smooth animation
-      color: "white",
-    }}
-    className="font-semibold rounded-full shadow-lg w-12 h-12 flex items-center justify-center"
-    title={title}
-  >
-    {text}
-  </motion.button>
-);
+// --- New Animated Scroll-to-Top Button ---
+const ScrollToTopButton = ({ onClick, title }: { onClick: () => void; title: string }) => {
+  return (
+    <motion.button
+      className="relative overflow-hidden font-sans font-bold
+      cursor-pointer border rounded-full
+      flex items-center justify-center group
+      w-14 h-14 shadow-lg border-white/20"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      title={title}
+      // Animation for appearing
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Animated Conic Gradient Border */}
+      <motion.div
+        className="absolute inset-[-10px] rounded-full bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)] filter blur-md z-0"
+        initial={{ rotate: 0 }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+      />
+      {/* Inner Content */}
+      <div className="relative z-10 w-[90%] h-[90%] flex items-center justify-center bg-black/40 backdrop-blur-sm rounded-full">
+        <ArrowUp className="text-white h-6 w-6" />
+      </div>
+    </motion.button>
+  );
+};
 
 const MainLayout = () => {
-  const location = useLocation();
-
-
-  // usePageRefreshWarning();
-
-  // State for showing the button
+ const location = useLocation();
   const [showButton, setShowButton] = useState(false);
 
-  // Handle scroll event
+  // Handle scroll event to show/hide the button
   useEffect(() => {
     const handleScroll = () => {
       setShowButton(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -72,13 +82,12 @@ const MainLayout = () => {
       <Newsletter />
       <Footer />
       {showButton && (
-        <div className="fixed bottom-5 right-5">
-          <BtnPrimaryMini
-            text="↑"
-            title="Scroll to top"
-            onClick={scrollToTop}
-          />
-        </div>
+       <div className="fixed bottom-8 right-8 z-50">
+            <ScrollToTopButton
+              title="Scroll to top"
+              onClick={scrollToTop}
+            />
+          </div>
       )}
     </div>
   );
