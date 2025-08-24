@@ -17,16 +17,16 @@ const Agensys = () => {
 
   return (
     <motion.div
-      className="py-10 sm:py-20"
+      className="py-8 sm:py-10 bg-slate-50"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl p-2 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl p-3 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl lg:text-5xl">
             বাংলাদেশ ভ্রমণে নির্ভরযোগ্য এজেন্সি
           </h2>
           <p className="mt-4 text-base text-gray-600 max-w-2xl mx-auto">

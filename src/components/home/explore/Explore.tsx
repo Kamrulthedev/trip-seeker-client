@@ -37,7 +37,7 @@ const imageContainerVariants: any = {
 
 const Explore = () => {
     return (
-        <section className="bg-slate-50 font-sans overflow-hidden">
+        <section className="bg-slate-100 font-sans overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     className="grid grid-cols-1 items-center gap-12 py-16 md:py-20 lg:grid-cols-2 lg:gap-16"

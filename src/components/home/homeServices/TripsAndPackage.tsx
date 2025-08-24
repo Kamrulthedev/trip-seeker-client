@@ -288,7 +288,7 @@ export const TripsAndPackage = () => {
   const filteredServices = allTravelServices.filter(service => service.category === activeCategory);
 
   return (
-    <div className="bg-slate-50 py-20">
+    <div className="bg-slate-50 py-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center" initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl p-3">আমাদের জনপ্রিয় ট্যুর ও প্যাকেজসমূহ</h2>
