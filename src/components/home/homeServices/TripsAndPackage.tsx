@@ -293,7 +293,6 @@ export const TripsAndPackage = () => {
         <motion.div className="text-center" initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl p-3">আমাদের জনপ্রিয় ট্যুর ও প্যাকেজসমূহ</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">🌊 আপনার পরবর্তী অ্যাডভেঞ্চার এখান থেকেই শুরু হোক! বাংলাদেশের অদ্ভুত সুন্দর কক্সবাজার আপনাকে ডাকছে। বিশ্বের দীর্ঘতম সমুদ্রসৈকতের অনন্ত ঢেউ, সূর্যাস্তের মনোমুগ্ধকর দৃশ্য আর নিরবচ্ছিন্ন নীল আকাশে হারিয়ে যান।</p>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">✈️ এখনই পরিকল্পনা করুন, আর কক্সবাজারের প্রতিটি কোণায় খুঁজে নিন ভ্রমণের নতুন আনন্দ!</p>
         </motion.div>
         <div className="flex justify-center my-10">
           <div className="flex flex-wrap justify-center gap-2 bg-slate-200 p-1.5 rounded-lg">
