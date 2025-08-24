@@ -49,7 +49,7 @@ const Explore = () => {
                     {/* --- Text Content (Order 2 on mobile, 1 on desktop) --- */}
                     <motion.article className="flex flex-col lg:items-start text-center lg:text-left order-2 lg:order-1">
                         <motion.h1
-                            className="text-4xl font-extrabold tracking-tight leading-snug text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-5xl md:text-6xl lg:text-start text-center"
+                            className="text-3xl font-extrabold tracking-tight leading-snug text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl lg:text-start text-center"
                             variants={itemVariants}
                         >
                             কক্সবাজারের সৈকত ও পাহাড়

@@ -17,7 +17,7 @@ const Agensys = () => {
 
   return (
     <motion.div
-      className="py-16 sm:py-20"
+      className="py-10 sm:py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -26,11 +26,13 @@ const Agensys = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl">
-            Trusted by Bangladesh-Class Agencies
+          <h2 className="text-3xl p-2 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl lg:text-5xl">
+            কক্সবাজার ভ্রমণে নির্ভরযোগ্য এজেন্সি
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            We are proud to collaborate with some of the best in the industry.
+          <p className="mt-4 text-base text-gray-600 max-w-2xl mx-auto">
+            দূরদূরান্ত থেকে আসা হাজারো ভ্রমণকারী আমাদের সেবার মাধ্যমে উপভোগ করেছেন
+            ঝামেলামুক্ত ভ্রমণের আনন্দ। নিরাপদ যাতায়াত, আরামদায়ক হোটেল, গাইডেড ট্যুর
+            এবং নিখুঁত সার্ভিস — সবকিছু আমরা ম্যানেজ করি আপনার জন্য।
           </p>
         </div>
 
