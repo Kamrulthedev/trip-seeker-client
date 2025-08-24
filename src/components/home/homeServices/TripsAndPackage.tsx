@@ -29,23 +29,246 @@ import { BtnPrimary } from '../../ui/BtnPrimary';
 
 
 const allTravelServices = [
-  // Couple & Friends Escape
-  { id: 'cpl01', name: 'কক্সবাজার সূর্যোদয় ট্যুর', price: 4500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'কক্সবাজার, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বিশ্বের দীর্ঘতম প্রাকৃতিক সমুদ্র সৈকতের শ্বাসরুদ্ধকর সৌন্দর্য উপভোগ করুন।', features: ["৩ তারকা হোটেলে থাকার ব্যবস্থা", "নিরাপদ যাতায়াতের জন্য এসি বাস", "সকালের নাস্তা এবং রাতের খাবার", "হিমছড়ি ও ইনানী বিচে ভ্রমণ"] },
-  { id: 'cpl02', name: 'সেন্ট মার্টিন প্রবাল দ্বীপ', price: 7500, thumbnail: inaniTamil, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: 'সেন্ট মার্টিন, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বাংলাদেশের একমাত্র প্রবাল দ্বীপে ২ দিনের একটি অসাধারণ ভ্রমণ।', features: ["এসি বাস ও জাহাজের টিকিট", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "স্নোরকেলিং এবং স্কুবা ডাইভিং", "সার্বক্ষণিক ট্যুর গাইড"] },
-  { id: 'cpl03', name: 'সাজেক ভ্যালি মেঘের রাজ্য', price: 6500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.9, location: 'সাজেক, রাঙ্গামাটি', category: 'Couple & Friends Escape', description: 'মেঘের উপরে বসবাসের এক অসাধারণ অভিজ্ঞতা অর্জন করুন।', features: ["রাউন্ড ট্রিপ ট্রান্সপোর্ট (চান্দের গাড়ি)", "ইকো-ফ্রেন্ডলি কটেজে থাকা", "প্রতিদিনের তিন বেলা খাবার", "স্থানীয় দর্শনীয় স্থান ভ্রমণ"] },
-  { id: 'cpl04', name: 'টাঙ্গুয়ার হাওর ভ্রমণ', price: 5500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: 'সুনামগঞ্জ, বাংলাদেশ', category: 'Couple & Friends Escape', description: 'বাংলাদেশের দ্বিতীয় বৃহত্তম মিঠাপানির জলাভূমিতে নৌকায় রাত্রিযাপন।', features: ["হাউসবোটে থাকার ব্যবস্থা", "সকল খাবার (স্থানীয় মেনু)", "ওয়াচ টাওয়ার ও ছোট ছোট গ্রাম ভ্রমণ", "নিরাপত্তা সরঞ্জাম"] },
-  
-  // Explorer’s Special
-  { id: 'exp01', name: 'বান্দরবান ট্রেকিং অভিযান', price: 8000, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.7, location: 'বান্দরবান, বাংলাদেশ', category: 'Explorer’s Special', description: 'বান্দরবানের অত্যাশ্চর্য পাহাড়ের মধ্য দিয়ে ট্রেকিং করুন।', features: ["স্থানীয় পরিবহন (চান্দের গাড়ি)", "রিসোর্টে থাকার ব্যবস্থা", "প্রতিদিনের খাবার", "জনপ্রিয় স্থানসমূহে প্রবেশ ফি"] },
-  { id: 'exp02', name: 'সুন্দরবন ম্যানগ্রোভ সাফারি', price: 12500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'সুন্দরবন, খুলনা', category: 'Explorer’s Special', description: 'বিশ্বের বৃহত্তম ম্যানগ্রোভ বনে একটি রোমাঞ্চকর নৌকা সাফারি।', features: ["৩ দিন ২ রাত ক্রুজ জাহাজে থাকা", "সকল খাবার", "বন বিভাগের অনুমতি ও ফি", "সশস্ত্র বন প্রহরী"] },
-  { id: 'exp03', name: 'নাফাখুম জলপ্রপাত অভিযান', price: 7800, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.6, location: 'বান্দরবান, বাংলাদেশ', category: 'Explorer’s Special', description: 'বাংলাদেশের অন্যতম সুন্দর জলপ্রপাত নাফাখুমে একটি চ্যালেঞ্জিং ট্রেকিং।', features: ["গাইড এবং পোর্টার", "থাকার জন্য আদিবাসী বাড়ি", "সকল খাবার", "নিরাপত্তা ও প্রাথমিক চিকিৎসা"] },
-  { id: 'exp04', name: 'হামহাম জলপ্রপাত ও রাজকান্দি', price: 6200, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4],rating: 4.5, location: 'মৌলভীবাজার, সিলেট', category: 'Explorer’s Special', description: 'সিলেটের গহীন জঙ্গলে অবস্থিত হামহাম জলপ্রপাতে রোমাঞ্চকর অভিযান।', features: ["ট্রান্সপোর্ট ও স্থানীয় গাইড", "সকালের নাস্তা ও দুপুরের খাবার", "লাইফ জ্যাকেট", "প্রবেশ ফি"] },
+  // =========================
+  // 🏝️ Couple & Friends Escape
+  // =========================
+  {
+    id: "cpl01",
+    name: "Romantic Beach Gateway",
+    price: 14500,
+    thumbnail: Beach1,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.8,
+    location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার",
+    category: "Couple & Friends Escape",
+    description:
+      "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান। কোনো প্রশ্ন থাকলে আমাদের নক করুন – আমরা সবসময় আপনার পাশে আছি।",
+    features: [
+      "৩ তারকা হোটেল (১ রাত, ২ দিন)",
+      "সকালের নাস্তা ও রাতের খাবার",
+      "এসি গাড়ি দ্বারা যাতায়াত",
+      "লাবণী ও কলাতলী সৈকতে ভ্রমণ",
+      "একজন গাইড",
+    ],
+  },
+  {
+    id: "cpl02",
+    name: "Inani & Himchori Adventure",
+    price: 16500,
+    thumbnail: Beach2,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.7,
+    location: "ইনানী ও হিমছড়ি, কক্সবাজার",
+    category: "Couple & Friends Escape",
+    description:
+      "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ তারকা হোটেল (২ রাত, ৩ দিন)",
+      "প্রাতঃরাশ ও রাতের খাবার",
+      "এসি মাইক্রোবাস",
+      "ইনানী বিচ ও হিমছড়ি ভ্রমণ",
+      "একজন গাইড",
+    ],
+  },
+  {
+    id: "cpl03",
+    name: "Maheshkhali Island Tour",
+    price: 17500,
+    thumbnail: Beach3,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.8,
+    location: "মহেশখালী দ্বীপ",
+    category: "Couple & Friends Escape",
+    description:
+      "মহেশখালীর পাহাড়, বৌদ্ধ মন্দির ও দ্বীপজীবনের স্বাদ নিতে দারুণ একটি ট্যুর। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ তারকা হোটেল (১ রাত, ২ দিন)",
+      "নৌকা ভ্রমণ",
+      "মহেশখালীর মন্দির ও পাহাড় দর্শন",
+      "সী-ফুড ডিনার",
+      "গাইড",
+    ],
+  },
+  {
+    id: "cpl04",
+    name: "PatuaTek Sunset Escape",
+    price: 15500,
+    thumbnail: patuertekTamil,
+    images: [patuertek1, patuertek2, patuertek3, patuertek4],
+    rating: 4.6,
+    location: "পাটুয়ারটেক, কক্সবাজার",
+    category: "Couple & Friends Escape",
+    description:
+      "সন্ধ্যার সূর্যাস্ত আর শান্ত সৈকতে কাটুক আপনার সেরা সময়। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "২ তারকা হোটেল (১ রাত, ২ দিন)",
+      "সন্ধ্যায় সূর্যাস্ত দেখা",
+      "বারবিকিউ ডিনার",
+      "প্রাইভেট কার",
+      "একজন গাইড",
+    ],
+  },
 
-  // Family & Group Trips
-  { id: 'fam01', name: 'ঐতিহাসিক ঢাকা সিটি ট্যুর', price: 3500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.6, location: 'ঢাকা, বাংলাদেশ', category: 'Family & Group Trips', description: 'পুরান ঢাকার সমৃদ্ধ ইতিহাস ঘুরে দেখুন।', features: ["শীতাতপ নিয়ন্ত্রিত প্রাইভেট গাড়ি", "ইংরেজিভাষী গাইড", "সকল প্রবেশ টিকিট", "ঐতিহ্যবাহী পুরান ঢাকার খাবার"] },
-  { id: 'fam02', name: 'শ্রীমঙ্গল চা বাগান ভ্রমণ', price: 4800, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: 'শ্রীমঙ্গল, সিলেট', category: 'Family & Group Trips', description: 'বাংলাদেশের চায়ের রাজধানীতে একটি শান্তিময় ভ্রমণ।', features: ["লাক্সারি রিসোর্টে থাকা", "চা বাগানে ভ্রমণ ও চা-পান", "লাউয়াছড়া জাতীয় উদ্যান ভ্রমণ", "সকালের নাস্তা"] },
-  { id: 'fam03', name: 'বগা লেক ও কেওক্রাডং', price: 8500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: 'বান্দরবান, বাংলাদেশ', category: 'Family & Group Trips', description: 'পাহাড়ের চূড়ায় অবস্থিত বগা লেকে ক্যাম্পিং এবং কেওক্রাডং চূড়া জয়।', features: ["চান্দের গাড়ি", "ক্যাম্পিং সরঞ্জাম", "সকল খাবার", "অভিজ্ঞ গাইড"] },
-  { id: 'fam04', name: 'প্রাচীন পুঠিয়া মন্দির নগরী', price: 4200, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.5, location: 'পুঠিয়া, রাজশাহী', category: 'Family & Group Trips', description: 'ঐতিহাসিকভাবে গুরুত্বপূর্ণ হিন্দু মন্দিরগুলো ঘুরে দেখুন।', features: ["প্রাইভেট ট্রান্সপোর্ট", "স্থানীয় গাইড", "প্রবেশ ফি", "দুপুরের খাবার"] }
+  // =========================
+  // 🌿 Explorer’s Special
+  // =========================
+  {
+    id: "exp01",
+    name: "Nature & Heritage Explorer",
+    price: 22500,
+    thumbnail: inaniTamil,
+    images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4],
+    rating: 4.9,
+    location: "রামু, হিমছড়ি, ইনানী",
+    category: "Explorer’s Special",
+    description:
+      "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৪ তারকা হোটেল (২ রাত, ৩ দিন)",
+      "সব খাবারের ব্যবস্থা",
+      "এসি কোস্টার",
+      "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ",
+      "২ জন গাইড",
+    ],
+  },
+  {
+    id: "exp02",
+    name: "Sonadia Island Trip",
+    price: 24500,
+    thumbnail: Beach2,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.7,
+    location: "সোনাদিয়া দ্বীপ",
+    category: "Explorer’s Special",
+    description:
+      "পাখি দেখা, নিরিবিলি সৈকত আর প্রকৃতির শান্ত সৌন্দর্য উপভোগ করুন। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ তারকা হোটেল (২ রাত, ৩ দিন)",
+      "নৌকা ভ্রমণ",
+      "সোনাদিয়া দ্বীপ এক্সপ্লোর",
+      "সী-ফুড স্পেশাল খাবার",
+      "প্রফেশনাল গাইড",
+    ],
+  },
+  {
+    id: "exp03",
+    name: "Teknaf & Naf River Tour",
+    price: 25500,
+    thumbnail: Beach3,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.8,
+    location: "টেকনাফ, নাফ নদী",
+    category: "Explorer’s Special",
+    description:
+      "বাংলাদেশের দক্ষিণ প্রান্ত টেকনাফ ভ্রমণ আর নাফ নদীর অপরূপ দৃশ্য উপভোগ করুন। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ তারকা হোটেল (২ রাত, ৩ দিন)",
+      "এসি গাড়ি",
+      "নাফ নদীতে নৌকা ভ্রমণ",
+      "টেকনাফ সাবরাং পয়েন্ট ভ্রমণ",
+      "গাইড",
+    ],
+  },
+  {
+    id: "exp04",
+    name: "St. Martin’s Coral Island",
+    price: 28500,
+    thumbnail: Beach4,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 5.0,
+    location: "সেন্ট মার্টিন দ্বীপ",
+    category: "Explorer’s Special",
+    description:
+      "বাংলাদেশের একমাত্র প্রবাল দ্বীপ সেন্ট মার্টিন ঘুরে দেখুন। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ রাত, ৪ দিনের প্যাকেজ",
+      "সী-ফুড ও বারবিকিউ নাইট",
+      "কক্সবাজার-টেকনাফ-সেন্ট মার্টিন ভ্রমণ",
+      "লাক্সারি বোটে যাতায়াত",
+      "২ জন গাইড",
+    ],
+  },
+
+  // =========================
+  // 👨‍👩‍👧 Family & Group Trips
+  // =========================
+  {
+    id: "fam01",
+    name: "Family Beach Holiday",
+    price: 38000,
+    thumbnail: Beach1,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.8,
+    location: "কক্সবাজার প্রধান সমুদ্রসৈকত",
+    category: "Family & Group Trips",
+    description:
+      "পরিবার নিয়ে সমুদ্রসৈকতের আনন্দে ভরা একটি ঝামেলামুক্ত ছুটি। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ তারকা হোটেল (২ রাত, ৩ দিন)",
+      "সকালের নাস্তা, দুপুর ও রাতের খাবার",
+      "বড় বাস/কোস্টার",
+      "প্রধান সৈকত ও হিমছড়ি ভ্রমণ",
+      "শিশুদের জন্য আলাদা খাবার",
+    ],
+  },
+  {
+    id: "fam02",
+    name: "Safari & Sea Trip",
+    price: 42000,
+    thumbnail: Beach2,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.9,
+    location: "ডুলাহাজারা সাফারি পার্ক, ইনানী",
+    category: "Family & Group Trips",
+    description:
+      "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৩ তারকা হোটেল (২ রাত, ৩ দিন)",
+      "সব খাবার",
+      "ডুলাহাজারা সাফারি পার্ক ভ্রমণ",
+      "ইনানী বিচ ট্যুর",
+      "২ জন গাইড",
+    ],
+  },
+  {
+    id: "fam03",
+    name: "Kutubdia Island Group Tour",
+    price: 46000,
+    thumbnail: Beach3,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 4.7,
+    location: "কুতুবদিয়া দ্বীপ",
+    category: "Family & Group Trips",
+    description:
+      "কুতুবদিয়ার বাতিঘর আর নিরিবিলি সৈকতের মায়ায় কাটুক পরিবারিক ছুটি। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "২ রাত, ৩ দিনের প্যাকেজ",
+      "ফেরি ভ্রমণ",
+      "কুতুবদিয়ার বাতিঘর ভ্রমণ",
+      "সী-ফুড ও বারবিকিউ ডিনার",
+      "৩ জন গাইড",
+    ],
+  },
+  {
+    id: "fam04",
+    name: "Luxury Family Vacation",
+    price: 55000,
+    thumbnail: Beach4,
+    images: [Beach1, Beach2, Beach3, Beach4],
+    rating: 5.0,
+    location: "কক্সবাজার ও আশেপাশের দ্বীপ",
+    category: "Family & Group Trips",
+    description:
+      "বড় পরিবার বা গ্রুপের জন্য বিলাসবহুল ট্যুর – সমুদ্র, দ্বীপ ও পাহাড় সব একসাথে। কোনো প্রশ্ন থাকলে আমাদের নক করুন।",
+    features: [
+      "৫ তারকা হোটেল (৩ রাত, ৪ দিন)",
+      "সব ধরনের খাবার",
+      "সেন্ট মার্টিন + ইনানী + হিমছড়ি ভ্রমণ",
+      "প্রিমিয়াম কোস্টার",
+      "ফটোগ্রাফি ও ভিডিওগ্রাফি",
+      "২৪/৭ সিকিউরিটি",
+    ],
+  },
 ];
 
 const categories = ["Couple & Friends Escape", "Explorer’s Special", "Family & Group Trips"];
@@ -69,7 +292,8 @@ export const TripsAndPackage = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center" initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl p-3">আমাদের জনপ্রিয় ট্যুর ও প্যাকেজসমূহ</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">আপনার পরবর্তী অ্যাডভেঞ্চার এখান থেকেই শুরু হোক! বাংলাদেশের अविस्मरणीय অভিজ্ঞতাগুলো থেকে বেছে নিন।</p>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">🌊 আপনার পরবর্তী অ্যাডভেঞ্চার এখান থেকেই শুরু হোক! বাংলাদেশের অদ্ভুত সুন্দর কক্সবাজার আপনাকে ডাকছে। বিশ্বের দীর্ঘতম সমুদ্রসৈকতের অনন্ত ঢেউ, সূর্যাস্তের মনোমুগ্ধকর দৃশ্য আর নিরবচ্ছিন্ন নীল আকাশে হারিয়ে যান।</p>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">✈️ এখনই পরিকল্পনা করুন, আর কক্সবাজারের প্রতিটি কোণায় খুঁজে নিন ভ্রমণের নতুন আনন্দ!</p>
         </motion.div>
         <div className="flex justify-center my-10">
           <div className="flex flex-wrap justify-center gap-2 bg-slate-200 p-1.5 rounded-lg">
@@ -79,7 +303,7 @@ export const TripsAndPackage = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {isLoading
             ? Array.from({ length: 4 }).map((_, index) => <ServiceCardLoader key={index} />)
             : filteredServices.slice(0, 4).map(service => (<ServiceCard key={service.id} service={service} onDetailsClick={handleDetailsClick} />))
