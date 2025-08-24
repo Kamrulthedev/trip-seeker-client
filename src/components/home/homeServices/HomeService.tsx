@@ -97,7 +97,7 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
             <div className="flex flex-col p-6 bg-slate-50">
               <button
                 onClick={onClose}
-                className=" absolute top-4 right-4 flex items-center justify-center text-red-600 hover:text-red-500 transition-all duration-200 rounded-full active:scale-90 hover:rotate-90 p-2 bg-gray-100 shadow-sm lg:p-0 lg:bg-transparent lg:shadow-none">
+                className=" absolute top-4 right-4 flex items-center justify-center text-red-600 hover:text-red-500 transition-all duration-200 rounded-full active:scale-90 hover:rotate-90 p-2 bg-red-200 shadow-sm lg:p-0 lg:bg-transparent lg:shadow-none">
                 <X size={24} />
               </button>
               <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full self-start">{service.category}</span>
