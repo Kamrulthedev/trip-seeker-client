@@ -27,7 +27,7 @@ const Agensys = () => {
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl p-2 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl lg:text-5xl">
-            কক্সবাজার ভ্রমণে নির্ভরযোগ্য এজেন্সি
+            বাংলাদেশ ভ্রমণে নির্ভরযোগ্য এজেন্সি
           </h2>
           <p className="mt-4 text-base text-gray-600 max-w-2xl mx-auto">
             দূরদূরান্ত থেকে আসা হাজারো ভ্রমণকারী আমাদের সেবার মাধ্যমে উপভোগ করেছেন
