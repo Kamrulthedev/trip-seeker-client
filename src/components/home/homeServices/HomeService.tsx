@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { X, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- Helper Component for Image Loading ---
+
 // This component shows a skeleton loader while the image is loading.
 const ImageLoader = ({ src, alt, className }: { src: string, alt: string, className: string }) => {
   const [isLoading, setIsLoading] = useState(true);
