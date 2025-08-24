@@ -63,7 +63,7 @@ const Explore = () => {
                             From the serene beaches of Cox's Bazar to the lush green hills of Bandarban, embark on an unforgettable journey to discover the hidden gems and rich cultural heritage of Bangladesh.
                         </motion.p>
                         <motion.div variants={itemVariants} className="mt-10 w-full flex justify-center lg:justify-start">
-                            <Link to="/tours" className=' border border-green-500 rounded-md'>
+                            <Link to="/tours">
                                 <BtnPrimary text="Explore Tours" title="Explore Tours" />
                             </Link>
                         </motion.div>

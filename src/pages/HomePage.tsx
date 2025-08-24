@@ -13,6 +13,7 @@ const HomePage = () => {
       <Agensys></Agensys>
       <Explore></Explore>
       <TripsAndPackage></TripsAndPackage>
+      
       <PhotoGallery />
       <Agensys></Agensys>
     </div>
