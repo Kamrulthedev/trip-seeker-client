@@ -43,7 +43,8 @@ const itemVariants:any = {
 
 const PhotoGallery = () => {
   return (
-    <div className="bg-slate-50 py-10">
+    // UPDATED: Reduced padding for better look
+    <div className="bg-slate-50 py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -53,7 +54,7 @@ const PhotoGallery = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl p-3 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
             ভ্রমণের ডায়েরি থেকে কিছু মুহূর্ত
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
@@ -61,10 +62,11 @@ const PhotoGallery = () => {
           </p>
         </motion.div>
 
-        {/* Photo Grid - Updated for a dynamic "quilted" layout */}
+        {/* Photo Grid - Updated for responsiveness */}
         <PhotoProvider>
           <motion.div
-            className="grid grid-cols-12 auto-rows-[250px] gap-4"
+            // UPDATED: Grid layout now responsive
+            className="grid lg:grid-cols-12 auto-rows-[250px] gap-4"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
