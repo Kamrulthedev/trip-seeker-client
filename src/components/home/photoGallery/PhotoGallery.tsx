@@ -54,7 +54,7 @@ const PhotoGallery = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl p-3 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
             ভ্রমণের ডায়েরি থেকে কিছু মুহূর্ত
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">

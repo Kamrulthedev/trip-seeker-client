@@ -61,7 +61,7 @@ const Plan = () => {
             variants={itemVariants}
           >
             <motion.span 
-              className="bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text"
+              className="bg-gradient-to-r p-2 from-blue-400 to-green-400 text-transparent bg-clip-text"
               animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               style={{ backgroundSize: "200% 200%" }}
