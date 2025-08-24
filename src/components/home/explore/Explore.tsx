@@ -47,27 +47,35 @@ const Explore = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     {/* --- Text Content (Order 2 on mobile, 1 on desktop) --- */}
-                    <motion.article className="flex flex-col items-start text-center lg:text-left order-2 lg:order-1">
+                    <motion.article className="flex flex-col lg:items-start text-center lg:text-left order-2 lg:order-1">
                         <motion.h1
-                            className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-5xl md:text-6xl"
+                            className="text-4xl font-extrabold tracking-tight leading-snug text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-5xl md:text-6xl lg:text-start text-center"
                             variants={itemVariants}
                         >
-                            Explore Beaches, Hills &
+                            কক্সবাজারের সৈকত ও পাহাড়
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">Culture of Bangladesh</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">
+                                ভ্রমণে নতুন অভিজ্ঞতা
+                            </span>
                         </motion.h1>
                         <motion.p
                             className="mt-6 max-w-lg mx-auto lg:mx-0 text-lg leading-8 text-gray-600"
                             variants={itemVariants}
                         >
-                            From the serene beaches of Cox's Bazar to the lush green hills of Bandarban, embark on an unforgettable journey to discover the hidden gems and rich cultural heritage of Bangladesh.
+                            কক্সবাজারের শান্ত সমুদ্রসৈকত থেকে শুরু করে সবুজ পাহাড় আর দ্বীপজুড়ে
+                            ভ্রমণ — আমরা আপনার জন্য ম্যানেজ করব থাকা, খাওয়া ও নিরাপদ ভ্রমণের সবকিছু।
+                            পরিবার, বন্ধু কিংবা কাপল — সবার জন্য আমাদের রয়েছে বিশেষ প্যাকেজ।
                         </motion.p>
-                        <motion.div variants={itemVariants} className="mt-10 w-full flex justify-center lg:justify-start">
+                        <motion.div
+                            variants={itemVariants}
+                            className="mt-10 w-full flex justify-center lg:justify-start"
+                        >
                             <Link to="/tours">
-                                <BtnPrimary text="Explore Tours" title="Explore Tours" />
+                                <BtnPrimary text="প্যাকেজ দেখুন" title="প্যাকেজ দেখুন" />
                             </Link>
                         </motion.div>
                     </motion.article>
+
 
                     {/* --- Image Container (Order 1 on mobile, 2 on desktop) --- */}
                     <motion.article

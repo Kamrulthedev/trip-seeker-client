@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-// Common classes for buttons
 const baseButtonClasses = `
   relative overflow-hidden font-sans font-bold text-sm
   tracking-wider uppercase transition-all duration-300 ease-in-out
@@ -9,12 +8,10 @@ const baseButtonClasses = `
   group
 `;
 
-// Default text style for blue color
 const blueTextStyle = {
   color: '#F9FAFB',
 };
 
-// Hover text style with gradient
 const hoverTextGradientStyle = {
   backgroundImage: `linear-gradient(to right, #F9FAFB
 , #F9FAFB
@@ -23,7 +20,6 @@ const hoverTextGradientStyle = {
   WebkitTextFillColor: 'transparent',
 };
 
-// 1. Primary Button Component with animated blur border and text hover
 export const BtnPrimary = ({ text, title }: { text: string; title: string }) => {
   return (
     <div className="flex justify-center">
@@ -34,7 +30,6 @@ export const BtnPrimary = ({ text, title }: { text: string; title: string }) => 
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {/* Animated and blurred border */}
         <motion.div
           className="absolute inset-[-10px] rounded-md bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)] filter blur-md opacity-100 group-hover:blur-md transition-all duration-500 z-0"
           initial={{ rotate: 0 }}
@@ -42,7 +37,6 @@ export const BtnPrimary = ({ text, title }: { text: string; title: string }) => 
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
 
-        {/* Button content */}
         <div className="relative z-20 w-full h-full flex items-center justify-center bg-transparent rounded-md">
           <p
             className="absolute inset-0 w-full h-full flex items-center justify-center
