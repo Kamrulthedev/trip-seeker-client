@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { motion } from 'framer-motion';
@@ -7,7 +8,6 @@ import g1 from "../../../assets/images/gallery/g1.jpg";
 import g2 from "../../../assets/images/gallery/g2.jpg";
 import g3 from "../../../assets/images/gallery/g6.jpg";
 import g4 from "../../../assets/images/gallery/g6.jpg";
-import g5 from "../../../assets/images/gallery/g3.jpg";
 import g6 from "../../../assets/images/gallery/g4.jpg";
 import g7 from "../../../assets/images/gallery/g7.jpg";
 
@@ -18,9 +18,8 @@ const photos = [
   { src: g2, alt: "Sajek Valley", className: "col-span-12 md:col-span-6" }, 
   { src: g3, alt: "Bandarban Hills", className: "col-span-12 md:col-span-3" }, 
   { src: g4, alt: "Saint Martin's Island", className: "col-span-12 md:col-span-3" }, 
-  { src: g5, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" },
+  { src: g7, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" },
   { src: g6, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" },
-  { src: g7, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" }, 
 ];
 
 // --- Framer Motion Variants ---
@@ -32,7 +31,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants:any = {
   hidden: { opacity: 0, scale: 0.8, y: 20 },
   visible: {
     opacity: 1,
@@ -44,7 +43,7 @@ const itemVariants = {
 
 const PhotoGallery = () => {
   return (
-    <div className="bg-slate-50 py-20">
+    <div className="bg-slate-50 py-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -54,7 +53,7 @@ const PhotoGallery = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl p-3 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl">
             ভ্রমণের ডায়েরি থেকে কিছু মুহূর্ত
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
