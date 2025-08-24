@@ -1,7 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// --- Helper Component for Image Loading ---
+// This component shows a skeleton loader while the image is loading.
+const ImageLoader = ({ src, alt, className }: { src: string, alt: string, className: string }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <div className={`relative ${className}`}>
+      {isLoading && (
+        <div className="absolute inset-0 bg-slate-200 animate-pulse rounded-lg"></div>
+      )}
+      <img 
+        src={src} 
+        alt={alt} 
+        className={`w-full h-full object-cover transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        onLoad={() => setIsLoading(false)}
+      />
+    </div>
+  );
+};
 
 
 export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any, isOpen: boolean, onClose: () => void }) => {
@@ -26,35 +46,48 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
     alert("Rating button clicked! Check console.");
   };
 
+  const backdropVariants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
+  const modalVariants:any = {
+    hidden: { y: "10vh", opacity: 0 },
+    visible: { y: "0", opacity: 1, transition: { type: "spring", stiffness: 300, damping: 30 } },
+    exit: { y: "10vh", opacity: 0, transition: { duration: 0.2 } },
+  };
+
   return (
     <AnimatePresence>
       {isOpen && service && (
         <motion.div
-          // Backdrop
           className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          variants={backdropVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
           onClick={onClose}
         >
           <motion.div
-            // Modal Content
             className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto grid grid-cols-1 lg:grid-cols-2 gap-0"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            variants={modalVariants}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Image Gallery */}
             <div className="relative flex flex-col p-4">
-              <div className="relative w-full h-80 rounded-lg overflow-hidden mb-4">
-                <img src={currentImage} alt={service.name} className="w-full h-full object-cover" />
-              </div>
+              <ImageLoader 
+                src={currentImage} 
+                alt={service.name} 
+                className="w-full h-80 rounded-lg overflow-hidden mb-4"
+              />
               <div className="grid grid-cols-4 gap-2">
                 {service.images.map((img: string, index: number) => (
                   <button key={index} onClick={() => setCurrentImage(img)} className={`rounded-md overflow-hidden border-2 transition-all ${currentImage === img ? 'border-blue-500 scale-105' : 'border-transparent'}`}>
-                    <img src={img} alt={`${service.name} view ${index + 1}`} className="w-full h-20 object-cover" />
+                    <ImageLoader 
+                      src={img} 
+                      alt={`${service.name} view ${index + 1}`} 
+                      className="w-full h-20"
+                    />
                   </button>
                 ))}
               </div>
