@@ -18,49 +18,21 @@ export default function Banner() {
   return (
     <>
       {/* You can add these styles to your global CSS file instead */}
-      <style>
+    <style>
         {`
-          .mySwiper .swiper-pagination-bullet {
-            background-color: #ffffff;
-            width: 10px;
-            height: 10px;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-          }
-          .mySwiper .swiper-pagination-bullet-active {
-            background-color: #22c55e; /* green-500 */
-            width: 25px;
-            border-radius: 5px;
-            opacity: 1;
-          }
-          .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
-            color: #ffffff;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            transition: background-color 0.3s ease;
-          }
-          .mySwiper .swiper-button-next:hover, .mySwiper .swiper-button-prev:hover {
-             background-color: rgba(0, 0, 0, 0.5);
-          }
-           .mySwiper .swiper-button-next::after, .mySwiper .swiper-button-prev::after {
-            font-size: 1.25rem;
-            font-weight: bold;
-           }
+          .mySwiper .swiper-pagination-bullet { background-color: #ffffff; width: 10px; height: 10px; opacity: 0.7; transition: all 0.3s ease; }
+          .mySwiper .swiper-pagination-bullet-active { background-color: #22c55e; width: 25px; border-radius: 5px; opacity: 1; }
+          .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev { color: #ffffff; background-color: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 28px; height: 28px; transition: background-color 0.3s ease; }
+          .mySwiper .swiper-button-next:hover, .mySwiper .swiper-button-prev:hover { background-color: rgba(0, 0, 0, 0.5); }
+          .mySwiper .swiper-button-next::after, .mySwiper .swiper-button-prev::after { font-size: 1.25rem; font-weight: bold; }
         `}
       </style>
       <Swiper
         spaceBetween={30}
         effect={"fade"} 
         navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-          delay: 10000, 
-          disableOnInteraction: false,
-        }}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 10000, disableOnInteraction: false }}
         loop={true}
         modules={[EffectFade, Autoplay, Pagination, Navigation]}
         className="mySwiper"

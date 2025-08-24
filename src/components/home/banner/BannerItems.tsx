@@ -7,6 +7,7 @@ import { BtnPrimary } from "../../ui/BtnPrimary";
 import { motion } from "framer-motion";
 
 
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -18,7 +19,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants : any = {
+const itemVariants:any = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -30,51 +31,36 @@ const itemVariants : any = {
   },
 };
 
-
-// A reusable Banner Slide component to avoid repetition
-const BannerSlide = ({ videoSrc, title, subtitle, buttonLink, textAlignment = 'start', contentAlignment = 'start' } : any) => {
-  const textAlignClass = `text-${textAlignment}`;
-  const flexAlignClass = `justify-${contentAlignment}`;
+export const BannerSlide = ({ videoSrc, title, subtitle, buttonLink, textAlignment = 'start', contentAlignment = 'start' }: any) => {
+  // A single class to control alignment of all items in the content block
+  const contentBlockAlignmentClass = () => {
+    switch(textAlignment) {
+      case 'center':
+        return 'items-center text-center';
+      case 'right':
+        return 'items-end text-right';
+      default:
+        return 'items-start text-left';
+    }
+  };
 
   return (
     <div className="relative w-full h-[70vh] md:h-[90vh] lg:h-screen max-h-[950px] overflow-hidden">
-      {/* Video Background */}
-      <video
-        key={videoSrc} // Add key to force re-render on slide change
-        src={videoSrc}
-        className="w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline // Important for iOS autoplay
-      />
-      {/* Gradient Overlay for better text readability */}
+      <video key={videoSrc} src={videoSrc} className="w-full h-full object-cover" autoPlay loop muted playsInline />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-
-      {/* Content */}
-      <div className={`absolute inset-0 flex items-center ${flexAlignClass}`}>
+      <div className={`absolute inset-0 flex items-center justify-${contentAlignment}`}>
         <motion.div
-          className={`container mx-auto text-white px-6 md:px-12 lg:px-20 ${textAlignClass}`}
+          className={`container mx-auto text-white px-6 md:px-12 lg:px-20 flex flex-col ${contentBlockAlignmentClass()}`}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible" 
           viewport={{ once: true }} 
         >
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-md mb-4"
-            variants={itemVariants}
-          >
-            {title}
-          </motion.h1>
-          <motion.p
-            className="text-md sm:text-lg max-w-xl drop-shadow-sm mb-8"
-            variants={itemVariants}
-          >
-            {subtitle}
-          </motion.p>
-          <motion.div variants={itemVariants} className={`flex ${flexAlignClass}`}>
+          <motion.h1 className="text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-md mb-4" variants={itemVariants}>{title}</motion.h1>
+          <motion.p className="text-md sm:text-lg max-w-xl drop-shadow-sm mb-8" variants={itemVariants}>{subtitle}</motion.p>
+          <motion.div variants={itemVariants}>
              <Link to={buttonLink}>
-               <BtnPrimary text="Our Services" title="Our Services" />
+               <BtnPrimary text="আমাদের সার্ভিসসমূহ" title="Our Services" />
              </Link>
           </motion.div>
         </motion.div>
@@ -83,12 +69,11 @@ const BannerSlide = ({ videoSrc, title, subtitle, buttonLink, textAlignment = 's
   );
 };
 
-
 export const BannerItem1 = () => (
     <BannerSlide 
         videoSrc={video1}
-        title="Explore Cox’s Bazar & Chittagong Like Never Before"
-        subtitle="Discover the best experiences in Bangladesh"
+        title="কক্সবাজার ও চট্টগ্রামের সৌন্দর্য আবিষ্কার করুন"
+        subtitle="বাংলাদেশের সেরা অভিজ্ঞতাগুলো খুঁজে নিন আমাদের সাথে।"
         buttonLink="/services"
         textAlignment="left"
         contentAlignment="start"
@@ -98,8 +83,8 @@ export const BannerItem1 = () => (
 export const BannerItem2 = () => (
     <BannerSlide 
         videoSrc={video2}
-        title="Bangladesh – Your Travel Partner to the Sea & Hills"
-        subtitle="Experience nature, culture, and adventure"
+        title="পাহাড় ও সমুদ্রে আপনার নির্ভরযোগ্য ভ্রমণ সঙ্গী"
+        subtitle="অভিজ্ঞতা, সংস্কৃতি এবং অ্যাডভেঞ্চারের এক নতুন দিগন্ত।"
         buttonLink="/services"
         textAlignment="center"
         contentAlignment="center"
@@ -109,8 +94,8 @@ export const BannerItem2 = () => (
 export const BannerItem3 = () => (
     <BannerSlide 
         videoSrc={video3}
-        title="Explore Beaches, Hills & Culture of Bangladesh"
-        subtitle="Your adventure starts here"
+        title="সৈকত, পাহাড় ও সংস্কৃতি উপভোগ করুন"
+        subtitle="আপনার স্বপ্নের ভ্রমণ এখান থেকেই শুরু হোক।"
         buttonLink="/services"
         textAlignment="right"
         contentAlignment="end"
