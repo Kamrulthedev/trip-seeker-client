@@ -16,8 +16,8 @@ const HomePage = () => {
       <Explore></Explore>
       <TripsAndPackage></TripsAndPackage>
       <Winners></Winners>
+      <Plan></Plan>
       <PhotoGallery />
-     <Plan></Plan>
     </div>
   );
 };

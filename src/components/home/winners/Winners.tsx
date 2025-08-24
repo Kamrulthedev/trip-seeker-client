@@ -31,7 +31,7 @@ const itemVariants: any = {
 
 const Winners = () => {
     return (
-        <div className="bg-slate-50 p-4 sm:p-8 md:p-12">
+        <div className="bg-slate-50 p-4 sm:py-14 md:py-16 lg:mb-4 my-16 lg:my-2">
             <motion.div
                 className="relative container mx-auto rounded-2xl shadow-2xl overflow-hidden group h-[60vh] md:h-[70vh]"
                 style={{ transformStyle: 'preserve-3d' }}

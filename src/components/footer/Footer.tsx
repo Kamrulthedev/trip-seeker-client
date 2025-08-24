@@ -1,114 +1,134 @@
-import {
-  FaDribbble,
-  FaFacebook,
-  FaFacebookMessenger,
-  FaInstagram,
-  FaTwitter,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
-import payCopyright from "../../assets/images/pay_copyright.png";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+
+const payCopyrightUrl = "https://i.ibb.co/Qfvn4z6/payment.png";
+import Logo from '../header/Nav/Logo';
+
+// --- Framer Motion Variants ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants:any = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+// --- Helper Component for Footer Links with a new hover effect ---
+const FooterLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+  <Link to={to} className="text-gray-500 hover:text-green-600 transition-colors duration-300 group inline-flex items-center gap-2">
+    <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"/>
+    <span>{children}</span>
+  </Link>
+);
+
 const Footer = () => {
+  const socialLinks = [
+    { icon: <Facebook size={20} />, href: "#" },
+    { icon: <Twitter size={20} />, href: "#" },
+    { icon: <Instagram size={20} />, href: "#" },
+    { icon: <Linkedin size={20} />, href: "#" },
+    { icon: <Youtube size={20} />, href: "#" },
+  ];
+
   return (
-    <footer className="bg-[#f5f5f5]">
-      <div className="grid md:grid-cols-4  container mx-auto py-10 space-y-5 md:space-y-0 justify-center">
-        <div className="space-y-4">
-          <Link to="">
-            <img src={logo} alt="" className="w-36" />
-          </Link>
-          <p>Sophisticated simplicity for the independent mind.</p>
-          <div className="flex space-x-4 text-lg transition-all">
-            <Link to="" className="hover:text-primary">
-              <FaTwitter />
-            </Link>
-            <Link to="" className="hover:text-primary">
-              <FaFacebook />
-            </Link>
-            <Link to="" className="hover:text-primary">
-              <FaDribbble />
-            </Link>
-            <Link to="" className="hover:text-primary">
-              <FaInstagram />
-            </Link>
-            <Link to="" className="hover:text-primary">
-              <FaFacebookMessenger />
-            </Link>
-          </div>
-        </div>
-        <div>
-          <h3 className="text-xl font-bold">Help & Information</h3>
-          <div className="w-16 h-0.5 bg-black mt-2"></div>
-          <div className="space-y-2 flex flex-col mt-6 transition-all text-sm">
-            <Link to="" className="hover:text-primary">
-              Harman Corporate
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Careers
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Terms of Use
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Why Buy Direct
-            </Link>
-          </div>
+    <footer className="bg-white border-t">
+      <motion.div
+        className="container mx-auto px-4 sm:px-6 lg:px-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* Top Section of Footer */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
+          
+          {/* Column 1: Logo, Contact and Socials */}
+          <motion.div className="space-y-6" variants={itemVariants}>
+            <Logo />
+            <p className="text-gray-500">আপনার স্বপ্নের ভ্রমণকে বাস্তবে রূপ দিতে আমরা আছি আপনার পাশে।</p>
+            {/* Contact Info */}
+            <div className="space-y-3 text-gray-500">
+                <div className="flex items-center gap-3">
+                    <MapPin size={18} className="text-blue-500"/>
+                    <span>কক্সবাজার, চট্টগ্রাম, বাংলাদেশ</span>
+                </div>
+                <div className="flex items-center gap-3">
+                    <Phone size={18} className="text-blue-500"/>
+                    <span>01827754168</span>
+                </div>
+                <div className="flex items-center gap-3">
+                    <Mail size={18} className="text-blue-500"/>
+                    <span>tripseekerbd@gmail.com</span>
+                </div>
+            </div>
+            <div className="flex space-x-3 pt-2">
+              {socialLinks.map((link, index) => (
+                <a key={index} href={link.href} className="w-9 h-9 flex items-center justify-center bg-slate-100 rounded-full text-gray-600 transition-all duration-300 hover:bg-gradient-to-r from-blue-500 to-green-500 hover:text-white hover:scale-110">
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Column 2: About Us */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-lg font-semibold text-gray-800">আমাদের সম্পর্কে</h3>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
+            <div className="space-y-3 flex flex-col items-start">
+              <FooterLink to="/about">আমাদের গল্প</FooterLink>
+              <FooterLink to="/careers">ক্যারিয়ার</FooterLink>
+              <FooterLink to="/privacy-policy">গোপনীয়তা নীতি</FooterLink>
+              <FooterLink to="/terms">ব্যবহারের শর্তাবলী</FooterLink>
+            </div>
+          </motion.div>
+
+          {/* Column 3: Popular Destinations */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-lg font-semibold text-gray-800">জনপ্রিয় গন্তব্য</h3>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
+            <div className="space-y-3 flex flex-col items-start">
+              <FooterLink to="/tours/coxs-bazar">কক্সবাজার</FooterLink>
+              <FooterLink to="/tours/saint-martin">সেন্ট মার্টিন</FooterLink>
+              <FooterLink to="/tours/bandarban">বান্দরবান</FooterLink>
+              <FooterLink to="/tours/sajek">সাজেক</FooterLink>
+            </div>
+          </motion.div>
+
+          {/* Column 4: Quick Links */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-lg font-semibold text-gray-800">দ্রুত লিঙ্ক</h3>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
+            <div className="space-y-3 flex flex-col items-start">
+              <FooterLink to="/contact">যোগাযোগ</FooterLink>
+              <FooterLink to="/support">সাপোর্ট</FooterLink>
+              <FooterLink to="/faq">সাধারণ জিজ্ঞাসা</FooterLink>
+              <FooterLink to="/blog">আমাদের ব্লগ</FooterLink>
+            </div>
+          </motion.div>
+
         </div>
 
-        <div>
-          <h3 className="text-xl font-bold">Quick Shop</h3>
-          <div className="w-16 h-0.5 bg-black mt-2"></div>
-          <div className="space-y-2 flex flex-col mt-6 transition-all text-sm">
-            <Link to="" className="hover:text-primary">
-              Sitemap
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Contact Us
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Support Center
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Delivery & Returns
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Investors Site
-            </Link>
-          </div>
-        </div>
-        <div>
-          <h3 className="text-xl font-bold">Categories</h3>
-          <div className="w-16 h-0.5 bg-black mt-2"></div>
-          <div className="space-y-2 flex flex-col mt-6 transition-all text-sm">
-            <Link to="" className="hover:text-primary">
-              Clothing Gym
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Fitness Equipment
-            </Link>
-            <Link to="" className="hover:text-primary">
-              LifeStyle
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Gym Sport
-            </Link>
-            <Link to="" className="hover:text-primary">
-              Supplements
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="border-t">
-        <div className="container mx-auto py-5 flex md:flex-row flex-col-reverse  justify-between items-center">
-          <p className="text-xs text-gray-700 mt-2 md:mt-0">
-            &copy; Copyright 2025. All Rights Reserved. | GymdoStore by
-            Kamrul Hassan
+        {/* Bottom Section of Footer */}
+        <div className="border-t py-6 flex flex-col-reverse sm:flex-row justify-between items-center">
+          <p className="text-sm text-gray-500 mt-4 sm:mt-0">
+            &copy; {new Date().getFullYear()} Trip Seeker | সর্বস্বত্ব সংরক্ষিত | কামরুল হাসান দ্বারা নির্মিত
           </p>
-          <img src={payCopyright} alt="payment Copyright" className="w-52" />
+          <img src={payCopyrightUrl} alt="Payment Methods" className="h-8" />
         </div>
-      </div>
+
+      </motion.div>
     </footer>
   );
 };

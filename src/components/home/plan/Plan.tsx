@@ -40,7 +40,7 @@ const Plan = () => {
     ];
 
   return (
-    <div className="relative bg-slate-100 py-10 sm:py-14">
+    <div className="relative bg-slate-100 py-14 sm:py-16">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <img src={backgroundImage} alt="Beautiful travel destination" className="w-full h-full object-cover" />
