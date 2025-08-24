@@ -60,7 +60,7 @@ export const BannerSlide = ({ videoSrc, title, subtitle, buttonLink, textAlignme
           <motion.p className="text-md sm:text-lg max-w-xl drop-shadow-sm mb-8" variants={itemVariants}>{subtitle}</motion.p>
           <motion.div variants={itemVariants}>
              <Link to={buttonLink}>
-               <BtnPrimary text="আমাদের সার্ভিসসমূহ" title="Our Services" />
+               <BtnPrimary text="সার্ভিসসমূহ দেখুন" title="আমাদের সার্ভিসসমূহ" />
              </Link>
           </motion.div>
         </motion.div>
