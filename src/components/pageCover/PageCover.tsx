@@ -42,11 +42,11 @@ const PageCover = ({ title }: { title: string; }) => {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 className="text-5xl font-extrabold tracking-tight" variants={itemVariants}>
+        <motion.h1 className="text-3xl p-3 font-extrabold tracking-tight  sm:text-4xl lg:text-5xl" variants={itemVariants}>
           {title}
         </motion.h1>
         <motion.div className="flex items-center gap-2 mt-4 text-lg" variants={itemVariants}>
-          <Link to="/" className="hover:text-green-400 transition-colors flex items-center gap-1"><Home size={18} /> হোম</Link>
+          <Link to="/" className="hover:text-green-400 transition-colors flex items-center gap-1"><Home size={18} /> Home</Link>
           <ChevronRight size={18} />
           <span className="text-green-400">{title}</span>
         </motion.div>
