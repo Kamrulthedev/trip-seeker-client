@@ -17,7 +17,7 @@ const Contact = () => {
           >
             Contact Us
           </h1>
-          <div className="w-24 h-0.5 bg-primary"></div>
+          <div className="w-24 h-0.5 bg-primary "></div>
         </div>
         <p className="text-gray-900 text-justify">
           If you would like to know more about our policies, you can consult our

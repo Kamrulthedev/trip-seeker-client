@@ -8,6 +8,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
+
+
+
+
 const PageCover = ({
   image = bgBanner,
   title,

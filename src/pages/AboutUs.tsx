@@ -1,6 +1,5 @@
 import about1 from "../assets/images/about/about11.jpg";
 import about2 from "../assets/images/about/about11.jpg";
-import Contact from "../components/about/contact/Contact";
 import Map from "../components/about/map/Map";
 import Team from "../components/about/team/Team";
 
@@ -67,7 +66,6 @@ const AboutUs = () => {
       <Team />
       <Testimonial />
       <Map />
-      <Contact />
     </div>
   );
 };

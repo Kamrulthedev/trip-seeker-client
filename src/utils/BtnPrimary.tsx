@@ -3,7 +3,7 @@ import React from "react";
 interface BtnPrimaryProps {
   text: string;
   title: string;
-  className?: string; // Optional className for styling
+  className?: string;
 }
 
 export const BtnPrimary: React.FC<BtnPrimaryProps> = ({
