@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import teammemberimage from "../../../assets/images/team/ourteam-1-1.jpg"
+import teammemberimage1 from "../../../assets/images/team/Member1.png"
+import teammemberimage2 from "../../../assets/images/team/member2.png"
+import teammemberimage3 from "../../../assets/images/team/Member3.jpg"
 import { motion } from 'framer-motion';
 import { ImageLoader } from "../../ui/loader/ImageLoader";
 import { FaFacebook } from "react-icons/fa";
@@ -7,9 +9,10 @@ import { CiLinkedin, CiTwitter } from "react-icons/ci";
 
 
 const teamMembers = [
-  { name: 'আরিফুর রহমান', role: 'প্রতিষ্ঠাতা ও সিইও', image: teammemberimage },
-  { name: 'সাদিয়া ইসলাম', role: 'হেড অফ অপারেশনস', image: teammemberimage },
-  { name: 'মিজানুর চৌধুরী', role: 'সিনিয়র ট্যুর গাইড', image: teammemberimage },
+  { name: 'আরিফুর রহমান', role: 'প্রতিষ্ঠাতা ও সিইও', image: teammemberimage1 },
+  { name: 'সাদিয়া ইসলাম', role: 'হেড অফ অপারেশনস', image: teammemberimage2 },
+  { name: 'মিজানুর চৌধুরী', role: 'সিনিয়র ট্যুর গাইড', image: teammemberimage3 },
+  { name: 'মিজানুর চৌধুরী1', role: 'সিনিয়র ট্যুর গাইড1', image: teammemberimage3 },
 ];
 
 const containerVariants = {
@@ -32,7 +35,7 @@ const itemVariants: any = {
 
 const Team = () => {
   return (
-    <div className="container mx-auto py-20 px-4">
+    <div className="container mx-auto py-12 px-4">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
@@ -42,7 +45,7 @@ const Team = () => {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

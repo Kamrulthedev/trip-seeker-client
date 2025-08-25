@@ -5,7 +5,7 @@ import { Autoplay, EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import clientAvater from "../../../assets/images/logo.png"
 import { Quote, Star } from 'lucide-react';
-import testimonialBg from "../../../assets/Winners-new.jpg";
+import testimonialBg from "../../../assets/images/TestimonialBg.jpg";
 
 
 const testimonials = [
@@ -19,10 +19,10 @@ const testimonials = [
 
 const Testimonial = () => {
   return (
-    <div className="relative py-20 bg-white">
+    <div className="relative py-20 bg-slate-50">
       {/* Background Image with Blur and Overlay */}
       <div className="absolute inset-0">
-        <img src={testimonialBg} alt="Happy travelers" className="w-full h-full object-cover filter blur-sm" />
+        <img src={testimonialBg} alt="Happy travelers" className="w-full h-full object-cover filter blur" />
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
       </div>
 
