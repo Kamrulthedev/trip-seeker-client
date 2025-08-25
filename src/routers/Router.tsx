@@ -6,6 +6,7 @@ import Checkout from "../pages/Checkout";
 import HomePage from "../pages/HomePage";
 import ManageProduct from "../pages/ManageProduct";
 import Products from "../pages/Products";
+import Contact from "../components/about/contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +18,16 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/products",
+        path: "/services",
         element: <Products />,
       },
       {
         path: "/about",
         element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/manage-product",
