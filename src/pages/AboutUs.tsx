@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import about1 from "../assets/images/about/about11.jpg";
-import about2 from "../assets/images/about/about11.jpg";
+import about2 from "../assets/images/about/about2.jpg";
 import Team from "../components/about/team/Team";
 import { motion } from 'framer-motion';
 import Testimonial from "../components/about/testimonial/Testimonial";
@@ -25,7 +25,7 @@ const AboutUs = () => {
     <div className="bg-slate-50">
       <PageCover title="আমাদের সম্পর্কে" />
       {/* Our Story Section */}
-      <section className="container mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <section className="container mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
         <motion.article
           variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
         >
