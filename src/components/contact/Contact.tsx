@@ -3,13 +3,16 @@ import { HiOutlinePhone } from "react-icons/hi";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
-import { Textarea } from "../../ui/textarea";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 import ContactCard from "./ContactCard";
+import PageCover from "../pageCover/PageCover";
 const Contact = () => {
   return (
-    <div className="container mx-auto md:grid grid-cols-2 gap-x-12 my-10 md:my-16">
+   <div>
+    <PageCover title="যোগাযোগ করুন"></PageCover>
+     <div className="container mx-auto md:grid grid-cols-2 gap-x-12 my-10 md:my-16">
       <aside>
         <div className="relative flex flex-col justify-start items-start mb-5">
           <h1
@@ -90,6 +93,7 @@ const Contact = () => {
         </form>
       </aside>
     </div>
+   </div>
   );
 };
 

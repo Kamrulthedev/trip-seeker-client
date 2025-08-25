@@ -6,7 +6,7 @@ import Checkout from "../pages/Checkout";
 import HomePage from "../pages/HomePage";
 import ManageProduct from "../pages/ManageProduct";
 import Products from "../pages/Products";
-import Contact from "../components/about/contact/Contact";
+import Contact from "../components/contact/Contact";
 
 const router = createBrowserRouter([
   {
