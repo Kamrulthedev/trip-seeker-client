@@ -16,14 +16,13 @@ const testimonials = [
 
 
 
-
 const Testimonial = () => {
   return (
     <div className="relative py-20 bg-slate-50">
       {/* Background Image with Blur and Overlay */}
       <div className="absolute inset-0">
         <img src={testimonialBg} alt="Happy travelers" className="w-full h-full object-cover filter blur" />
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+        <div className="absolute inset-0"></div>
       </div>
 
       <div className="relative container mx-auto px-4">
@@ -31,8 +30,8 @@ const Testimonial = () => {
           className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl">আমাদের ভ্রমণকারীরা যা বলেন</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">আমাদের সেবায় সন্তুষ্ট ভ্রমণকারীদের অভিজ্ঞতাগুলো দেখুন।</p>
+          <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 md:text-4xl lg:text-5xl p-3">আমাদের ভ্রমণকারীরা যা বলেন</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-black">আমাদের সেবায় সন্তুষ্ট ভ্রমণকারীদের অভিজ্ঞতাগুলো দেখুন।</p>
         </motion.div>
         <Swiper
           effect={'cards'}

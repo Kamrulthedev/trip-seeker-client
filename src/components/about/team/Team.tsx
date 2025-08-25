@@ -12,7 +12,6 @@ const teamMembers = [
   { name: 'আরিফুর রহমান', role: 'প্রতিষ্ঠাতা ও সিইও', image: teammemberimage1 },
   { name: 'সাদিয়া ইসলাম', role: 'হেড অফ অপারেশনস', image: teammemberimage2 },
   { name: 'মিজানুর চৌধুরী', role: 'সিনিয়র ট্যুর গাইড', image: teammemberimage3 },
-  { name: 'মিজানুর চৌধুরী1', role: 'সিনিয়র ট্যুর গাইড1', image: teammemberimage3 },
 ];
 
 const containerVariants = {
@@ -45,7 +44,7 @@ const Team = () => {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
