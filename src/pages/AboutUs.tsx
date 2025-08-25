@@ -18,7 +18,6 @@ const itemVariants:any = {
 };
 
 
-
 const AboutUs = () => {
 
   return (

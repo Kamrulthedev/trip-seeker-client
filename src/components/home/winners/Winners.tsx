@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import {  Award } from 'lucide-react';
 import winners from "../../../assets/Winners-new.jpg";
-import winners1 from "../../../assets/Winner.jpg";
 import { BtnPrimary } from '../../ui/BtnPrimary';
 import { Link } from 'react-router-dom';
 
