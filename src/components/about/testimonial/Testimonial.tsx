@@ -3,15 +3,19 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import clientAvater from "../../../assets/images/logo.png"
+import clientAvater1 from "../../../assets/images/testimonial/Member1.png"
+import clientAvater2 from "../../../assets/images/testimonial/member2.png"
+import clientAvater3 from "../../../assets/images/testimonial/Member3.jpg"
+import clientAvater4 from "../../../assets/images/testimonial/Testimonial1.jpg"
 import { Quote, Star } from 'lucide-react';
 import testimonialBg from "../../../assets/images/TestimonialBg.jpg";
 
 
 const testimonials = [
-  { name: 'রাকিবুল হাসান', location: 'ঢাকা', quote: 'Trip Seeker-এর সাথে আমার সেন্ট মার্টিন ভ্রমণটি ছিল অসাধারণ! তাদের ব্যবস্থাপনা এবং আন্তরিকতা সত্যিই প্রশংসার যোগ্য।', avatar: clientAvater, rating: 5 },
-  { name: 'ফারজানা আক্তার', location: 'চট্টগ্রাম', quote: 'সাজেক ভ্যালির মেঘের রাজ্যে হারিয়ে যাওয়ার অভিজ্ঞতা ভোলার নয়। ধন্যবাদ Trip Seeker টিমকে এত সুন্দর একটি ট্যুর আয়োজন করার জন্য।', avatar: clientAvater, rating: 5 },
-  { name: 'ইমরান হোসেন', location: 'খুলনা', quote: 'সুন্দরবন সাফারি ছিল এক কথায় রোমাঞ্চকর। তাদের গাইড খুবই অভিজ্ঞ এবং সবকিছু খুব গোছানো ছিল। আমি আবার তাদের সাথে ভ্রমণ করতে চাই।', avatar: clientAvater, rating: 4 },
+  { name: 'রাকিবুল হাসান', location: 'ঢাকা', quote: 'Trip Seeker-এর সাথে আমার সেন্ট মার্টিন ভ্রমণটি ছিল অসাধারণ! তাদের ব্যবস্থাপনা এবং আন্তরিকতা সত্যিই প্রশংসার যোগ্য।', avatar: clientAvater1, rating: 5 },
+  { name: 'ফারজানা আক্তার', location: 'চট্টগ্রাম', quote: 'সাজেক ভ্যালির মেঘের রাজ্যে হারিয়ে যাওয়ার অভিজ্ঞতা ভোলার নয়। ধন্যবাদ Trip Seeker টিমকে এত সুন্দর একটি ট্যুর আয়োজন করার জন্য।', avatar: clientAvater2, rating: 5 },
+  { name: 'ইমরান হোসেন', location: 'খুলনা', quote: 'সুন্দরবন সাফারি ছিল এক কথায় রোমাঞ্চকর। তাদের গাইড খুবই অভিজ্ঞ এবং সবকিছু খুব গোছানো ছিল। আমি আবার তাদের সাথে ভ্রমণ করতে চাই।', avatar: clientAvater3, rating: 4 },
+  { name: 'ইমরান হোসেন', location: 'খুলনা', quote: 'সুন্দরবন সাফারি ছিল এক কথায় রোমাঞ্চকর। তাদের গাইড খুবই অভিজ্ঞ এবং সবকিছু খুব গোছানো ছিল। আমি আবার তাদের সাথে ভ্রমণ করতে চাই।', avatar: clientAvater4, rating: 4 },
 ];
 
 
