@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
-const payCopyrightUrl = "https://i.ibb.co/Qfvn4z6/payment.png";
 import Logo from '../header/Nav/Logo';
+import payCopyrightUrl from '../../assets/images/pay_copyright.png';
 
 // --- Framer Motion Variants ---
 const containerVariants = {
@@ -35,7 +35,7 @@ const FooterLink = ({ to, children }: { to: string; children: React.ReactNode })
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "#" },
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=61579613402394" },
     { icon: <Twitter size={20} />, href: "#" },
     { icon: <Instagram size={20} />, href: "#" },
     { icon: <Linkedin size={20} />, href: "#" },
@@ -99,10 +99,12 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-gray-800">জনপ্রিয় গন্তব্য</h3>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
             <div className="space-y-3 flex flex-col items-start">
-              <FooterLink to="/tours/coxs-bazar">কক্সবাজার</FooterLink>
-              <FooterLink to="/tours/saint-martin">সেন্ট মার্টিন</FooterLink>
-              <FooterLink to="/tours/bandarban">বান্দরবান</FooterLink>
-              <FooterLink to="/tours/sajek">সাজেক</FooterLink>
+              <FooterLink to="/tours/coxs-bazar">কক্সবাজার সমুদ্রসৈকত</FooterLink>
+              <FooterLink to="/tours/saint-martin">পাটুয়ারটেক সৈকত</FooterLink>
+              <FooterLink to="/tours/bandarban">কলাতলী পয়েন্ট</FooterLink>
+              <FooterLink to="/tours/sajek">ইনানি বিচ</FooterLink>
+              <FooterLink to="/tours/marindrive">মেরিন ড্রাইভ রোড</FooterLink>
+              <FooterLink to="/tours/himchodi">হিমছড়ি</FooterLink>
             </div>
           </motion.div>
 
@@ -117,17 +119,15 @@ const Footer = () => {
               <FooterLink to="/blog">আমাদের ব্লগ</FooterLink>
             </div>
           </motion.div>
-
         </div>
 
         {/* Bottom Section of Footer */}
         <div className="border-t py-6 flex flex-col-reverse sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 mt-4 sm:mt-0">
-            &copy; {new Date().getFullYear()} Trip Seeker | সর্বস্বত্ব সংরক্ষিত | কামরুল হাসান দ্বারা নির্মিত
+            &copy; {new Date().getFullYear()} <Link to={"/"}>Trip Seeker</Link> | সর্বস্বত্ব সংরক্ষিত | Created By <Link to={'https://kamrul-hassan-org.vercel.app/'}>Kamrul Hassan</Link>
           </p>
           <img src={payCopyrightUrl} alt="Payment Methods" className="h-8" />
         </div>
-
       </motion.div>
     </footer>
   );
