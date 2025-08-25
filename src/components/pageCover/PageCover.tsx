@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import bgBanner from "../../assets/images//banner/bg_page.jpg";
 import { motion } from 'framer-motion';
 import { ChevronRight, Home } from "lucide-react";
+import { ImageLoader } from "../ui/loader/ImageLoader";
 
 
 // --- Framer Motion Variants ---
@@ -15,7 +16,7 @@ const containerVariants = {
 };
 
 
-const itemVariants:any = {
+const itemVariants: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1, y: 0,
@@ -27,14 +28,14 @@ const itemVariants:any = {
 const PageCover = ({ title }: { title: string; }) => {
   return (
     <div className="relative w-full h-80 overflow-hidden">
-      <motion.img
-        src={bgBanner}
-        alt="Page Cover"
-        className="absolute inset-0 w-full h-full object-cover"
+      <motion.div
+        className="absolute inset-0"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 10, ease: "linear" }}
-      />
+      >
+        <ImageLoader src={bgBanner} alt="Page Cover" className="w-full h-full" />
+      </motion.div>
       <div className="absolute inset-0 bg-black/50"></div>
       <motion.div
         className="relative h-full flex flex-col justify-center items-center text-white"
@@ -42,7 +43,7 @@ const PageCover = ({ title }: { title: string; }) => {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 className="text-3xl p-3 font-extrabold tracking-tight  sm:text-4xl lg:text-5xl" variants={itemVariants}>
+        <motion.h1 className="text-5xl font-extrabold tracking-tight" variants={itemVariants}>
           {title}
         </motion.h1>
         <motion.div className="flex items-center gap-2 mt-4 text-lg" variants={itemVariants}>
@@ -54,4 +55,5 @@ const PageCover = ({ title }: { title: string; }) => {
     </div>
   );
 };
+
 export default PageCover;

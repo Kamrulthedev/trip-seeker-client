@@ -18,13 +18,12 @@ const itemVariants:any = {
 };
 
 
-const AboutUs = () => {
 
+const AboutUs = () => {
 
   return (
     <div className="bg-slate-50">
       <PageCover title="আমাদের সম্পর্কে" />
-
       {/* Our Story Section */}
       <section className="container mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
         <motion.article
