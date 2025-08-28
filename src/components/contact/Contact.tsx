@@ -16,8 +16,7 @@ const Contact = () => {
       <aside>
         <div className="relative flex flex-col justify-start items-start mb-5">
           <h1
-            className={`text-right text-black font-semibold text-2xl capitalize tracking-wide`}
-          >
+            className={`text-right text-black font-semibold text-2xl capitalize tracking-wide`}>
             Contact Us
           </h1>
           <div className="w-24 h-0.5 bg-primary "></div>
