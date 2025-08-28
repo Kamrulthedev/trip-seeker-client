@@ -1,32 +1,29 @@
-import { useEffect, useState } from "react";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi2";
-import { toast } from "sonner";
-import { IProduct } from "../../types/product.type";
-import BtnAddToCart from "../ui/BtnAddToCart";
 import { Dialog, DialogContent, DialogOverlay } from "../ui/dialog";
+import thumbnailUrl from "../../assets/Winners-new.jpg"
 
 const ProductQuickViewModal = () => {
+  const stock = 45;
 
   return  (
     <Dialog>
       <DialogOverlay />
       <DialogContent className="w-screen grid grid-cols-2 space-x-3">
         <div>
-          <img src={thumbnailUrl} alt={name} />
+          <img src={thumbnailUrl} alt="" />
           <div className="grid grid-cols-3 gap-4 mt-2">
             {Array.from({ length: 3 }).map((_, index) => (
               <img
-                onClick={() => setThumbnailUrl(image)}
                 key={index}
-                src={image}
-                alt={name}
+                src={thumbnailUrl}
+                alt=''
               />
             ))}
           </div>
         </div>
         <div>
           <div className="border-b border-gray-300 pb-4">
-            <h2 className="text-xl font-bold pb-1">{name}</h2>
+            <h2 className="text-xl font-bold pb-1">Kamrul</h2>
             <p>
               {stock > 0 ? (
                 <span>{stock} In stock</span>
@@ -34,39 +31,27 @@ const ProductQuickViewModal = () => {
                 <span className="text-rose-600">Out of stock</span>
               )}
             </p>
-            <p className="text-primary">${price} USD</p>
+            <p className="text-primary">$5000 USD</p>
           </div>
-          <p className="pt-4 text-gray-700">{description}</p>
+          <p className="pt-4 text-gray-700">kamrul this is kamrul</p>
           <div className="flex items-center mt-10 gap-6 ">
             <div className="border-2 border-gray-300  font-bold text-xl flex items-center space-x-2">
-              <span className="px-3 w-10">{quantity}</span>
+              <span className="px-3 w-10">34</span>
               <div className="flex flex-col items-center border-l border-gray-300 ">
                 <button
-                  onClick={handleIncrementQuantity}
                   className="px-3 py-0.5 border-b border-gray-300  hover:text-primary"
                 >
                   <HiOutlinePlus />
                 </button>
                 <button
-                  disabled={quantity <= 1}
-                  onClick={() => setQuantity(quantity - 1)}
                   className="px-3 py-0.5  hover:text-primary"
                 >
                   <HiOutlineMinus />
                 </button>
               </div>
             </div>
-            <div onClick={() => handleAddToCart(product as IProduct)}>
-              <BtnAddToCart
-                title={
-                  inCart
-                    ? "Already in cart"
-                    : stock <= 0
-                    ? "Out of stock"
-                    : "Add to cart"
-                }
-                disable={inCart ? true : false || stock <= 0}
-              />
+            <div>
+              <button>Kamrul hassan</button>
             </div>
           </div>
         </div>
