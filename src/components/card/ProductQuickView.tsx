@@ -4,46 +4,11 @@ import { toast } from "sonner";
 import { IProduct } from "../../types/product.type";
 import BtnAddToCart from "../ui/BtnAddToCart";
 import { Dialog, DialogContent, DialogOverlay } from "../ui/dialog";
-import PrimaryLoader from "../ui/loader/PrimaryLoader";
 
 const ProductQuickViewModal = () => {
-  const { isOpen, product, isLoading, onClose } = useAppSelector(
-    (state) => state.quickView
-  );
-  const { _id, stock, name, price, description, image, thumbnail } =
-    product as IProduct;
 
-  const [quantity, setQuantity] = useState(1);
-  const [thumbnailUrl, setThumbnailUrl] = useState(thumbnail);
-
-  const { cartItems } = useAppSelector((state) => state.cart);
-  const inCart = cartItems.find((item) => item.id === _id);
-
-  useEffect(() => {
-    setThumbnailUrl(thumbnail);
-  }, [thumbnail]);
-
-  const dispatch = useAppDispatch();
-
-  const handleAddToCart = (product: IProduct) => {
-    dispatch(addToCart({ ...product, id: product?._id, quantity }));
-  };
-
-  const handleClose = () => {
-    dispatch(closeQuickViewModal());
-    onClose();
-  };
-  const handleIncrementQuantity = () => {
-    if (stock <= quantity) {
-      toast.warning("Out of stock");
-    } else {
-      setQuantity(quantity + 1);
-    }
-  };
-  return isLoading ? (
-    <PrimaryLoader />
-  ) : (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+  return  (
+    <Dialog>
       <DialogOverlay />
       <DialogContent className="w-screen grid grid-cols-2 space-x-3">
         <div>
