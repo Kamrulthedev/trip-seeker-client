@@ -71,7 +71,7 @@ const ProductQuickViewModal = () => {
   // Simulate opening the modal (for demonstration purposes, in real app, Redux would manage this)
   if (quickViewProduct.isOpen && quickViewProduct.product) {
     // You would render your modal UI here
-    console.log("Mock Quick View Modal is open for product:", quickViewProduct.product?.name);
+    console.log("Mock Quick View Modal is open for product:", quickViewProduct.product);
   }
 
   return (
@@ -162,6 +162,10 @@ const ProductCard = ({ productDetails }: IProductCardProps) => {
     e.stopPropagation();
     handleOpenModal(productDetails);
   };
+
+
+  const stock = 45;
+
 
   return (
     <>
