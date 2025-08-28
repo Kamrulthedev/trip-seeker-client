@@ -19,10 +19,12 @@ import {
 } from "../components/ui/pagination";
 
 
+
+
+
+
 const Products = () => {
   const [showResponsiveFilter, setShowResponsiveFilter] = useState(false);
-
-
 
   return (
     <div>
