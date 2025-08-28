@@ -127,7 +127,7 @@ const ProductCard = ({ productDetails }: IProductCardProps) => {
   const dispatch = useAppDispatch();
   const { cartItems } = useAppSelector((state) => state.cart);
   // Destructure with imageUrl instead of thumbnail
-  const { _id, name, price, imageUrl, stock, discount } = productDetails || {};
+  const { _id, name, price, imageUrl, discount } = productDetails || {};
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inCart = cartItems.find((item: any) => item.id === productDetails?._id); // Cast item to any for mock
 

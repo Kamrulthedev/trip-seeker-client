@@ -7,7 +7,6 @@ const FilterBySearch: React.FC = () => {
 
 
   // State to track the latest search term
-  const [latestSearchTerm, setLatestSearchTerm] = useState<string>("");
 
   // useEffect to dispatch setSearch after 5 seconds of inactivity
   useEffect(() => {
@@ -23,7 +22,6 @@ const FilterBySearch: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchTerm(value); // Update local state immediately
-    setLatestSearchTerm(value); // Update latest search term
   };
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import * as React from "react";
 
@@ -44,3 +45,7 @@ const AvatarFallback = React.forwardRef<
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
 export { Avatar, AvatarFallback, AvatarImage };
+
+  function cn(arg0: string, className: string | undefined): string | undefined {
+    throw new Error("Function not implemented.");
+  }
