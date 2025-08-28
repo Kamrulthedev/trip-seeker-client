@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi2";
 import { toast } from "sonner";
-import { addToCart } from "../../redux/features/cart/cartSlice";
-import { closeQuickViewModal } from "../../redux/features/quickViewProduct/quickViewSlice";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { IProduct } from "../../types/product.type";
 import BtnAddToCart from "../ui/BtnAddToCart";
 import { Dialog, DialogContent, DialogOverlay } from "../ui/dialog";
