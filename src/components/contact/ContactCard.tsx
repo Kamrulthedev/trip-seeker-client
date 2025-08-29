@@ -15,9 +15,7 @@ const itemVariants: any = {
 };
 
 
-//===========================================================================
 // Component 2: ContactCard
-//===========================================================================
 export const ContactCard = ({ icon, title, description, href }: { icon: React.ReactNode, title: string, description: string, href?: string }) => {
   const content = (
     <motion.div
