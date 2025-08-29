@@ -8,10 +8,16 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import ContactCard from "./ContactCard";
 import PageCover from "../pageCover/PageCover";
+import bgBanner from "../../assets/images/banner/bg_page.jpg";
+
+
+
+
+
 const Contact = () => {
   return (
    <div>
-    <PageCover title="যোগাযোগ করুন"></PageCover>
+    <PageCover title="যোগাযোগ করুন" image={bgBanner}></PageCover>
      <div className="container mx-auto md:grid grid-cols-2 gap-x-12 my-10 md:my-16">
       <aside>
         <div className="relative flex flex-col justify-start items-start mb-5">

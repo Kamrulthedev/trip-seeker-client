@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Testimonial from "../components/about/testimonial/Testimonial";
 import PageCover from "../components/pageCover/PageCover";
 import { Map } from "../components/about/map/Map";
+import bgBanner from "../assets/images/banner/breadcrumb.jpg";
 
 
 // --- Framer Motion Variants ---
@@ -22,7 +23,7 @@ const AboutUs = () => {
 
   return (
     <div className="bg-slate-50">
-      <PageCover title="আমাদের সম্পর্কে" />
+      <PageCover title="আমাদের সম্পর্কে" image={bgBanner} />
       {/* Our Story Section */}
       <section className="container mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
         <motion.article
