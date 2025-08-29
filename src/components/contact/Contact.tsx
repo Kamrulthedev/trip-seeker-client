@@ -1,104 +1,130 @@
-import { GoLocation } from "react-icons/go";
-import { HiOutlinePhone } from "react-icons/hi";
-import { HiOutlineEnvelope } from "react-icons/hi2";
-import { MdOutlineWatchLater } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import ContactCard from "./ContactCard";
-import PageCover from "../pageCover/PageCover";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import bgBanner from "../../assets/images/banner/bg_page.jpg";
+import PageCover from "../pageCover/PageCover";
+import { motion } from 'framer-motion';
 
 
 
 
 
+// --- Framer Motion Variants ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+
+const itemVariants:any = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1, y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
+
+
+//===========================================================================
+// Component 2: ContactCard
+//===========================================================================
+const ContactCard = ({ icon, title, description, href }: { icon: React.ReactNode, title: string, description: string, href?: string }) => {
+  const content = (
+    <motion.div
+      className="flex items-start gap-4"
+      variants={itemVariants}
+    >
+      <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-green-100 text-blue-600">
+        {icon}
+      </div>
+      <div>
+        <h3 className="text-lg font-bold text-gray-800">{title}</h3>
+        <p className="text-gray-500">{description}</p>
+      </div>
+    </motion.div>
+  );
+
+  return href ? <a href={href} className="hover:text-green-600">{content}</a> : content;
+};
+
+
+
+
+//===========================================================================
+// Component 3: Contact (Main Page)
+//===========================================================================
 const Contact = () => {
+  const contactDetails = [
+    { icon: <MapPin size={24} />, title: "ঠিকানা", description: "কক্সবাজার, চট্টগ্রাম, বাংলাদেশ" },
+    { icon: <Phone size={24} />, title: "ফোন", description: "+৮৮০ ১২৩৪ ৫৬৭৮৯০", href: "tel:+8801234567890" },
+    { icon: <Mail size={24} />, title: "ইমেইল", description: "info@tripseeker.com", href: "mailto:info@tripseeker.com" },
+    { icon: <Clock size={24} />, title: "অফিসের সময়", description: "শনি - বৃহস্পতি: সকাল ১০টা - সন্ধ্যা ৬টা" },
+  ];
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert("আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।");
+    e.currentTarget.reset();
+  };
+
   return (
-   <div>
-    <PageCover title="যোগাযোগ করুন" image={bgBanner}></PageCover>
-     <div className="container mx-auto md:grid grid-cols-2 gap-x-12 my-10 md:my-16">
-      <aside>
-        <div className="relative flex flex-col justify-start items-start mb-5">
-          <h1
-            className={`text-right text-black font-semibold text-2xl capitalize tracking-wide`}>
-            Contact Us
-          </h1>
-          <div className="w-24 h-0.5 bg-primary "></div>
-        </div>
-        <p className="text-gray-900 text-justify">
-          If you would like to know more about our policies, you can consult our
-          Terms and Conditions. You will also be able to follow your order
-          (tracking number will be provided in an e-mail after ordering). You
-          wish to return some items?{" "}
-          <Link to={"#"} className="text-primary">
-            Click here.
-          </Link>
-        </p>
-        <div className="space-y-4 mt-5">
-          <ContactCard
-            icon={GoLocation}
-            title={"Address"}
-            description={"123, Main Street, City, Country"}
-          />
-          <ContactCard
-            icon={HiOutlinePhone}
-            title={"Phone"}
-            description={"123-456-7890"}
-          />
-          <ContactCard
-            icon={HiOutlineEnvelope}
-            title={"Email"}
-            description={"VlNpX@example.com"}
-          />
-          <ContactCard
-            icon={MdOutlineWatchLater}
-            title={"Open Hours"}
-            description={"Mon - Fri: 9am - 6pm"}
-          />
-        </div>
-      </aside>
-      <aside className="mt-5 md:mt-0">
-        <div className="relative flex flex-col justify-start items-start mb-5">
-          <h1
-            className={`text-right text-black font-semibold text-2xl capitalize tracking-wide`}
+    <div className="bg-slate-50">
+      <PageCover image={bgBanner} title="যোগাযোগ করুন" />
+      <div className="container mx-auto py-20 px-4">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* Left Column: Contact Info */}
+          <motion.aside variants={itemVariants}>
+            <h2 className="text-3xl font-bold mb-2 text-gray-800">যোগাযোগের তথ্য</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mb-6"></div>
+            <p className="text-gray-600 text-justify mb-8">
+              আপনার ভ্রমণ পরিকল্পনা সম্পর্কে যেকোনো প্রশ্ন বা তথ্যের জন্য, আমাদের সাথে যোগাযোগ করতে দ্বিধা করবেন না। আমাদের টিম আপনাকে সাহায্য করার জন্য সর্বদা প্রস্তুত।
+            </p>
+            <div className="space-y-6">
+              {contactDetails.map((detail, index) => (
+                <ContactCard key={index} {...detail} />
+              ))}
+            </div>
+          </motion.aside>
+
+          {/* Right Column: Contact Form */}
+          <motion.aside
+            className="bg-white p-8 rounded-xl shadow-lg"
+            variants={itemVariants}
           >
-            Get in touch
-          </h1>
-          <div className="w-24 h-0.5 bg-primary"></div>
-        </div>
-        <form className="grid grid-cols-2 gap-5">
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            className="col-span-2 h-14 rounded-sm"
-            required
-          />
-          <Input
-            type="text"
-            placeholder="Your name"
-            className="h-14 rounded-sm"
-            required
-          />
-          <Input
-            type="text"
-            placeholder="Subject"
-            className="h-14 rounded-sm"
-            required
-          />
-          <Textarea
-            placeholder="Message"
-            className="h-32 rounded-sm col-span-2"
-            required
-          />
-          <Button className="col-span-2 rounded-sm" size="lg">
-            Send Message
-          </Button>
-        </form>
-      </aside>
+            <h2 className="text-3xl font-bold mb-2 text-gray-800">বার্তা পাঠান</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mb-6"></div>
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <input type="text" placeholder="আপনার নাম" required className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" />
+                <input type="email" placeholder="আপনার ইমেইল" required className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" />
+              </div>
+              <input type="text" placeholder="বিষয়" required className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" />
+              <textarea placeholder="আপনার বার্তা লিখুন..." required rows={5} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"></textarea>
+              <motion.button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(37, 99, 235, 0.5)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Send size={18} />
+                বার্তা পাঠান
+              </motion.button>
+            </form>
+          </motion.aside>
+        </motion.div>
+      </div>
     </div>
-   </div>
   );
 };
 
