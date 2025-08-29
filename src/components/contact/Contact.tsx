@@ -36,7 +36,7 @@ const itemVariants:any = {
 const ContactCard = ({ icon, title, description, href }: { icon: React.ReactNode, title: string, description: string, href?: string }) => {
   const content = (
     <motion.div
-      className="flex items-start gap-4"
+      className="flex items-start gap-4 space-y-5"
       variants={itemVariants}
     >
       <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-green-100 text-blue-600">
@@ -90,7 +90,7 @@ const Contact = () => {
             <p className="text-gray-600 text-justify mb-8">
               আপনার ভ্রমণ পরিকল্পনা সম্পর্কে যেকোনো প্রশ্ন বা তথ্যের জন্য, আমাদের সাথে যোগাযোগ করতে দ্বিধা করবেন না। আমাদের টিম আপনাকে সাহায্য করার জন্য সর্বদা প্রস্তুত।
             </p>
-            <div className="space-y-6">
+            <div>
               {contactDetails.map((detail, index) => (
                 <ContactCard key={index} {...detail} />
               ))}
