@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Hotel, Sailboat, Utensils, Waves } from "lucide-react";
 import { motion } from "framer-motion";
-import key_bg from "../../assets/images/discover/key-bg-1.jpg";
+import keyBgImage from "../../assets/images/discover/key-bg-1.jpg"
 
 // --- Framer Motion Variants ---
 const containerVariants: any = {
@@ -36,15 +36,9 @@ const Keyhighlight = () => {
         { icon: <Sailboat size={32} />, title: "অ্যাডভেঞ্চার স্পোর্টস", description: "প্যারাসেলিং, সার্ফিং এবং বিচ বাইকিং এর রোমাঞ্চ।" },
     ];
     return (
-        <div className="relative py-20 sm:py-24 overflow-hidden">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0">
-                <img src={key_bg} alt="Cox's Bazar Beach" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/40"></div>
-            </div>
-
-            <div className="relative container mx-auto px-4">
-                {/* Section Title */}
+        <div className="bg-slate-50 py-20 sm:py-24">
+            <div className="container mx-auto px-4">
+                {/* Section Title - Now outside the image background */}
                 <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: -20 }}
@@ -52,9 +46,9 @@ const Keyhighlight = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
                         <motion.span
-                            className="bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text p-3"
+                            className="bg-gradient-to-r from-blue-600 to-green-500 text-transparent bg-clip-text p-3"
                             animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                             style={{ backgroundSize: "200% 200%" }}
@@ -62,44 +56,52 @@ const Keyhighlight = () => {
                             কক্সবাজারের মূল আকর্ষণ
                         </motion.span>
                     </h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
                         যে অভিজ্ঞতাগুলো আপনার ভ্রমণকে স্মরণীয় করে তুলবে।
                     </p>
                 </motion.div>
 
-                <motion.div
-                    // UPDATED: Responsive grid
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    {highlights.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className="relative p-8 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-center group text-white shadow-xl"
-                            variants={itemVariants}
-                            whileHover={{ y: -10, scale: 1.03, transition: { type: "spring", stiffness: 300 } }}
-                        >
-                            <div className="relative z-10">
-                                {/* Animated Icon Background */}
-                                <div className="mx-auto w-20 h-20 flex items-center justify-center rounded-full mb-6 relative overflow-hidden transition-all duration-300 group-hover:scale-110">
-                                    <motion.div
-                                        className="absolute inset-[-10px] bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)]"
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                    />
-                                    <div className="relative z-10 w-[72px] h-[72px] bg-slate-800/50 rounded-full flex items-center justify-center">
-                                        {item.icon}
+                {/* Container for the image and the cards */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                    {/* Background Image with Overlay */}
+                    <div className="absolute inset-0">
+                        <img src={keyBgImage} alt="Cox's Bazar Beach" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                    </div>
+
+                    <motion.div
+                        className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-8 md:p-12"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        {highlights.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                className="relative p-8 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-center group text-white shadow-xl"
+                                variants={itemVariants}
+                                whileHover={{ y: -10, scale: 1.03, transition: { type: "spring", stiffness: 300 } }}
+                            >
+                                <div className="relative z-10">
+                                    {/* Animated Icon Background */}
+                                    <div className="mx-auto w-20 h-20 flex items-center justify-center rounded-full mb-6 relative overflow-hidden transition-all duration-300 group-hover:scale-110">
+                                        <motion.div
+                                            className="absolute inset-[-10px] bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)]"
+                                            animate={{ rotate: 360 }}
+                                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                        />
+                                        <div className="relative z-10 w-[72px] h-[72px] bg-slate-800/50 rounded-full flex items-center justify-center">
+                                            {item.icon}
+                                        </div>
                                     </div>
+                                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                                    <p className="text-white/80">{item.description}</p>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                                <p className="text-white/80">{item.description}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </div>
     );

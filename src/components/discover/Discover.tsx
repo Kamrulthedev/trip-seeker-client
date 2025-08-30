@@ -32,12 +32,12 @@ const Discover = () => {
                 }
             `}</style>
             <PageCover image={bgBanner} title="স্থান আবিষ্কার করুন" />
-            <TravelTips />
             <Keyhighlight />
             <Experiences />
             <Virtualtour />
             <Featuredtur />
             <Wheretostay />
+            <TravelTips />
         </div>
     );
 };
