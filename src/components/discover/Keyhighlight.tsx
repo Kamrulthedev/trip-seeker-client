@@ -46,7 +46,7 @@ const Keyhighlight = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
                         <motion.span
                             className="bg-gradient-to-r from-blue-600 to-green-500 text-transparent bg-clip-text p-3"
                             animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
