@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Hotel, Sailboat, Utensils, Waves } from "lucide-react";
 import { motion } from "framer-motion";
-import key_bg from "../../assets/images/discover/key-bg.jpg";
+import key_bg from "../../assets/images/discover/key-bg-1.jpg";
 
 // --- Framer Motion Variants ---
 const containerVariants: any = {
