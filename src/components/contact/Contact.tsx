@@ -33,6 +33,9 @@ const itemVariants: any = {
 
 // Component 4: Contact (Main Page)
 const Contact = () => {
+
+
+
   const contactDetails = [
     { icon: <MapPin size={24} />, title: "ঠিকানা", description: "কক্সবাজার, চট্টগ্রাম, বাংলাদেশ" },
     { icon: <Phone size={24} />, title: "ফোন", description: "+৮৮০ ১২৩৪ ৫৬৭৮৯০", href: "tel:+8801234567890" },
@@ -40,11 +43,17 @@ const Contact = () => {
     { icon: <Clock size={24} />, title: "অফিসের সময়", description: "শনি - বৃহস্পতি: সকাল ১০টা - সন্ধ্যা ৬টা" },
   ];
 
+
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert("আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।");
     e.currentTarget.reset();
   };
+
+
+
+
 
   return (
     <div className="bg-slate-50">
