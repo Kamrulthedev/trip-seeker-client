@@ -54,7 +54,7 @@ const Keyhighlight = () => {
                 >
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
                         <motion.span
-                            className="bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text"
+                            className="bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text p-3"
                             animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                             style={{ backgroundSize: "200% 200%" }}

@@ -10,8 +10,8 @@ import TravelTips from "./TravelTips";
 const Discover = () => {
     return (
         <div className="bg-slate-50">
-             {/* Inject Swiper CSS from CDN */}
-             <style>{`
+            {/* Inject Swiper CSS from CDN */}
+            <style>{`
                 @import "https://cdn.jsdelivr.net/npm/swiper@11/swiper.min.css";
                 @import "https://cdn.jsdelivr.net/npm/swiper@11/modules/pagination.min.css";
                 @import "https://cdn.jsdelivr.net/npm/swiper@11/modules/navigation.min.css";
@@ -32,12 +32,12 @@ const Discover = () => {
                 }
             `}</style>
             <PageCover image={bgBanner} title="স্থান আবিষ্কার করুন" />
+            <TravelTips />
             <Keyhighlight />
             <Experiences />
             <Virtualtour />
             <Featuredtur />
             <Wheretostay />
-            <TravelTips />
         </div>
     );
 };
