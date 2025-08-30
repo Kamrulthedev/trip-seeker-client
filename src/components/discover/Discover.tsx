@@ -5,17 +5,39 @@ import Experiences from "./Experiences";
 import Virtualtour from "./Virtualtour";
 import Featuredtur from "./Featuredtur";
 import Wheretostay from "./Wheretostay";
+import TravelTips from "./TravelTips";
 
 const Discover = () => {
     return (
-        <div>
-            <PageCover title="Discover Page" image={bgBanner}></PageCover>
-            <h1>Discover Page</h1>
-            <Keyhighlight></Keyhighlight>
-            <Experiences></Experiences>
-            <Virtualtour></Virtualtour>
-            <Featuredtur></Featuredtur>
-            <Wheretostay></Wheretostay>
+        <div className="bg-slate-50">
+             {/* Inject Swiper CSS from CDN */}
+             <style>{`
+                @import "https://cdn.jsdelivr.net/npm/swiper@11/swiper.min.css";
+                @import "https://cdn.jsdelivr.net/npm/swiper@11/modules/pagination.min.css";
+                @import "https://cdn.jsdelivr.net/npm/swiper@11/modules/navigation.min.css";
+
+                /* Custom Swiper Styles for better look */
+                .swiper-button-next, .swiper-button-prev {
+                    color: #ffffff;
+                    background-color: rgba(0, 0, 0, 0.3);
+                    border-radius: 50%;
+                    width: 44px;
+                    height: 44px;
+                }
+                .swiper-button-next:after, .swiper-button-prev:after {
+                    font-size: 20px;
+                }
+                .swiper-pagination-bullet-active {
+                    background-color: #22c55e;
+                }
+            `}</style>
+            <PageCover image={bgBanner} title="কক্সবাজার আবিষ্কার করুন" />
+            <Keyhighlight />
+            <Experiences />
+            <Virtualtour />
+            <Featuredtur />
+            <Wheretostay />
+            <TravelTips />
         </div>
     );
 };
