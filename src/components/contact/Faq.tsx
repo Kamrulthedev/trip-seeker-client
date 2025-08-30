@@ -33,6 +33,9 @@ const faqs = [
 ];
 
 
+
+
+
 const AccordionItem = ({ question, answer }: { question: string, answer: string }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
