@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import ManageProduct from "../pages/ManageProduct";
 import Products from "../pages/Products";
 import Contact from "../components/contact/Contact";
+import Discover from "../components/discover/Discover";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/discover",
-        element:''
+        element:<Discover/>
       },
       {
         path: "/services",
