@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Hotel, Sailboat, Utensils, Waves } from "lucide-react";
 import { motion } from "framer-motion";
+const keyHighlightBg = "https://images.unsplash.com/photo-1582993838397-2a491b452857?q=80&w=1974&auto=format&fit=crop";
+
 
 
 
