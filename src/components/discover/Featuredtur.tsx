@@ -1,18 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { motion } from "framer-motion";
-import { PlayCircle } from "lucide-react";
-const virtualTourPoster = "https://images.unsplash.com/photo-1618751939022-835a23534bda?q=80&w=2070&auto=format&fit=crop";
+import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
-
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.2 }
-    }
-};
 
 
 const itemVariants: any = {
