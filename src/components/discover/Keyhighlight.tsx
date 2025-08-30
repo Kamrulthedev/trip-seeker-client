@@ -1,24 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Hotel, Sailboat, Utensils, Waves } from "lucide-react";
 import { motion } from "framer-motion";
-const keyHighlightBg = "https://images.unsplash.com/photo-1582993838397-2a491b452857?q=80&w=1974&auto=format&fit=crop";
+import key_bg from "../../assets/images/discover/key-bg.jpg";
 
-
-
-
-const itemVariants:any = {
-    hidden: { opacity: 0, y: 30 },
+// --- Framer Motion Variants ---
+const containerVariants: any = {
+    hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        y: 0, transition: {
-            duration: 0.7,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const itemVariants: any = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.6,
             ease: "easeOut"
         }
     }
 };
-
-
-
 
 const Keyhighlight = () => {
     const highlights = [
@@ -28,25 +36,66 @@ const Keyhighlight = () => {
         { icon: <Sailboat size={32} />, title: "অ্যাডভেঞ্চার স্পোর্টস", description: "প্যারাসেলিং, সার্ফিং এবং বিচ বাইকিং এর রোমাঞ্চ।" },
     ];
     return (
-        <div className="py-20 bg-slate-50">
-            <div className="container mx-auto px-4">
-                <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="relative py-20 sm:py-24 overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0">
+                <img src={key_bg} alt="Cox's Bazar Beach" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/40"></div>
+            </div>
+
+            <div className="relative container mx-auto px-4">
+                {/* Section Title */}
+                <motion.div
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+                        <motion.span
+                            className="bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text"
+                            animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                            style={{ backgroundSize: "200% 200%" }}
+                        >
+                            কক্সবাজারের মূল আকর্ষণ
+                        </motion.span>
+                    </h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+                        যে অভিজ্ঞতাগুলো আপনার ভ্রমণকে স্মরণীয় করে তুলবে।
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    // UPDATED: Responsive grid
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     {highlights.map((item, index) => (
                         <motion.div
                             key={index}
-                            className="relative p-8 rounded-xl bg-white shadow-lg overflow-hidden text-center group"
+                            className="relative p-8 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-center group text-white shadow-xl"
                             variants={itemVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.3 }}
+                            whileHover={{ y: -10, scale: 1.03, transition: { type: "spring", stiffness: 300 } }}
                         >
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-green-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                             <div className="relative z-10">
-                                <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-green-100 text-blue-600 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-white group-hover:bg-blue-500">
-                                    {item.icon}
+                                {/* Animated Icon Background */}
+                                <div className="mx-auto w-20 h-20 flex items-center justify-center rounded-full mb-6 relative overflow-hidden transition-all duration-300 group-hover:scale-110">
+                                     <motion.div
+                                        className="absolute inset-[-10px] bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)]"
+                                        animate={{ rotate: 360 }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                     />
+                                     <div className="relative z-10 w-[72px] h-[72px] bg-slate-800/50 rounded-full flex items-center justify-center">
+                                        {item.icon}
+                                     </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
-                                <p className="text-gray-600">{item.description}</p>
+                                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                                <p className="text-white/80">{item.description}</p>
                             </div>
                         </motion.div>
                     ))}

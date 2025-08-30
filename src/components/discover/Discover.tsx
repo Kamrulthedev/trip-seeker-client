@@ -31,7 +31,7 @@ const Discover = () => {
                     background-color: #22c55e;
                 }
             `}</style>
-            <PageCover image={bgBanner} title="কক্সবাজার আবিষ্কার করুন" />
+            <PageCover image={bgBanner} title="স্থান আবিষ্কার করুন" />
             <Keyhighlight />
             <Experiences />
             <Virtualtour />
