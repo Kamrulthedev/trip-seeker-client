@@ -26,7 +26,7 @@ const itemVariants: any = {
 
 const PageCover = ({ title, image }: { title: string; image: any; }) => {
   return (
-    <div className="relative w-full h-80 overflow-hidden">
+    <div className="relative w-full h-96 overflow-hidden">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.1 }}

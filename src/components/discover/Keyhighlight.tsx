@@ -85,14 +85,14 @@ const Keyhighlight = () => {
                             <div className="relative z-10">
                                 {/* Animated Icon Background */}
                                 <div className="mx-auto w-20 h-20 flex items-center justify-center rounded-full mb-6 relative overflow-hidden transition-all duration-300 group-hover:scale-110">
-                                     <motion.div
+                                    <motion.div
                                         className="absolute inset-[-10px] bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)]"
                                         animate={{ rotate: 360 }}
                                         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                     />
-                                     <div className="relative z-10 w-[72px] h-[72px] bg-slate-800/50 rounded-full flex items-center justify-center">
+                                    />
+                                    <div className="relative z-10 w-[72px] h-[72px] bg-slate-800/50 rounded-full flex items-center justify-center">
                                         {item.icon}
-                                     </div>
+                                    </div>
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                                 <p className="text-white/80">{item.description}</p>
