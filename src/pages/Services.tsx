@@ -21,9 +21,7 @@ import {
 
 
 
-
-
-const Products = () => {
+const Services = () => {
   const [showResponsiveFilter, setShowResponsiveFilter] = useState(false);
 
   return (
@@ -31,16 +29,16 @@ const Products = () => {
       <PageCover title="Products" />
       <div className="container mx-auto  md:py-16 py-8 md:grid grid-cols-12 gap-6">
         <div className="col-span-3 space-y-7 md:block hidden">
-         
-            <Button
-              className="-mb-10"
-              size="sm"
-              variant="outline"
-             
-            >
-              <GrPowerReset className="mr-1" /> Reset Filter
-            </Button>
-        
+
+          <Button
+            className="-mb-10"
+            size="sm"
+            variant="outline"
+
+          >
+            <GrPowerReset className="mr-1" /> Reset Filter
+          </Button>
+
           <FilterByCategories />
           <FilterByPrice />
           <FilterByBrand />
@@ -58,15 +56,15 @@ const Products = () => {
               >
                 <CiFilter className="mr-1 text-xl " /> Filter
               </Button>
-             
-                <Button
-                  size="default"
-                  className="rounded-md"
-                  variant="outline"
-                >
-                  <GrPowerReset className="mr-1" /> Reset Filter
-                </Button>
-            
+
+              <Button
+                size="default"
+                className="rounded-md"
+                variant="outline"
+              >
+                <GrPowerReset className="mr-1" /> Reset Filter
+              </Button>
+
               <SortProduct />
             </div>
           </div>
@@ -100,4 +98,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Services;
