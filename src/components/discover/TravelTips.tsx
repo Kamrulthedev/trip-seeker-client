@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { Lightbulb, MapPin, ShieldCheck, ShoppingCart } from "lucide-react";
 
-// একটি সুন্দর ব্যাকগ্রাউন্ড ইমেজ যোগ করা হয়েছে
 const tipsBgImage = "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?q=80&w=2070&auto=format&fit=crop";
 
 // --- Framer Motion Variants ---
