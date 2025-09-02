@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Testimonial from "../components/about/testimonial/Testimonial";
 import PageCover from "../components/pageCover/PageCover";
 import { Map } from "../components/about/map/Map";
-import bgBanner from "../assets/images/banner/breadcrumb.jpg";
+import bgBanner from "../assets/images/about/about_banner.jpg";
 
 
 // --- Framer Motion Variants ---

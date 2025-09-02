@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
-import bgBanner from "../../assets/images/banner/bg_page.jpg";
+import bgBanner from "../../assets/images/contact/contact-banner.jpg";
 import PageCover from "../pageCover/PageCover";
 import { motion } from 'framer-motion';
 import { ContactCard } from "./ContactCard";
