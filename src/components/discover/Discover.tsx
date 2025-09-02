@@ -1,5 +1,5 @@
 import PageCover from "../pageCover/PageCover";
-import bgBanner from '../../assets/images/banner/bg_page.jpg'
+import bgBanner from '../../assets/images/discover/key-bg-1.jpg'
 import Keyhighlight from "./Keyhighlight";
 import Experiences from "./Experiences";
 import Virtualtour from "./Virtualtour";
