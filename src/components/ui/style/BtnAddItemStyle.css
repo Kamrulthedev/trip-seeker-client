@@ -1,0 +1,59 @@
+.buttonAdd {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #fb5b21;
+  background-color: #fb5b21;
+}
+
+.buttonAdd,
+.buttonAdd__icon,
+.buttonAdd__text {
+  transition: all 0.3s;
+}
+
+.buttonAdd .buttonAdd__text {
+  transform: translateX(16px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.buttonAdd .buttonAdd__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonAdd .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.buttonAdd:hover {
+  background: #fb5b21;
+}
+
+.buttonAdd:hover .buttonAdd__text {
+  color: transparent;
+}
+
+.buttonAdd:hover .buttonAdd__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.buttonAdd:active .buttonAdd__icon {
+  background-color: #fb5b21;
+}
+
+.buttonAdd:active {
+  border: 1px solid #fb5b21;
+}
