@@ -6,6 +6,7 @@ import Virtualtour from "./Virtualtour";
 import Wheretostay from "./Wheretostay";
 import TravelTips from "./TravelTips";
 import { TripsAndPackage } from "../home/homeServices/TripsAndPackage";
+import Agensys from "../home/agensys/Agensys";
 
 const Discover = () => {
     return (
@@ -37,6 +38,7 @@ const Discover = () => {
             <TripsAndPackage></TripsAndPackage>
             <Wheretostay />
             <TravelTips />
+              <Agensys></Agensys>
         </div>
     );
 };
