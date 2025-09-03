@@ -2,50 +2,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Filter, Search, Star, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { ServiceCard } from '../components/home/homeServices/HomeServices';
+import PageCover from '../components/pageCover/PageCover';
+import servicesBg from "../assets/images/Service/inaniImage1.jpg";
 
-
-// Mock ServiceCard Component (from your previous work)
-const ServiceCard = ({ service }: { service: any }) => (
-    <motion.div
-        layout
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer h-96"
-    >
-        <img src={service.thumbnail} alt={service.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-        <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-white flex items-center gap-1">
-            <Star size={16} className="text-yellow-400 fill-yellow-400" />
-            <span>{service.rating}</span>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-            <p className="text-sm font-medium">{service.location}</p>
-            <h3 className="text-xl font-bold truncate mt-1">{service.name}</h3>
-            <div className="flex justify-between items-center mt-2">
-                <p className="text-2xl font-semibold">৳{service.price} <span className="text-base font-normal opacity-80">/ জন</span></p>
-            </div>
-        </div>
-    </motion.div>
-);
-
-// Mock PageCover Component
-const PageCover = ({ title }: { title: string }) => (
-    <div className="relative w-full h-64 md:h-80 bg-gradient-to-r from-blue-600 to-green-500 flex items-center justify-center text-white">
-         <img src="https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=2070&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-20" alt="Page Cover Background" />
-        <div className="relative text-center">
-            <motion.h1 
-                initial={{ opacity: 0, y: -20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="text-4xl md:text-6xl font-extrabold drop-shadow-lg"
-            >
-                {title}
-            </motion.h1>
-        </div>
-    </div>
-);
 
 // Mock Data for Travel Services in Bengali
 const allTravelServices = [
@@ -65,7 +25,6 @@ const allTravelServices = [
 
 const categories = ["সব", "Couple & Friends Escape", "Explorer’s Special", "Family & Group Trips"];
 
-// --- Reusable Components for the Services Page ---
 
 // Accordion for Filters
 const AccordionItem = ({ title, children, defaultOpen = false }: any) => {
@@ -123,11 +82,11 @@ const Services = () => {
     const [selectedRating, setSelectedRating] = useState(0);
     const [sortOrder, setSortOrder] = useState("");
     const [isFilterOpen, setIsFilterOpen] = useState(false);
-    
+
     // Pagination State
     const [currentPage, setCurrentPage] = useState(1);
     const servicesPerPage = 8;
-    
+
     // Filtering and Sorting Logic
     useEffect(() => {
         let filtered = allTravelServices;
@@ -151,11 +110,11 @@ const Services = () => {
                 return 0;
             });
         }
-        
+
         setServices(filtered);
         setCurrentPage(1); // Reset to first page on filter change
     }, [searchQuery, selectedCategory, priceRange, selectedRating, sortOrder]);
-    
+
     // Pagination Logic
     const indexOfLastService = currentPage * servicesPerPage;
     const indexOfFirstService = indexOfLastService - servicesPerPage;
@@ -167,7 +126,7 @@ const Services = () => {
             setCurrentPage(pageNumber);
         }
     };
-    
+
     const resetFilters = () => {
         setSearchQuery("");
         setSelectedCategory("সব");
@@ -193,21 +152,29 @@ const Services = () => {
             <AccordionItem title="রেটিং অনুযায়ী ফিল্টার">
                 <div className="flex justify-around">
                     {[5, 4, 3].map(rating => (
-                         <button key={rating} onClick={() => setSelectedRating(rating)} className={`flex items-center gap-1 p-2 rounded-md transition-colors ${selectedRating === rating ? 'bg-blue-100' : 'hover:bg-slate-100'}`}>
-                             {rating} <Star size={16} className="text-yellow-400 fill-yellow-400" />+
-                         </button>
+                        <button key={rating} onClick={() => setSelectedRating(rating)} className={`flex items-center gap-1 p-2 rounded-md transition-colors ${selectedRating === rating ? 'bg-blue-100' : 'hover:bg-slate-100'}`}>
+                            {rating} <Star size={16} className="text-yellow-400 fill-yellow-400" />+
+                        </button>
                     ))}
                 </div>
             </AccordionItem>
-             <button onClick={resetFilters} className="w-full flex items-center justify-center gap-2 p-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 transition-colors">
+            <button onClick={resetFilters} className="w-full flex items-center justify-center gap-2 p-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 transition-colors">
                 ফিল্টার রিসেট করুন
             </button>
         </div>
     );
 
+    const [selectedService, setSelectedService] = useState<any>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleDetailsClick = (service: any) => {
+        setSelectedService(service);
+        setIsModalOpen(true);
+    };
+
     return (
         <div className="bg-slate-50">
-            <PageCover title="আমাদের সকল সার্ভিস" />
+            <PageCover image={servicesBg}  title="আমাদের সকল সার্ভিস" />
             <div className="container mx-auto py-16 px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Desktop Filter Sidebar */}
@@ -219,9 +186,9 @@ const Services = () => {
                     <main className="lg:col-span-3">
                         {/* Search and Sort Bar */}
                         <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-8 p-4 bg-white rounded-lg shadow">
-                             <div className="relative w-full md:w-1/2">
+                            <div className="relative w-full md:w-1/2">
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-                                <input 
+                                <input
                                     type="text"
                                     placeholder="সার্ভিস খুঁজুন..."
                                     value={searchQuery}
@@ -241,15 +208,15 @@ const Services = () => {
                                 </select>
                             </div>
                         </div>
-                        
+
                         {/* Service Cards Grid */}
                         <AnimatePresence>
-                            <motion.div 
+                            <motion.div
                                 layout
                                 className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8"
                             >
                                 {currentServices.map(service => (
-                                    <ServiceCard key={service.id} service={service} />
+                                    <ServiceCard key={service.id} service={service} onDetailsClick={handleDetailsClick} />
                                 ))}
                             </motion.div>
                         </AnimatePresence>
@@ -268,7 +235,7 @@ const Services = () => {
                                 </nav>
                             </div>
                         )}
-                         {services.length === 0 && (
+                        {services.length === 0 && (
                             <div className="text-center py-20">
                                 <h3 className="text-2xl font-semibold text-gray-700">কোনো সার্ভিস পাওয়া যায়নি</h3>
                                 <p className="text-gray-500 mt-2">আপনার ফিল্টার পরিবর্তন করে আবার চেষ্টা করুন।</p>
@@ -285,7 +252,7 @@ const Services = () => {
             {/* Mobile Filter Drawer */}
             <AnimatePresence>
                 {isFilterOpen && (
-                    <motion.div 
+                    <motion.div
                         className="fixed inset-0 z-50 bg-black/50"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
