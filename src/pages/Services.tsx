@@ -5,11 +5,34 @@ import { useEffect, useState } from 'react';
 import { ServiceCard } from '../components/home/homeServices/HomeServices';
 import PageCover from '../components/pageCover/PageCover';
 import servicesBg from "../assets/images/Service/inaniImage1.jpg";
+import Beach1 from "../assets/images/Service/Beach1.jpg";
+import Beach2 from "../assets/images/Service/Beach2.jpg";
+import Beach3 from "../assets/images/Service/Beach3.jpg";
+import Beach4 from "../assets/images/Service/Beach4.jpg";
 
 
 // Mock Data for Travel Services in Bengali
 const allTravelServices = [
-    { id: 'cpl01', name: 'কক্সবাজার সূর্যোদয় ট্যুর', price: 4500, thumbnail: 'https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=800', rating: 4.8, location: 'কক্সবাজার', category: 'Couple & Friends Escape' },
+    {
+        id: "cpl01",
+        name: "Romantic Beach Gateway",
+        price: 14500,
+        thumbnail: Beach1,
+        images: [Beach1, Beach2, Beach3, Beach4],
+        rating: 4.8,
+        location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার",
+        category: "Couple & Friends Escape",
+        description:
+            "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান। কোনো প্রশ্ন থাকলে আমাদের নক করুন – আমরা সবসময় আপনার পাশে আছি।",
+        features: [
+            "৩ তারকা হোটেল (১ রাত, ২ দিন)",
+            "সকালের নাস্তা ও রাতের খাবার",
+            "এসি গাড়ি দ্বারা যাতায়াত",
+            "লাবণী ও কলাতলী সৈকতে ভ্রমণ",
+            "একজন গাইড",
+        ],
+    },
+
     { id: 'cpl02', name: 'সেন্ট মার্টিন প্রবাল দ্বীপ', price: 7500, thumbnail: 'https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=800', rating: 4.9, location: 'সেন্ট মার্টিন', category: 'Couple & Friends Escape' },
     { id: 'cpl03', name: 'সাজেক ভ্যালি মেঘের রাজ্য', price: 6500, thumbnail: 'https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=800', rating: 4.9, location: 'সাজেক', category: 'Couple & Friends Escape' },
     { id: 'exp01', name: 'বান্দরবান ট্রেকিং অভিযান', price: 8000, thumbnail: 'https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=800', rating: 4.7, location: 'বান্দরবান', category: 'Explorer’s Special' },
@@ -174,7 +197,7 @@ const Services = () => {
 
     return (
         <div className="bg-slate-50">
-            <PageCover image={servicesBg}  title="আমাদের সকল সার্ভিস" />
+            <PageCover image={servicesBg} title="আমাদের সকল সার্ভিস" />
             <div className="container mx-auto py-16 px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Desktop Filter Sidebar */}
