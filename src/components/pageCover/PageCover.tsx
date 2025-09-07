@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Home } from "lucide-react";
 import { ImageLoader } from "../ui/loader/ImageLoader";
 
-
 // --- Framer Motion Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -14,7 +13,6 @@ const containerVariants = {
   }
 };
 
-
 const itemVariants: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -22,7 +20,6 @@ const itemVariants: any = {
     transition: { duration: 0.6, ease: "easeOut" }
   }
 };
-
 
 const PageCover = ({ title, image }: { title: string; image: any; }) => {
   return (
