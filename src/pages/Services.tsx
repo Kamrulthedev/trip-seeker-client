@@ -27,13 +27,39 @@ import { ServiceDetailModal } from '../components/home/homeServices/HomeService'
 
 // Mock Data for Travel Services in Bengali
 const allTravelServices = [
-    { id: "cpl01", name: "Romantic Beach Gateway", price: 14500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার", category: "Couple & Friends Escape", description: "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান।", features: ["৩ তারকা হোটেল (১ রাত, ২ দিন)", "সকালের নাস্তা ও রাতের খাবার", "এসি গাড়ি দ্বারা যাতায়াত", "লাবণী ও কলাতলী সৈকতে ভ্রমণ"] },
-    { id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: Beach2, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"] },
-    { id: "exp01", name: "Nature & Heritage Explorer", price: 22500, thumbnail: Beach3, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"] },
-    { id: "fam01", name: "Family Beach Holiday", price: 38000, thumbnail: Beach4, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: "কক্সবাজার প্রধান সমুদ্রসৈকত", category: "Family & Group Trips", description: "পরিবার নিয়ে সমুদ্রসৈকতের আনন্দে ভরা একটি ঝামেলামুক্ত ছুটি।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "বড় বাস/কোস্টার", "প্রধান সৈকত ও হিমছড়ি ভ্রমণ"] },
     {
-        id: "fam02", name: "Safari & Sea Trip", price: 42000, thumbnail: "https://images.unsplash.com/photo-1542314831-068cd1dbb563", images: ["https://images.unsplash.com/photo-1542314831-068cd1dbb563", "https://images.unsplash.com/photo-1582719508461-905c673771fd", "https://images.unsplash.com/photo-1611892440504-42a792e24d32", "https://images.unsplash.com/photo-1568495248636-6432b97bd949"], rating: 4.9, location: "ডুলাহাজারা সাফারি পার্ক, ইনানী", category: "Family & Group Trips", description: "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবার", "ডুলাহাজারা সাফারি পার্ক ভ্রমণ", "ইনানী বিচ ট্যুর"]
+        id: "cpl01", name: "Romantic Beach Gateway", price: 14500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার", category: "Couple & Friends Escape", description: "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান।", features: ["৩ তারকা হোটেল (১ রাত, ২ দিন)", "সকালের নাস্তা ও রাতের খাবার", "এসি গাড়ি দ্বারা যাতায়াত", "লাবণী ও কলাতলী সৈকতে ভ্রমণ"]
+    },
+    {
+        id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: Beach2, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"]
+    },
 
+
+    {
+        id: "exp01", name: "Nature & Heritage Explorer", price: 22500, thumbnail: patuertekTamil, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"]
+    },
+    {
+        id: "exp02", name: "Nature & Heritage Explorer", price: 22500, thumbnail: patuertek1, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"]
+    },
+    {
+        id: "exp03", name: "Nature & Heritage Explorer", price: 22500, thumbnail: patuertek2, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"]
+    },
+    {
+        id: "exp04", name: "Nature & Heritage Explorer", price: 22500, thumbnail: patuertek3, images: [patuertek1, patuertek2, patuertek3, patuertek4], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"]
+    },
+
+
+    {
+        id: "fam01", name: "Family Beach Holiday", price: 38000, thumbnail: inaniTamil, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.8, location: "কক্সবাজার প্রধান সমুদ্রসৈকত", category: "Family & Group Trips", description: "পরিবার নিয়ে সমুদ্রসৈকতের আনন্দে ভরা একটি ঝামেলামুক্ত ছুটি।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "বড় বাস/কোস্টার", "প্রধান সৈকত ও হিমছড়ি ভ্রমণ"]
+    },
+    {
+        id: "fam02", name: "Safari & Sea Trip", price: 42000, thumbnail: inaniImage1, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: "ডুলাহাজারা সাফারি পার্ক, ইনানী", category: "Family & Group Trips", description: "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবার", "ডুলাহাজারা সাফারি পার্ক ভ্রমণ", "ইনানী বিচ ট্যুর"]
+    },
+    {
+        id: "fam03", name: "Safari & Sea Trip", price: 42000, thumbnail: inaniImage2, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: "ডুলাহাজারা সাফারি পার্ক, ইনানী", category: "Family & Group Trips", description: "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবার", "ডুলাহাজারা সাফারি পার্ক ভ্রমণ", "ইনানী বিচ ট্যুর"]
+    },
+    {
+        id: "fam04", name: "Safari & Sea Trip", price: 42000, thumbnail: inaniImage3, images: [inaniImage1, inaniImage2, inaniImage3, inaniImage4], rating: 4.9, location: "ডুলাহাজারা সাফারি পার্ক, ইনানী", category: "Family & Group Trips", description: "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবার", "ডুলাহাজারা সাফারি পার্ক ভ্রমণ", "ইনানী বিচ ট্যুর"]
     }
 ];
 
