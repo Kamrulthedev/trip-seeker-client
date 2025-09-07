@@ -4,7 +4,6 @@ import AboutUs from "../pages/AboutUs";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import HomePage from "../pages/HomePage";
-import ManageProduct from "../pages/ManageProduct";
 import Contact from "../components/contact/Contact";
 import Discover from "../components/discover/Discover";
 import Services from "../pages/Services";
@@ -34,11 +33,6 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "/manage-product",
-        element: <ManageProduct />,
-      },
-
       {
         path: "/cart",
         element: <Cart />,
