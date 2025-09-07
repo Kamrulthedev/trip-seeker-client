@@ -4,6 +4,7 @@ import { ChevronDown, Filter, Search, Star, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { ServiceCard } from '../components/home/homeServices/HomeServices';
 import PageCover from '../components/pageCover/PageCover';
+import { ServiceDetailModal } from '../components/home/homeServices/HomeService';
 
 import servicesBg from "../assets/images/Service/inaniImage1.jpg";
 import Beach1 from "../assets/images/Service/Beach1.jpg";
@@ -22,7 +23,6 @@ import inaniImage2 from "../assets/images/Service/inaniImage2.png";
 import inaniImage3 from "../assets/images/Service/inaniImage3.png";
 import inaniImage4 from "../assets/images/Service/inaniImage4.jpg";
 import inaniTamil from "../assets/images/Service/inaniTamil.png";
-import { ServiceDetailModal } from '../components/home/homeServices/HomeService';
 
 
 // Mock Data for Travel Services in Bengali
