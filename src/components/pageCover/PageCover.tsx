@@ -42,7 +42,7 @@ const PageCover = ({ title, image }: { title: string; image: any; }) => {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 className="text-5xl font-extrabold tracking-tight" variants={itemVariants}>
+        <motion.h1 className="text-5xl font-extrabold tracking-tight text-center" variants={itemVariants}>
           {title}
         </motion.h1>
         <motion.div className="flex items-center gap-2 mt-4 text-lg" variants={itemVariants}>
