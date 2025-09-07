@@ -27,11 +27,14 @@ import { ServiceDetailModal } from '../components/home/homeServices/HomeService'
 
 // Mock Data for Travel Services in Bengali
 const allTravelServices = [
-    { id: "cpl01", name: "Romantic Beach Gateway", price: 14500, thumbnail: "https://images.unsplash.com/photo-1507525428034-b723a9ce6890", images: ["https://images.unsplash.com/photo-1507525428034-b723a9ce6890", "https://images.unsplash.com/photo-1520454974749-611b7248ff25", "https://images.unsplash.com/photo-1519046904884-53103b34b206", "https://images.unsplash.com/photo-1534777367048-135a549e2413"], rating: 4.8, location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার", category: "Couple & Friends Escape", description: "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান।", features: ["৩ তারকা হোটেল (১ রাত, ২ দিন)", "সকালের নাস্তা ও রাতের খাবার", "এসি গাড়ি দ্বারা যাতায়াত", "লাবণী ও কলাতলী সৈকতে ভ্রমণ"] },
-    { id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: "https://images.unsplash.com/photo-1588253969500-3075a331dfa9", images: ["https://images.unsplash.com/photo-1588253969500-3075a331dfa9", "https://images.unsplash.com/photo-1618751939022-835a23534bda", "https://images.unsplash.com/photo-1590523277543-a94d28524035", "https://images.unsplash.com/photo-1617327181385-b305713b4f6f"], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"] },
-    { id: "exp01", name: "Nature & Heritage Explorer", price: 22500, thumbnail: "https://images.unsplash.com/photo-1605915492168-de86a42b1154", images: ["https://images.unsplash.com/photo-1605915492168-de86a42b1154", "https://images.unsplash.com/photo-1549880338-65ddcdfd017b", "https://images.unsplash.com/photo-1572003818344-36a5a805757d", "https://images.unsplash.com/photo-1551632811-561732d1e306"], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"] },
-    { id: "fam01", name: "Family Beach Holiday", price: 38000, thumbnail: "https://images.unsplash.com/photo-1566073771259-6a8506099945", images: ["https://images.unsplash.com/photo-1566073771259-6a8506099945", "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4", "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9", "https://images.unsplash.com/photo-1618773928121-c32242e63f39"], rating: 4.8, location: "কক্সবাজার প্রধান সমুদ্রসৈকত", category: "Family & Group Trips", description: "পরিবার নিয়ে সমুদ্রসৈকতের আনন্দে ভরা একটি ঝামেলামুক্ত ছুটি।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "বড় বাস/কোস্টার", "প্রধান সৈকত ও হিমছড়ি ভ্রমণ"] },
-    { id: "fam02", name: "Safari & Sea Trip", price: 42000, thumbnail: "https://images.unsplash.com/photo-1542314831-068cd1dbb563", images: ["https://images.unsplash.com/photo-1542314831-068cd1dbb563", "https://images.unsplash.com/photo-1582719508461-905c673771fd", "https://images.unsplash.com/photo-1611892440504-42a792e24d32", "https://images.unsplash.com/photo-1568495248636-6432b97bd949"], rating: 4.9, location: "ডুলাহাজারা সাফারি পার্ক, ইনানী", category: "Family & Group Trips", description: "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবার", "ডুলাহাজারা সাফারি পার্ক ভ্রমণ", "ইনানী বিচ ট্যুর"] }
+    { id: "cpl01", name: "Romantic Beach Gateway", price: 14500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার", category: "Couple & Friends Escape", description: "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান।", features: ["৩ তারকা হোটেল (১ রাত, ২ দিন)", "সকালের নাস্তা ও রাতের খাবার", "এসি গাড়ি দ্বারা যাতায়াত", "লাবণী ও কলাতলী সৈকতে ভ্রমণ"] },
+    { id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: Beach2, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"] },
+    { id: "exp01", name: "Nature & Heritage Explorer", price: 22500, thumbnail: Beach3, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.9, location: "রামু, হিমছড়ি, ইনানী", category: "Explorer’s Special", description: "প্রকৃতি আর ঐতিহ্যের মেলবন্ধন – পাহাড়, সমুদ্র আর রামুর বৌদ্ধ মন্দির ভ্রমণ।", features: ["৪ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবারের ব্যবস্থা", "এসি কোস্টার", "হিমছড়ি ভিউপয়েন্ট, ইনানী বিচ, রামু ভ্রমণ"] },
+    { id: "fam01", name: "Family Beach Holiday", price: 38000, thumbnail: Beach4, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: "কক্সবাজার প্রধান সমুদ্রসৈকত", category: "Family & Group Trips", description: "পরিবার নিয়ে সমুদ্রসৈকতের আনন্দে ভরা একটি ঝামেলামুক্ত ছুটি।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সকালের নাস্তা, দুপুর ও রাতের খাবার", "বড় বাস/কোস্টার", "প্রধান সৈকত ও হিমছড়ি ভ্রমণ"] },
+    {
+        id: "fam02", name: "Safari & Sea Trip", price: 42000, thumbnail: "https://images.unsplash.com/photo-1542314831-068cd1dbb563", images: ["https://images.unsplash.com/photo-1542314831-068cd1dbb563", "https://images.unsplash.com/photo-1582719508461-905c673771fd", "https://images.unsplash.com/photo-1611892440504-42a792e24d32", "https://images.unsplash.com/photo-1568495248636-6432b97bd949"], rating: 4.9, location: "ডুলাহাজারা সাফারি পার্ক, ইনানী", category: "Family & Group Trips", description: "প্রকৃতি, বন্যপ্রাণী আর সৈকতের আনন্দ – সব মিলিয়ে দারুণ এক ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "সব খাবার", "ডুলাহাজারা সাফারি পার্ক ভ্রমণ", "ইনানী বিচ ট্যুর"]
+
+    }
 ];
 
 const categories = ["সব", "Couple & Friends Escape", "Explorer’s Special", "Family & Group Trips"];
@@ -96,7 +99,7 @@ const Services = () => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [selectedService, setSelectedService] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
+
     const [currentPage, setCurrentPage] = useState(1);
     const servicesPerPage = 8;
 
@@ -124,7 +127,7 @@ const Services = () => {
         setServices(filtered);
         setCurrentPage(1);
     }, [searchQuery, selectedCategory, priceRange, selectedRating, sortOrder]);
-    
+
     const indexOfLastService = currentPage * servicesPerPage;
     const indexOfFirstService = indexOfLastService - servicesPerPage;
     const currentServices = services.slice(indexOfFirstService, indexOfLastService);
@@ -135,7 +138,7 @@ const Services = () => {
             setCurrentPage(pageNumber);
         }
     };
-    
+
     const resetFilters = () => {
         setSearchQuery("");
         setSelectedCategory("সব");
@@ -166,13 +169,13 @@ const Services = () => {
             <AccordionItem title="রেটিং অনুযায়ী ফিল্টার">
                 <div className="flex justify-around">
                     {[5, 4, 3].map(rating => (
-                         <button key={rating} onClick={() => setSelectedRating(rating)} className={`flex items-center gap-1 p-2 rounded-md transition-colors ${selectedRating === rating ? 'bg-blue-100' : 'hover:bg-slate-100'}`}>
-                             {rating} <Star size={16} className="text-yellow-400 fill-yellow-400" />+
-                         </button>
+                        <button key={rating} onClick={() => setSelectedRating(rating)} className={`flex items-center gap-1 p-2 rounded-md transition-colors ${selectedRating === rating ? 'bg-blue-100' : 'hover:bg-slate-100'}`}>
+                            {rating} <Star size={16} className="text-yellow-400 fill-yellow-400" />+
+                        </button>
                     ))}
                 </div>
             </AccordionItem>
-             <button onClick={resetFilters} className="w-full flex items-center justify-center gap-2 p-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 transition-colors">
+            <button onClick={resetFilters} className="w-full flex items-center justify-center gap-2 p-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 transition-colors">
                 ফিল্টার রিসেট করুন
             </button>
         </div>
@@ -180,7 +183,7 @@ const Services = () => {
 
     return (
         <div className="bg-slate-50">
-            <PageCover title="আমাদের সকল সার্ভিস" image="https://images.unsplash.com/photo-1534777367048-135a549e2413?q=80&w=2070&auto=format&fit=crop" />
+            <PageCover title="আমাদের সকল সার্ভিস" image={servicesBg} />
             <div className="container mx-auto py-16 px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     <aside className="hidden lg:block">
@@ -188,7 +191,7 @@ const Services = () => {
                     </aside>
                     <main className="lg:col-span-3">
                         <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-8 p-4 bg-white rounded-lg shadow">
-                             <div className="relative w-full md:w-1/2">
+                            <div className="relative w-full md:w-1/2">
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                                 <input type="text" placeholder="সার্ভিস খুঁজুন..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
                             </div>
@@ -204,7 +207,7 @@ const Services = () => {
                                 </select>
                             </div>
                         </div>
-                        
+
                         <AnimatePresence>
                             <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                                 {currentServices.map(service => (
@@ -226,7 +229,7 @@ const Services = () => {
                                 </nav>
                             </div>
                         )}
-                         {services.length === 0 && (
+                        {services.length === 0 && (
                             <div className="text-center py-20">
                                 <h3 className="text-2xl font-semibold text-gray-700">কোনো সার্ভিস পাওয়া যায়নি</h3>
                                 <p className="text-gray-500 mt-2">আপনার ফিল্টার পরিবর্তন করে আবার চেষ্টা করুন।</p>
