@@ -71,6 +71,7 @@ const categories = ["সব", "Couple & Friends Escape", "Explorer’s Special",
 // Accordion for Filters
 const AccordionItem = ({ title, children, defaultOpen = false }: any) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
+
     return (
         <div className="border-b">
             <button className="flex justify-between items-center w-full py-4" onClick={() => setIsOpen(!isOpen)}>
@@ -100,7 +101,7 @@ const PriceRangeSlider = ({ value, onChange }: any) => (
         <input
             type="range"
             min="10000"
-            max="60000" // Increased max price
+            max="60000"
             step="1000"
             value={value}
             onChange={(e) => onChange(parseInt(e.target.value))}
