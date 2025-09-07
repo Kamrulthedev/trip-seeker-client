@@ -33,6 +33,12 @@ const allTravelServices = [
     {
         id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: Beach2, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"]
     },
+    {
+        id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: Beach4, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"]
+    },
+    {
+        id: "cpl02", name: "Inani & Himchori Adventure", price: 16500, thumbnail: Beach3, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.7, location: "ইনানী ও হিমছড়ি, কক্সবাজার", category: "Couple & Friends Escape", description: "ঝরনা, পাহাড় আর ইনানীর ঝিনুক ভরা সৈকতে রোমাঞ্চকর ভ্রমণ।", features: ["৩ তারকা হোটেল (২ রাত, ৩ দিন)", "প্রাতঃরাশ ও রাতের খাবার", "এসি মাইক্রোবাস", "ইনানী বিচ ও হিমছড়ি ভ্রমণ"]
+    },
 
 
     {
@@ -128,7 +134,7 @@ const Services = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const servicesPerPage = 8;
+    const servicesPerPage = 6;
 
     useEffect(() => {
         let filtered = allTravelServices;
