@@ -236,7 +236,7 @@ const Services = () => {
                         </div>
 
                         <AnimatePresence>
-                            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+                            <motion.div layout className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                                 {currentServices.map(service => (
                                     <ServiceCard key={service.id} service={service} onDetailsClick={handleDetailsClick} />
                                 ))}
