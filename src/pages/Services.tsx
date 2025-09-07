@@ -224,13 +224,13 @@ const Services = () => {
                             </div>
                             <div className="flex gap-2 items-center">
                                 <button onClick={() => setIsFilterOpen(true)} className="lg:hidden p-2 border rounded-md flex items-center gap-2">
-                                    <Filter size={20} /> ফিল্টার
+                                    <Filter size={20} /> Filter
                                 </button>
                                 <select value={sortOrder} onChange={e => setSortOrder(e.target.value)} className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="">সাজান</option>
-                                    <option value="price-asc">মূল্য: কম থেকে বেশি</option>
-                                    <option value="price-desc">মূল্য: বেশি থেকে কম</option>
-                                    <option value="rating-desc">রেটিং অনুযায়ী</option>
+                                    <option value="">Sorting</option>
+                                    <option value="price-asc">Price: High to low</option>
+                                    <option value="price-desc">Price: low to high</option>
+                                    <option value="rating-desc">By rating</option>
                                 </select>
                             </div>
                         </div>
