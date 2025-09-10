@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search as SearchIcon, X } from 'lucide-react';
 import { useState } from 'react';
+import { SuggestionCard } from './SuggestionCard';
 
 // --- Framer Motion Variants ---
 const containerVariants: any = {
@@ -26,7 +27,6 @@ const suggestionsVariants = {
         },
     },
 };
-
 
 
 const Search = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
