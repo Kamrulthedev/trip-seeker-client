@@ -8,8 +8,6 @@ import { CartSheet } from "../cart/CartSheet";
 import Search from "../search/Search";
 
 
-
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isCartOpen, setIsCartOpen] = React.useState(false);
