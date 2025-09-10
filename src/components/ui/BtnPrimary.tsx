@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const baseButtonClasses = `
   relative overflow-hidden font-sans font-bold text-sm
@@ -99,3 +101,27 @@ export const BtnPrimaryMini = ({ text, title }: { text: string; title: string })
     </div>
   );
 };
+
+
+
+// --- Custom Animated Button ---
+export const MenuButton = ({ to, onClick, children, primary = false }: any) => (
+    <Link to={to} onClick={onClick} className="w-full">
+        <motion.button
+            className={`relative w-full h-[40px] flex items-center justify-center rounded-lg overflow-hidden font-semibold text-sm transition-all duration-300 group ${primary ? '' : 'bg-white/20 border border-white/30'}`}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+        >
+            {/* Animated Gradient Border/Background */}
+            <motion.div
+                className="absolute inset-[-10px] bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)] filter blur-sm"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            />
+            {/* Inner Content */}
+            <div className={`relative z-10 w-[calc(100%-4px)] h-[calc(100%-4px)] rounded-md flex items-center justify-center gap-3 transition-colors duration-300 ${primary ? 'bg-slate-800/80 text-white group-hover:bg-slate-800/100' : 'bg-transparent text-slate-800 group-hover:bg-white/20'}`}>
+                {children}
+            </div>
+        </motion.button>
+    </Link>
+);
