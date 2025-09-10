@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search as SearchIcon, X } from 'lucide-react';
 
 // --- Framer Motion Variants ---
-const containerVariants:any = {
+const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } },
     exit: { opacity: 0, transition: { duration: 0.2, ease: 'easeIn' } },
 };
 
-const contentVariants:any = {
+const contentVariants: any = {
     hidden: { y: '-20%', opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 200, damping: 25, delay: 0.1 } },
     exit: { y: '-20%', opacity: 0, transition: { duration: 0.2, ease: 'easeIn' } },
@@ -66,7 +66,7 @@ const Search = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) =
                             className="mt-6 flex flex-wrap items-center justify-center gap-3"
                             variants={suggestionsVariants}
                         >
-                             <span className="text-sm font-semibold text-gray-600">জনপ্রিয় সার্চ:</span>
+                            <span className="text-sm font-semibold text-gray-600">জনপ্রিয় সার্চ:</span>
                             {popularSearches.map((term) => (
                                 <motion.button
                                     key={term}
