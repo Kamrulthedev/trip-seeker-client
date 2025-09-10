@@ -80,12 +80,10 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                                 </div>
                                 <div className="flex gap-4">
                                     <Link to="/cart" className="w-1/2">
-                                      <BtnPrimary text="সার্ভিসসমূহ দেখুন" title="আমাদের সার্ভিসসমূহ" />
+                                       <BtnPrimary text="কার্ট দেখুন" title="কার্ট দেখুন" />
                                     </Link>
                                     <Link to="/checkout" className="w-1/2">
-                                        <button className="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 rounded-lg shadow-lg hover:scale-105 transition-transform">
-                                            চেকআউট
-                                        </button>
+                                       <BtnPrimary text="চেকআউট" title="চেকআউট" />
                                     </Link>
                                 </div>
                             </div>
