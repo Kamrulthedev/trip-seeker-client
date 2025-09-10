@@ -7,6 +7,7 @@ import trips from "../../assets/images/Service/Beach1.jpg";
 import trips1 from "../../assets/images/Service/inaniImage1.jpg";
 import { EmptyCart } from './EmptyCart';
 import { CartItem } from './CartItem';
+import { BtnPrimary } from '../ui/BtnPrimary';
 
 // --- Mock Data ---
 const initialCartItems = [
@@ -79,9 +80,7 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                                 </div>
                                 <div className="flex gap-4">
                                     <Link to="/cart" className="w-1/2">
-                                        <button className="w-full bg-slate-200 text-slate-800 font-bold py-3 rounded-lg hover:bg-slate-300 transition-colors">
-                                            কার্ট দেখুন
-                                        </button>
+                                      <BtnPrimary text="সার্ভিসসমূহ দেখুন" title="আমাদের সার্ভিসসমূহ" />
                                     </Link>
                                     <Link to="/checkout" className="w-1/2">
                                         <button className="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 rounded-lg shadow-lg hover:scale-105 transition-transform">
