@@ -4,8 +4,9 @@ import NavItems from "./Nav/NavItems";
 import ResponsiveNav from "./Nav/ResponsiveNav";
 import Logo from "./Nav/Logo";
 import React from "react";
-import { ShoppingCart } from "lucide-react";
+import { SearchIcon, ShoppingCart } from "lucide-react";
 import { CartSheet } from "../cart/CartSheet";
+import Search from "../search/Search";
 
 
 
@@ -53,9 +54,12 @@ const Header = () => {
           <NavItems />
           <div className="flex gap-2 sm:gap-4 text-2xl items-center">
 
-            {/* Search Icon */}
-            <button className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50">
-              <HiOutlineSearch />
+            {/* --- Updated Search Button --- */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50"
+            >
+              <SearchIcon />
             </button>
 
             {/* User Icon */}
@@ -80,6 +84,7 @@ const Header = () => {
       </header>
       {/* --- CartSheet Integration --- */}
       <CartSheet isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <Search isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
 
   );
