@@ -46,7 +46,7 @@ const Header = () => {
         <div className="flex gap-2 sm:gap-4 text-2xl">
           {/* Search Button */}
           <button className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50">
-            <HiOutlineSearch className="hidden md:inline-block" />
+            <HiOutlineSearch />
           </button>
 
           {/* User Button */}
