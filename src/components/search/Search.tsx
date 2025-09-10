@@ -4,6 +4,11 @@ import { Search as SearchIcon, X } from 'lucide-react';
 import { useState } from 'react';
 import { SuggestionCard } from './SuggestionCard';
 
+// images
+import coxImage from "../../assets/images/Service/Beach1.jpg";
+import inaniImage from "../../assets/images/Service/inaniImage1.jpg";
+import moheskaliImage from "../../assets/images/Service/patuertek2.jpg";
+
 // --- Framer Motion Variants ---
 const containerVariants: any = {
     hidden: { opacity: 0 },
@@ -32,10 +37,10 @@ const suggestionsVariants = {
 const Search = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const popularSearches = [
-        { name: "কক্সবাজার", image: "https://images.unsplash.com/photo-1588253969500-3075a331dfa9?q=80&w=400" },
+        { name: "কক্সবাজার", image: coxImage },
         { name: "সেন্ট মার্টিন", image: "https://images.unsplash.com/photo-1591017403286-fd8493524e1e?q=80&w=400" },
-        { name: "সাজেক", image: "https://images.unsplash.com/photo-1618049339391-48b18aa2b929?q=80&w=400" },
-        { name: "বান্দরবান", image: "https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=400" },
+        { name: "ইনানী সৈকত", image: inaniImage },
+        { name: "মহেশখালী", image: moheskaliImage },
     ];
     
     const handleGoogleSearch = (term: string) => {
