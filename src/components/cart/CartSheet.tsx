@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { X, Trash2, BaggageClaim } from 'lucide-react';
+import trips from "../../assets/images/Service/Beach1.jpg";
+import trips1 from "../../assets/images/Service/inaniImage1.jpg";
 
 // --- Mock Data ---
 const initialCartItems = [
-    { id: 'cpl01', name: 'কক্সবাজার সূর্যোদয় ট্যুর', price: 4500, image: 'https://images.unsplash.com/photo-1617327181385-b305713b4f6f?q=80&w=200', quantity: 1, stock: 5 },
-    { id: 'exp01', name: 'বান্দরবান ট্রেকিং অভিযান', price: 8000, image: 'https://images.unsplash.com/photo-1605915492168-de86a42b1154?q=80&w=200', quantity: 2, stock: 3 },
+    { id: 'cpl01', name: 'কক্সবাজার সূর্যোদয় ট্যুর', price: 4500, image: trips, quantity: 1, stock: 5 },
+    { id: 'exp01', name: 'বান্দরবান ট্রেকিং অভিযান', price: 8000, image: trips1, quantity: 2, stock: 3 },
 ];
 
 // --- Helper Components ---
