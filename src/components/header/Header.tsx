@@ -2,37 +2,38 @@ import { HiOutlineUser } from "react-icons/hi2";
 import NavItems from "./Nav/NavItems";
 import ResponsiveNav from "./Nav/ResponsiveNav";
 import Logo from "./Nav/Logo";
-import React from "react";
-import { SearchIcon, ShoppingCart } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { SearchIcon, ShoppingCart, User } from "lucide-react";
 import { CartSheet } from "../cart/CartSheet";
 import Search from "../search/Search";
+import UserMenu from "./UserMenu/UserMenu";
 
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isCartOpen, setIsCartOpen] = React.useState(false);
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const cartItemCount = 2;
+  const userMenuRef = useRef<HTMLDivElement>(null);
 
-  // Effect to handle scroll event
-  React.useEffect(() => {
-    const handleScroll = () => {
-      // Set state based on scroll position
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+  // Effect to handle scroll
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Effect to handle click outside for UserMenu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
       }
     };
-
-    // Add event listener when component mounts
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup function to remove event listener when component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Empty dependency array means this effect runs only once on mount
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -57,11 +58,16 @@ const Header = () => {
               <SearchIcon />
             </button>
 
-            {/* User Icon */}
-            <button className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50">
-              <HiOutlineUser />
-            </button>
-
+            {/* --- Updated User Icon Button with Menu Logic --- */}
+            <div className="relative" ref={userMenuRef}>
+              <button
+                onClick={() => setIsUserMenuOpen(prev => !prev)}
+                className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50"
+              >
+                <User />
+              </button>
+              <UserMenu isOpen={isUserMenuOpen} onClose={() => setIsUserMenuOpen(false)} />
+            </div>
             {/* --- Updated Cart Button --- */}
             <button
               onClick={() => setIsCartOpen(true)}
