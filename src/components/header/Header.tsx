@@ -9,9 +9,13 @@ import { CartSheet } from "../cart/CartSheet";
 
 
 
+
+
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isCartOpen, setIsCartOpen] = React.useState(false);
+  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
   const cartItemCount = 2;
 
   // Effect to handle scroll event
