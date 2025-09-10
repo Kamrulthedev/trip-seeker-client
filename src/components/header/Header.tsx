@@ -1,4 +1,3 @@
-import { HiOutlineSearch } from "react-icons/hi";
 import { HiOutlineUser } from "react-icons/hi2";
 import NavItems from "./Nav/NavItems";
 import ResponsiveNav from "./Nav/ResponsiveNav";
@@ -7,8 +6,6 @@ import React from "react";
 import { SearchIcon, ShoppingCart } from "lucide-react";
 import { CartSheet } from "../cart/CartSheet";
 import Search from "../search/Search";
-
-
 
 
 
