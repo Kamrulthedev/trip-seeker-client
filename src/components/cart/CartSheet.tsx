@@ -31,17 +31,12 @@ export function CartSheet() {
       <SheetTrigger asChild>
         <button className="relative">
           <HiOutlineShoppingCart />
-          {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 inline-flex items-center rounded-full  px-1 py-0.5 h-fit w-fit text-xs font-medium bg-primary text-white">
-              {totalItems}
-            </span>
-          )}
         </button>
       </SheetTrigger>
       <SheetContent className="md:w-[29rem] overflow-hidden bg-gray-100">
         <SheetHeader className="border-b">
           <div className="flex items-center text-2xl">
-            <p className="px-4 py-2 border-r w-12">{totalItems}</p>
+            <p className="px-4 py-2 border-r w-12">555</p>
             <p className="px-4 py-2 text-center w-[77%] border-r">
               Shopping Cart
             </p>
