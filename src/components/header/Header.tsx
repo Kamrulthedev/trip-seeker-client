@@ -48,9 +48,13 @@ const Header = () => {
           <Logo />
           <NavItems />
           <div className="flex gap-2 sm:gap-4 text-2xl items-center">
+
+            {/* Sraech Icon */}
             <button className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50">
               <HiOutlineSearch />
             </button>
+
+            {/* User Icon */}
             <button className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50">
               <HiOutlineUser />
             </button>
