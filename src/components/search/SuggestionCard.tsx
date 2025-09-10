@@ -10,15 +10,15 @@ const suggestionItemVariants = {
 
 export const SuggestionCard = ({ term, image, onSelect, onGoogleSearch }: any) => (
     <motion.div
-        className="relative w-full sm:w-1/2 md:w-1/4 p-2"
+        className="w-1/2 md:w-1/4 p-2" // Responsive grid: 2 columns on small, 4 on medium+
         variants={suggestionItemVariants}
         whileHover={{ y: -5, transition: { type: 'spring', stiffness: 300 } }}
     >
         <div className="relative rounded-lg shadow-lg overflow-hidden group cursor-pointer" onClick={() => onSelect(term)}>
-            <img src={image} alt={term} className="w-full h-40 object-cover" />
+            <img src={image} alt={term} className="w-full h-32 sm:h-40 object-cover" />
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h4 className="text-white font-bold text-lg truncate">{term}</h4>
+                <h4 className="text-white font-bold text-base sm:text-lg truncate">{term}</h4>
             </div>
             <button
                 onClick={(e) => {
