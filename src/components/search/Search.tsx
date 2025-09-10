@@ -6,9 +6,9 @@ import { SuggestionCard } from './SuggestionCard';
 
 // images
 import coxImage from "../../assets/images/Service/Beach1.jpg";
-import inaniImage from "../../assets/images/Service/inaniImage1.jpg";
+import inaniImage from "../../assets/images/Service/inaniImage3.png";
 import moheskaliImage from "../../assets/images/Service/patuertek2.jpg";
-import stMartinImage from "../../assets/images/Service/patuertek2.jpg";
+import stMartinImage from "../../assets/images/Service/Beach4.jpg";
 
 // --- Framer Motion Variants ---
 const containerVariants: any = {
