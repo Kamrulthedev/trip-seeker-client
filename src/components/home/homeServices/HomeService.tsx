@@ -111,7 +111,9 @@ export const ServiceDetailModal = ({ service, isOpen, onClose }: { service: any,
                     <label htmlFor="travelers" className="font-medium text-gray-700">Travelers:</label>
                     <input type="number" id="travelers" min="1" value={travelers} onChange={(e) => setTravelers(Math.max(1, parseInt(e.target.value) || 1))} className="w-20 rounded-md border-gray-300 text-center font-bold" />
                   </div>
+             
                   <button onClick={handleBookNow} className="bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform">Book Now</button>
+
                 </div>
               </div>
             </div>
