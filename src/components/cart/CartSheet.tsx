@@ -15,8 +15,6 @@ const initialCartItems = [
 ];
 
 
-
-
 // --- Main CartSheet Component ---
 export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
     const [cartItems, setCartItems] = useState(initialCartItems);
