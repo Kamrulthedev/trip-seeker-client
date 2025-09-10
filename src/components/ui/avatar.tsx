@@ -46,6 +46,6 @@ AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
 export { Avatar, AvatarFallback, AvatarImage };
 
-  function cn(arg0: string, className: string | undefined): string | undefined {
+  function cn(_arg0: string, _className: string | undefined): string | undefined {
     throw new Error("Function not implemented.");
   }
