@@ -6,17 +6,15 @@ export interface IProductCardProps {
   productDetails: IProduct;
 }
 
-// Mock useNavigate hook
 const useNavigate = () => {
   return (path: string) => {
     console.log(`Navigating to: ${path}`);
-    // In a real app, this would use react-router-dom's navigate
   };
 };
 
 // Mock Link component
 const Link = ({ to, children, className, title }: { to: string; children: React.ReactNode; className?: string; title?: string }) => (
-  <a href={to} className={className} title={title} onClick={(e) => e.preventDefault()}> {/* Prevent actual navigation for mock */}
+  <a href={to} className={className} title={title} onClick={(e) => e.preventDefault()}>
     {children}
   </a>
 );
@@ -24,19 +22,16 @@ const Link = ({ to, children, className, title }: { to: string; children: React.
 // Mock toast notification
 const toast = {
   success: (message: string) => console.log(`Toast Success: ${message}`),
-  // Add other toast types if needed by the component
 };
 
-// Mock Redux hooks and store parts
 const useAppDispatch = () => {
   return (action: any) => console.log("Dispatching action:", action);
 };
 
 const useAppSelector = (selector: (state: any) => any) => {
-  // Mock a simple cart state for demonstration
   const mockState = {
     cart: {
-      cartItems: [], // Start with an empty cart
+      cartItems: [],
     },
   };
   return selector(mockState);
@@ -59,7 +54,7 @@ const closeQuickViewModal = () => ({
 
 // Mock ProductQuickViewModal component
 const ProductQuickViewModal = () => {
-  const [isOpen, setIsOpen] = useState(false); // Simple local state for mock modal visibility
+  const [isOpen, setIsOpen] = useState(false); 
 
   // Mock quickView state from Redux
   const quickViewProduct = {
@@ -68,20 +63,16 @@ const ProductQuickViewModal = () => {
     onClose: () => setIsOpen(false),
   };
 
-  // Simulate opening the modal (for demonstration purposes, in real app, Redux would manage this)
+
   if (quickViewProduct.isOpen && quickViewProduct.product) {
-    // You would render your modal UI here
     console.log("Mock Quick View Modal is open for product:", quickViewProduct.product);
   }
 
   return (
-    // This component usually handles rendering a modal, for this mock, it just logs.
-    // In a real application, you would put the actual modal JSX here.
     null
   );
 };
 
-// --- Inline SVG Icons to replace react-icons ---
 // Check Badge Icon
 const CheckBadgeIcon = ({ size = 24 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
