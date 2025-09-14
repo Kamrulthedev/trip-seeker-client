@@ -23,7 +23,6 @@ const containerVariants = {
 };
 
 
-// --- Framer Motion Variants ---
 const itemVariants: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
