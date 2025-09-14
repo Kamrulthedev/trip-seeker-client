@@ -10,7 +10,7 @@ const suggestionItemVariants = {
 
 export const SuggestionCard = ({ term, image, onSelect, onGoogleSearch }: any) => (
     <motion.div
-        className="w-1/2 md:w-1/4 p-2" // Responsive grid: 2 columns on small, 4 on medium+
+        className="w-1/2 md:w-1/4 p-2"
         variants={suggestionItemVariants}
         whileHover={{ y: -5, transition: { type: 'spring', stiffness: 300 } }}
     >
