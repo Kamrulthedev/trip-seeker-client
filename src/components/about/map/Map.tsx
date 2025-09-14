@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 
 
-
 export const Map = () => {
-   return (
+  return (
     <div className="container mx-auto py-20 px-4">
       <motion.div
         className="text-center mb-12"
