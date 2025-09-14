@@ -23,7 +23,7 @@ const testimonials = [
 const Testimonial = () => {
   return (
     <div className="relative py-20 overflow-hidden">
-      {/* Background Image with Blur and Overlay */}
+      {/* Set Image */}
       <div className="absolute inset-0">
         <img src={testimonialBg} alt="Happy travelers background" className="w-full h-full object-cover filter blur-sm scale-110" />
         <div className="absolute inset-0 "></div>
