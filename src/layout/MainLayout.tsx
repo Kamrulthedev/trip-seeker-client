@@ -45,7 +45,6 @@ const MainLayout = () => {
  const location = useLocation();
   const [showButton, setShowButton] = useState(false);
 
-  // Handle scroll event to show/hide the button
   useEffect(() => {
     const handleScroll = () => {
       setShowButton(window.scrollY > 200);
@@ -54,7 +53,6 @@ const MainLayout = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll-to-top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
