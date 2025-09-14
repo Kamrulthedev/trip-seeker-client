@@ -31,7 +31,6 @@ const itemVariants: any = {
 
 
 
-// Component 4: Contact (Main Page)
 const Contact = () => {
 
 
