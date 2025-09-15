@@ -8,7 +8,7 @@ export const EmptyCart = () => (
         <p className="text-slate-500 mt-2">মনে হচ্ছে আপনি এখনো কোনো ট্যুর যোগ করেননি।</p>
         <Link to="/services">
             <button className="mt-6 bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform">
-                কেনাকাটা করুন
+               সার্ভিস বুকিং করুন
             </button>
         </Link>
     </div>
