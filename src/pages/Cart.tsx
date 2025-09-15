@@ -53,7 +53,7 @@ const AnimatedCheckoutButton = ({ disabled, children, onClick }: any) => {
             <motion.button
                 onClick={onClick}
                 disabled={disabled}
-                className={`${baseButtonClasses} w-full py-4
+                className={`${baseButtonClasses} w-full p-5
                 shadow-lg transition-shadow duration-300
                 bg-transparent backdrop-filter backdrop-blur-sm
                 ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-[1.02]'}
@@ -129,7 +129,7 @@ const Cart = () => {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator className="text-gray-500 text-2xl" />
                     <BreadcrumbItem>
-                        <BreadcrumbPage className="text-primary text-xl">
+                        <BreadcrumbPage className="text-green-500 text-xl">
                             শপিং কার্ট
                         </BreadcrumbPage>
                     </BreadcrumbItem>
