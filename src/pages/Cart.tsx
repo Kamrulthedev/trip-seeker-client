@@ -7,6 +7,7 @@ import PageCover from "../components/pageCover/PageCover";
 import cartImage from "../assets/images/banner/breadcrumb.jpg";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { BtnPrimary } from "../components/ui/BtnPrimary";
 
 // Mock Data for Cart Items
 const mockCartItems = [
