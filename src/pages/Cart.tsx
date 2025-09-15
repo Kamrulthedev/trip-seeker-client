@@ -6,6 +6,8 @@ import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import PageCover from "../components/pageCover/PageCover";
 import cartImaege from "../assets/images/banner/breadcrumb.jpg"
 
+
+
 const Cart = () => {
   
   return (
@@ -60,14 +62,13 @@ const Cart = () => {
           </div>
           <div className="mt-10">
             <p className="text-lg flex items-center justify-between">
-              <span>Total (tax incl.)</span>{" "}
-              
+              <span>Total (tax incl.)</span>  
             </p>
           </div>
           <button
             className="rounded-sm mt-5 text-white p-4 w-full flex items-center justify-center gap-2 uppercase bg-primary transition-all ease-in-out duration-300 group"
           >
-            Proceed to Check Out{" "}
+            Proceed to Check Out
             <MdOutlineShoppingCartCheckout
               size={22}
               className="group-hover:ml-5 transition-all  ease-in-out duration-300"
