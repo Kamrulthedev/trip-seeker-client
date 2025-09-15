@@ -1,5 +1,4 @@
 import { FaRegStar, FaRegStarHalfStroke, FaStar } from "react-icons/fa6";
-
 import { ITestimonial } from "../../../types";
 import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
 
