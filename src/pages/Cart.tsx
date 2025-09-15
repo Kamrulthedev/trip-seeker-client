@@ -118,7 +118,7 @@ const Cart = () => {
 
     return (
         <section className="bg-slate-50 min-h-screen">
-            <PageCover image={cartImage} title="আপনার শপিং কার্ট" />
+            <PageCover image={cartImage} title="আপনার বুকিং সার্ভিস সমূহ " />
             
             <Breadcrumb className="my-5 py-6 bg-gray-100 hidden md:block">
                 <BreadcrumbList className="container mx-auto">
