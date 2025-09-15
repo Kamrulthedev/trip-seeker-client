@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { FishOff } from "lucide-react";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import PageCover from "../components/pageCover/PageCover";
-import cartImaege from "../assets/images/banner/breadcrumb.jpg"
+import cartImaege from "../assets/images/banner/breadcrumb.jpg";
 
 
 
