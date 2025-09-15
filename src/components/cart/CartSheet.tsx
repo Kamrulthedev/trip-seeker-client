@@ -50,7 +50,7 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between p-6 border-b border-slate-200">
-                            <h2 className="text-2xl font-bold text-slate-800">শপিং কার্ট</h2>
+                            <h2 className="text-2xl font-bold text-slate-800">বুকিং সার্ভিস</h2>
                             <button onClick={onClose} className="p-1 rounded-full hover:bg-slate-200 transition-colors">
                                 <X size={24} className="text-slate-600" />
                             </button>
