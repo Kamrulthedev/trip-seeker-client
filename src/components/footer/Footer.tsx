@@ -2,10 +2,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Linkedin, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
 import Logo from '../header/Nav/Logo';
 import payCopyrightUrl from '../../assets/images/pay_copyright.png';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { CiTwitter, CiYoutube } from 'react-icons/ci';
 
 // --- Framer Motion Variants ---
 const containerVariants = {
@@ -35,11 +37,11 @@ const FooterLink = ({ to, children }: { to: string; children: React.ReactNode })
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=61579613402394" },
-    { icon: <Twitter size={20} />, href: "#" },
-    { icon: <Instagram size={20} />, href: "#" },
+    { icon: <FaFacebook size={20} />, href: "https://www.facebook.com/profile.php?id=61579613402394" },
+    { icon: <CiTwitter size={20} />, href: "#" },
+    { icon: <FaInstagram size={20} />, href: "#" },
     { icon: <Linkedin size={20} />, href: "#" },
-    { icon: <Youtube size={20} />, href: "#" },
+    { icon: <CiYoutube size={20} />, href: "#" },
   ];
 
   return (
