@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "../components/ui/breadcrumb";
 import { FishOff } from "lucide-react";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
-
+import PageCover from "../components/pageCover/PageCover";
+import cartImaege from "../assets/images/banner/breadcrumb.jpg"
 
 const Cart = () => {
   
   return (
     <section>
+      <PageCover image={cartImaege} title="gggggg"></PageCover>
       <Breadcrumb className="my-5 py-6 bg-gray-100">
         <BreadcrumbList className="container mx-auto">
           <BreadcrumbItem className="text-xl text-black">
