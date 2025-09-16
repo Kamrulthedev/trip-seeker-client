@@ -24,6 +24,7 @@ import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Textarea } from "../components/ui/textarea";
 import PageCover from "../components/pageCover/PageCover";
 import checkoutBannar from "../assets/images/banner/bg_page.jpg";
+import AnimatedButton from "../utils/Checkout/AnimatedButton";
 
 // Mock Data for Order Summary
 const mockCartItems = [
