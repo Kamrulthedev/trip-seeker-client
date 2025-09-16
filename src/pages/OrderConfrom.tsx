@@ -5,9 +5,56 @@ import { toast } from "sonner";
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 import { FaMobileAlt, FaCreditCard } from "react-icons/fa";
+import PageCover from "../components/pageCover/PageCover";
+import confirmationBg from "../assets/images/banner/bg_page.jpg";
 
+// Custom Animated Button for Confirming Order
+const AnimatedConfirmButton = ({ onClick, children, disabled }: any) => {
+    const baseButtonClasses = `
+        text-base font-bold tracking-wider rounded-md
+        flex items-center justify-center gap-2
+        overflow-hidden relative
+    `;
+    const blueTextStyle = { color: '#ffffff' };
+    const hoverTextGradientStyle = {
+        background: 'linear-gradient(to right, #60a5fa, #16a34a, #60a5fa)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+    };
 
-const OrderConfrom = () => {
+    return (
+        <div className="flex justify-center w-full">
+            <motion.button
+                onClick={onClick}
+                disabled={disabled}
+                className={`${baseButtonClasses} w-full py-4
+                shadow-lg transition-shadow duration-300
+                bg-blue-600 hover:bg-transparent backdrop-filter backdrop-blur-sm
+                ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-[1.02]'}
+                group`}
+                whileTap={{ scale: disabled ? 1 : 0.98 }}
+            >
+                <div className="relative z-20 w-full h-full flex items-center justify-center bg-transparent rounded-md">
+                    <p
+                        className={`transition-all duration-400 ease-in-out group-hover:opacity-0 ${disabled ? 'opacity-100' : ''}`}
+                        style={blueTextStyle}
+                    >
+                        {children}
+                    </p>
+                    <p
+                        className={`absolute inset-0 w-full h-full flex items-center justify-center
+                        transition-all duration-400 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 ${disabled ? 'hidden' : ''}`}
+                        style={hoverTextGradientStyle}
+                    >
+                        {children}
+                    </p>
+                </div>
+            </motion.button>
+        </div>
+    );
+};
+
+const OrderConform = () => {
     const location = useLocation();
     const [status, setStatus] = useState<'success' | 'error' | null>(null);
     const [paymentMethod, setPaymentMethod] = useState('');
@@ -20,28 +67,28 @@ const OrderConfrom = () => {
             setPaymentMethod(paymentMethod);
             setTotal(total);
 
+            // Hide initial toast messages, as the main page conveys the status now
             if (status === 'success') {
-                toast.success("অর্ডারটি সফলভাবে সম্পন্ন হয়েছে!", {
-                    duration: 5000,
-                    position: 'top-center'
-                });
+                toast.success("অর্ডারটি সফলভাবে সম্পন্ন হয়েছে!", { duration: 3000, position: 'top-center' });
             } else if (status === 'error') {
-                toast.error("দুঃখিত, আপনার অর্ডারটি সম্পন্ন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।", {
-                    duration: 5000,
-                    position: 'top-center'
-                });
+                toast.error("দুঃখিত, আপনার অর্ডারটি সম্পন্ন করা যায়নি।", { duration: 3000, position: 'top-center' });
             }
         } else {
-            // Redirect to home if accessed directly without state
-            // For a real app, you might want to show a generic error page
-            toast.info("এই পেজটি সরাসরি অ্যাক্সেস করা সম্ভব নয়।", {
-                duration: 5000,
+            // Inform user if page is accessed directly
+            toast.info("এই পেজটি সরাসরি অ্যাক্সেস করা সম্ভব নয়।", {
+                duration: 3000,
                 position: 'top-center'
             });
         }
     }, [location.state]);
 
-    const title = status === 'success' ? 'অর্ডার সফল হয়েছে!' : 'অর্ডার ব্যর্থ হয়েছে!';
+    const handleConfirmOrder = () => {
+        // Simulate a second successful confirmation
+        toast.success("আপনার অর্ডার নিশ্চিত করা হয়েছে এবং শীঘ্রই প্রক্রিয়া শুরু হবে!");
+        // You could add logic here to redirect or update state
+    };
+
+    const pageTitle = status === 'success' ? 'অর্ডার সফল হয়েছে!' : 'অর্ডার ব্যর্থ হয়েছে!';
     const icon = status === 'success' ? <CheckCircle2 size={120} className="text-green-500" /> : <XCircle size={120} className="text-red-500" />;
     const bgColor = status === 'success' ? 'bg-green-50' : 'bg-red-50';
     const textColor = status === 'success' ? 'text-green-700' : 'text-red-700';
@@ -89,12 +136,13 @@ const OrderConfrom = () => {
 
     return (
         <section className="bg-slate-50 min-h-screen">
+            <PageCover image={confirmationBg} title="অর্ডার কনফার্মেশন" />
             <div className="container mx-auto py-16 px-4 md:px-0 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 100 }}
-                    className={`bg-white p-8 md:p-12 rounded-lg shadow-xl text-center max-w-2xl w-full ${bgColor}`}
+                    className={`bg-white p-8 md:p-12 rounded-lg shadow-xl text-center max-w-4xl w-full ${bgColor}`}
                 >
                     <motion.div
                         initial={{ scale: 0 }}
@@ -105,7 +153,7 @@ const OrderConfrom = () => {
                         {icon}
                     </motion.div>
                     
-                    <h1 className={`text-4xl font-bold mb-4 ${textColor}`}>{title}</h1>
+                    <h1 className={`text-4xl font-bold mb-4 ${textColor}`}>{pageTitle}</h1>
                     
                     {status === 'success' && paymentMethod === 'COD' && (
                         <p className="text-lg text-gray-600 mb-6">আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে। আমাদের টিম আপনার সাথে খুব শীঘ্রই যোগাযোগ করবে। ডেলিভারির সময় পেমেন্ট সম্পন্ন করতে পারবেন।</p>
@@ -122,13 +170,20 @@ const OrderConfrom = () => {
                         <p className="text-lg text-gray-600 mb-6">দুঃখিত, কোনো সমস্যার কারণে আপনার অর্ডারটি সম্পন্ন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।</p>
                     )}
 
-                    <Link to="/" className="inline-flex items-center justify-center mt-8 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                        হোমপেজে ফিরে যান <ArrowRight size={20} className="ml-2" />
+                    <div className="mt-8 max-w-xs mx-auto">
+                        <AnimatedConfirmButton onClick={handleConfirmOrder} disabled={status === 'error'}>
+                            অর্ডার নিশ্চিত করুন
+                        </AnimatedConfirmButton>
+                    </div>
+                    
+                    <Link to="/" className="inline-flex items-center justify-center mt-6 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors">
+                        হোমপেজে ফিরে যান <ArrowRight size={16} className="ml-2" />
                     </Link>
+
                 </motion.div>
             </div>
         </section>
     );
 };
 
-export default OrderConfrom;
+export default OrderConform;
