@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import Contact from "../components/contact/Contact";
 import Discover from "../components/discover/Discover";
 import Services from "../pages/Services";
+import OrderConfrom from "../pages/OrderConfrom";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/order-confrom",
+    element: <OrderConfrom></OrderConfrom>
+  }
 ]);
 
 export default router;
