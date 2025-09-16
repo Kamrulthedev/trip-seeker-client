@@ -45,7 +45,7 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                         initial={{ x: "100%" }}
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
-                        transition={{ type: "tween", ease: "easeOut", duration: 0.4 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 40 }}
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header */}
@@ -79,11 +79,11 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                                     <span className="font-bold text-slate-800">৳{subtotal.toLocaleString('bn-BD')}</span>
                                 </div>
                                 <div className="flex gap-4">
-                                    <Link to="/cart" className="w-1/2">
-                                       <BtnPrimary text="কার্ট দেখুন" title="কার্ট দেখুন" />
+                                    <Link to="/cart" className="w-1/2" onClick={onClose}>
+                                        <BtnPrimary text="কার্ট দেখুন" title="কার্ট দেখুন" />
                                     </Link>
-                                    <Link to="/checkout" className="w-1/2">
-                                       <BtnPrimary text="চেকআউট" title="চেকআউট" />
+                                    <Link to="/checkout" className="w-1/2" onClick={onClose}>
+                                        <BtnPrimary text="চেকআউট" title="চেকআউট" />
                                     </Link>
                                 </div>
                             </div>
