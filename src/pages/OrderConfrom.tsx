@@ -5,8 +5,7 @@ import { toast } from "sonner";
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 import { FaMobileAlt, FaCreditCard } from "react-icons/fa";
-import PageCover from "../components/pageCover/PageCover";
-import confirmationBg from "../assets/images/banner/bg_page.jpg";
+
 
 // Custom Animated Button for Confirming Order
 const AnimatedConfirmButton = ({ onClick, children, disabled }: any) => {
@@ -136,7 +135,6 @@ const OrderConform = () => {
 
     return (
         <section className="bg-slate-50 min-h-screen">
-            <PageCover image={confirmationBg} title="অর্ডার কনফার্মেশন" />
             <div className="container mx-auto py-16 px-4 md:px-0 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
