@@ -1,23 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
 } from "../components/ui/breadcrumb";
-
 import { useState } from "react";
 import {
-  HiMiniArrowPath,
-  HiMiniCreditCard,
-  HiOutlineShieldCheck,
-  HiOutlineShoppingCart,
-  HiOutlineSparkles,
-  HiOutlineTruck,
+    HiMiniArrowPath,
+    HiMiniCreditCard,
+    HiOutlineShieldCheck,
+    HiOutlineSparkles,
+    HiOutlineTruck,
 } from "react-icons/hi2";
+import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -26,237 +25,271 @@ import { Textarea } from "../components/ui/textarea";
 import PageCover from "../components/pageCover/PageCover";
 import checkoutBannar from "../assets/images/banner/bg_page.jpg";
 
+// Mock Data for Order Summary
+const mockCartItems = [
+    {
+        id: "cpl01",
+        name: "রোমান্টিক বিচ গেটওয়ে",
+        price: 14500,
+        quantity: 2,
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: "exp01",
+        name: "নেচার এন্ড হেরিটেজ এক্সপ্লোরার",
+        price: 22500,
+        quantity: 1,
+        image: "https://images.unsplash.com/photo-1605649474776-e170c0177727?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+];
+
+// Custom Animated Button Component
+const AnimatedButton = ({ disabled, children, onClick }: any) => {
+    const baseButtonClasses = `
+        text-base font-bold tracking-wider rounded-md
+        flex items-center justify-center gap-2
+        overflow-hidden relative
+    `;
+    const blueTextStyle = { color: '#2563EB' };
+    const hoverTextGradientStyle = {
+        background: 'linear-gradient(to right, #60a5fa, #16a34a, #60a5fa)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+    };
+
+    return (
+        <div className="flex justify-center w-full">
+            <motion.button
+                onClick={onClick}
+                disabled={disabled}
+                className={`${baseButtonClasses} w-full py-4
+                shadow-lg transition-shadow duration-300
+                bg-transparent backdrop-filter backdrop-blur-sm
+                ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-[1.02]'}
+                `}
+                whileTap={{ scale: disabled ? 1 : 0.98 }}
+            >
+                <motion.div
+                    className={`absolute inset-[-10px] rounded-md bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)] filter blur-md opacity-100 group-hover:blur-md transition-all duration-500 z-0
+                    ${disabled ? 'hidden' : ''}`}
+                    initial={{ rotate: 0 }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                />
+                <div className="relative z-20 w-full h-full flex items-center justify-center bg-transparent rounded-md">
+                    <p
+                        className={`absolute inset-0 w-full h-full flex items-center justify-center
+                        transition-all duration-400 ease-in-out group-hover:opacity-0 ${disabled ? 'opacity-100' : ''}`}
+                        style={blueTextStyle}
+                    >
+                        {children}
+                    </p>
+                    <p
+                        className={`absolute inset-0 w-full h-full flex items-center justify-center
+                        transition-all duration-400 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 ${disabled ? 'hidden' : ''}`}
+                        style={hoverTextGradientStyle}
+                    >
+                        {children}
+                    </p>
+                </div>
+            </motion.button>
+        </div>
+    );
+};
 
 const Checkout = () => {
-  const [paymentMethod, setPaymentMethod] = useState("COD");
-  const [fullName, setFullName] = useState({
-    firstName: "",
-    lastName: "",
-  });
-  const [contact, setContact] = useState("");
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState<number>(0);
-  const [city, setCity] = useState("");
+    const [paymentMethod, setPaymentMethod] = useState("COD");
+    const [fullName, setFullName] = useState({ firstName: "", lastName: "" });
+    const [contact, setContact] = useState("");
+    const [address, setAddress] = useState("");
+    const [postalCode, setPostalCode] = useState("");
+    const [city, setCity] = useState("");
+    const [items] = useState(mockCartItems);
 
+    const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const shipping = 700;
+    const codCharge = paymentMethod === "COD" ? subtotal * 0.10 : 0;
+    const total = subtotal + shipping + codCharge;
 
-  const handlePlaceOrder = () => {
-    const errors: string[] = [];
-    if (!contact) {
-      errors.push("Please enter your contact number");
-    }
-    if (!fullName.firstName) {
-      errors.push("Please enter your first name");
-    }
-    if (!fullName.lastName) {
-      errors.push("Please enter your last name");
-    }
-    if (!address) {
-      errors.push("Please enter your address");
-    }
-    if (!postalCode) {
-      errors.push("Please enter your postal code");
-    }
-    if (!city) {
-      errors.push("Please enter your city");
-    }
+    const handlePlaceOrder = () => {
+        const errors: string[] = [];
+        if (!contact) errors.push("অনুগ্রহ করে আপনার মোবাইল নাম্বার লিখুন।");
+        if (!fullName.firstName || !fullName.lastName) errors.push("অনুগ্রহ করে আপনার পুরো নাম লিখুন।");
+        if (!address) errors.push("অনুগ্রহ করে আপনার ঠিকানা লিখুন।");
+        if (!postalCode) errors.push("অনুগ্রহ করে আপনার পোস্টাল কোড লিখুন।");
+        if (!city) errors.push("অনুগ্রহ করে আপনার শহরের নাম লিখুন।");
 
-    if (errors.length) {
-      errors.forEach((error) => toast.error(error));
-      return;
-    }
+        if (errors.length) {
+            errors.forEach((error) => toast.error(error));
+            return;
+        }
 
+        // Simulating a successful order placement
+        toast.success("আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে!");
+        // You can add your actual order placement logic here
+        // navigate('/order-confirmation');
+    };
 
+    return (
+        <section className="bg-slate-50 min-h-screen">
+            <PageCover image={checkoutBannar} title="চেকআউট" />
+            
+            <Breadcrumb className="my-5 py-6 bg-gray-100 hidden md:block">
+                <BreadcrumbList className="container mx-auto">
+                    <BreadcrumbItem className="md:text-xl text-lg text-gray-700">
+                        <BreadcrumbLink asChild>
+                            <Link to="/">হোম</Link>
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator className="text-gray-500 text-2xl" />
+                    <BreadcrumbItem className="md:text-xl text-lg text-gray-700">
+                        <BreadcrumbLink asChild>
+                            <Link to="/cart">কার্ট</Link>
+                        </BreadcrumbLink>
+                        <BreadcrumbSeparator className="text-gray-500 text-2xl" />
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <BreadcrumbPage className="text-primary md:text-xl text-lg">
+                            চেকআউট
+                        </BreadcrumbPage>
+                    </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
+            
+            <div className="container mx-auto py-10 px-4 md:px-0">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    {/* Checkout Form */}
+                    <aside className="lg:col-span-2 bg-white p-6 rounded-lg shadow-md space-y-6">
+                        <h2 className="text-2xl font-bold text-gray-800 border-b pb-4">যোগাযোগের ঠিকানা</h2>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+                            <Label className="block mb-2 text-gray-700">যোগাযোগ</Label>
+                            <Input
+                                type="text"
+                                placeholder="ইমেল অথবা মোবাইল ফোন নাম্বার"
+                                className="mb-5"
+                                value={contact}
+                                onChange={(e) => setContact(e.target.value)}
+                            />
+                        </motion.div>
+                        
+                        <h2 className="text-2xl font-bold text-gray-800 border-b pb-4">ডেলিভারি ঠিকানা</h2>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="space-y-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <Label className="block mb-2 text-gray-700">প্রথম নাম</Label>
+                                    <Input type="text" placeholder="প্রথম নাম" required value={fullName.firstName} onChange={(e) => setFullName({ ...fullName, firstName: e.target.value })} />
+                                </div>
+                                <div>
+                                    <Label className="block mb-2 text-gray-700">শেষ নাম</Label>
+                                    <Input type="text" placeholder="শেষ নাম" required value={fullName.lastName} onChange={(e) => setFullName({ ...fullName, lastName: e.target.value })} />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <Label className="block mb-2 text-gray-700">শহর</Label>
+                                    <Input type="text" placeholder="শহর" required value={city} onChange={(e) => setCity(e.target.value)} />
+                                </div>
+                                <div>
+                                    <Label className="block mb-2 text-gray-700">পোস্টাল কোড</Label>
+                                    <Input type="text" placeholder="পোস্টাল কোড" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
+                                </div>
+                            </div>
+                            <div>
+                                <Label className="block mb-2 text-gray-700">ঠিকানা</Label>
+                                <Textarea placeholder="বাড়ির নম্বর, ভবন, রাস্তা, এলাকা" required value={address} onChange={(e) => setAddress(e.target.value)} />
+                            </div>
+                        </motion.div>
+                        
+                        <h2 className="text-2xl font-bold text-gray-800 border-b pb-4">পেমেন্ট মেথড</h2>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+                            <RadioGroup
+                                defaultValue={paymentMethod}
+                                onValueChange={(value) => setPaymentMethod(value)}
+                                className="space-y-4"
+                            >
+                                <div className="flex items-center space-x-2 bg-gray-100 p-4 rounded-md">
+                                    <RadioGroupItem value="COD" id="COD" />
+                                    <Label htmlFor="COD" className="text-lg">ক্যাশ অন ডেলিভারি (COD)</Label>
+                                </div>
+                                <div className="flex items-center space-x-2 bg-gray-100 p-4 rounded-md">
+                                    <RadioGroupItem value="online" id="online" />
+                                    <Label htmlFor="online" className="text-lg">অনলাইন পেমেন্ট</Label>
+                                </div>
+                            </RadioGroup>
+                        </motion.div>
+                    </aside>
 
-  }
-  return (
-    <section>
-      <PageCover image={checkoutBannar} title=""></PageCover>
-      <Breadcrumb className="my-5 py-6 bg-gray-100">
-        <BreadcrumbList className="container mx-auto">
-          <BreadcrumbItem className="md:text-xl text-lg text-black">
-            <BreadcrumbLink asChild>
-              <Link to="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator className="text-black text-2xl" />
-          <BreadcrumbItem className="md:text-xl text-lg text-black">
-            <BreadcrumbLink asChild>
-              <Link to="/cart">Cart</Link>
-            </BreadcrumbLink>
-            <BreadcrumbSeparator className="text-black text-2xl" />
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbPage className="text-primary md:text-xl text-lg">
-              Checkout
-            </BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      <div className="relative container mx-auto md:grid grid-cols-12 mt-4 md:mb-20 mb-10 gap-10 space-y-5 md:space-y-0">
-        <aside className="col-span-7">
-          <form>
-            <div>
-              <Label className="md:text-xl text-lg">Contact</Label>
-              <Input
-                type="text"
-                placeholder="Email or mobile phone number"
-                className="mb-5"
-                required
-                value={contact}
-                onChange={(e) => setContact(e.target.value)}
-              />
-            </div>
-            <Label className="md:text-xl text-lg">Delivery</Label>
-            <div className="space-y-3 mb-5">
-              <div className="grid grid-cols-2 gap-3">
-                <Input
-                  type="text"
-                  placeholder="First name"
-                  required
-                  value={fullName.firstName}
-                  onChange={(e) =>
-                    setFullName({ ...fullName, firstName: e.target.value })
-                  }
-                />
-                <Input
-                  type="text"
-                  placeholder="Last name"
-                  required
-                  value={fullName.lastName}
-                  onChange={(e) =>
-                    setFullName({ ...fullName, lastName: e.target.value })
-                  }
-                />
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                <Input
-                  className="col-span-2"
-                  type="text"
-                  placeholder="City"
-                  required
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
-                <Input
-                  type="number"
-                  placeholder="Postal Code"
-                  value={postalCode}
-                  onChange={(e) => setPostalCode(Number(e.target.value))}
-                />
-              </div>
-              <Textarea
-                placeholder="Address- House No, Building, Street, Area"
-                required
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
-            <div className="space-y-3">
-              <Label className="md:text-xl text-lg">Payment Method</Label>
-              <RadioGroup
-                defaultValue={paymentMethod}
-                onValueChange={(value) => setPaymentMethod(value)}
-              >
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="COD" id="COD" />
-                  <Label htmlFor="COD">Cash on delivery</Label>
+                    {/* Order Summary */}
+                    <aside className="lg:col-span-2 bg-white p-6 rounded-lg shadow-md h-fit">
+                        <h2 className="text-2xl font-bold text-gray-800 border-b pb-4 mb-4">অর্ডারের সারসংক্ষেপ</h2>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="space-y-4">
+                            {items.map((item) => (
+                                <div key={item.id} className="flex items-center gap-4 py-2 border-b">
+                                    <div className="w-16 h-16 flex-shrink-0 rounded-md overflow-hidden">
+                                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="font-semibold text-gray-800">{item.name}</p>
+                                        <p className="text-sm text-gray-600">পরিমাণ: {item.quantity}</p>
+                                    </div>
+                                    <p className="font-bold text-primary">৳{(item.price * item.quantity).toLocaleString()}</p>
+                                </div>
+                            ))}
+                        </motion.div>
+
+                        <div className="space-y-4 mt-6">
+                            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} className="flex justify-between items-center text-gray-600 text-lg">
+                                <span>মোট খরচ:</span>
+                                <span>৳{subtotal.toLocaleString()}</span>
+                            </motion.div>
+                            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="flex justify-between items-center text-gray-600 text-lg">
+                                <span>ডেলিভারি চার্জ:</span>
+                                <span>৳{shipping.toLocaleString()}</span>
+                            </motion.div>
+                            {paymentMethod === "COD" && (
+                                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }} className="flex justify-between items-center text-gray-600 text-lg">
+                                    <span>COD চার্জ:</span>
+                                    <span>৳{codCharge.toLocaleString()}</span>
+                                </motion.div>
+                            )}
+                            <div className="flex justify-between items-center text-xl font-bold text-gray-800 border-t pt-4 mt-4">
+                                <span>সর্বমোট:</span>
+                                <span>৳{total.toLocaleString()}</span>
+                            </div>
+                        </div>
+
+                        <div className="mt-6 w-full group">
+                            <AnimatedButton disabled={items.length === 0} onClick={handlePlaceOrder}>
+                                {paymentMethod === "COD" ? (
+                                    <>
+                                        <HiOutlineSparkles size={22} className="relative z-20" />
+                                        <span className="relative z-20 ml-2">অর্ডার করুন</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <HiMiniCreditCard size={22} className="relative z-20" />
+                                        <span className="relative z-20 ml-2">পেমেন্ট করে অর্ডার করুন</span>
+                                    </>
+                                )}
+                            </AnimatedButton>
+                        </div>
+                        
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }} className="mt-6 space-y-2 text-lg text-gray-600">
+                            <p className="flex items-center gap-2">
+                                <HiOutlineShieldCheck size={22} className="text-blue-500" /> সুরক্ষিত চেকআউট
+                            </p>
+                            <p className="flex items-center gap-2">
+                                <HiOutlineTruck size={22} className="text-blue-500" /> দ্রুত ডেলিভারি
+                            </p>
+                            <p className="flex items-center gap-2">
+                                <HiMiniArrowPath size={22} className="text-blue-500" /> সহজ রিটার্ন
+                            </p>
+                        </motion.div>
+                    </aside>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="online" id="online" />
-                  <Label htmlFor="online">Online</Label>
-                </div>
-              </RadioGroup>
             </div>
-          </form>
-          <Link
-            to="/cart"
-            className="bg-gray-950 md:w-fit w-full mt-6 text-white py-4 rounded-sm px-5 flex items-center justify-center gap-2 uppercase  hover:bg-primary transition-all ease-in-out duration-300 "
-          >
-            Update Cart <HiOutlineShoppingCart size={20} />
-          </Link>
-        </aside>
-        <aside className="col-span-5">
-          <div className="my-5 border-b pb-5">
-            <p className="text-lg mb-3">Shipping Info:</p>
-            {contact && (
-              <p className="flex items-center justify-between">
-                <span>Contact</span> <span>{contact}</span>
-              </p>
-            )}
-            {(fullName.firstName || fullName.lastName) && (
-              <p className=" flex items-center justify-between">
-                <span>Full Name</span>{" "}
-                <span>
-                  {fullName.firstName} {fullName?.lastName}
-                </span>
-              </p>
-            )}
-            {city && (
-              <p className="flex items-center justify-between">
-                <span>City</span>{" "}
-                <span>
-                  {city} {postalCode && ` - ${postalCode}`}
-                </span>
-              </p>
-            )}
-            {address && (
-              <p className="flex items-center justify-between">
-                <span>Address</span> <span>{address}</span>
-              </p>
-            )}
-            {paymentMethod && (
-              <p className="flex items-center justify-between">
-                <span>Payment Method</span> <span>{paymentMethod}</span>
-              </p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <p className="text-lg flex items-center justify-between">
-
-            </p>
-            <p className="text-lg flex items-center justify-between">
-              <span>Shippings</span> <span>$7.00</span>
-            </p>
-          </div>
-          <div className="my-8">
-            {paymentMethod === "COD" && (
-              <p className="text-lg flex items-center justify-between">
-                <span>COD Charge</span> <span>10%</span>
-              </p>
-            )}
-         
-          </div>
-
-          <button
-    
-            onClick={handlePlaceOrder}
-            className="rounded-sm mt-5 text-white p-4 w-full flex items-center justify-center gap-2 text-xl uppercase bg-primary transition-all ease-in-out duration-300 group"
-          >
-            {paymentMethod === "COD" ? (
-              <>
-                Place Order <HiOutlineSparkles size={22} />
-              </>
-            ) : (
-              <>
-                Make Payment and place Order <HiMiniCreditCard size={22} />
-              </>
-            )}
-          </button>
-          <div className="mt-6 space-y-2 text-lg">
-            <p className="flex items-center gap-2">
-              <HiOutlineShieldCheck size={22} /> Secure Checkout
-            </p>
-            <p className="flex items-center gap-2">
-              <HiOutlineTruck size={22} /> Fast Delivery
-            </p>
-            <p className="flex items-center gap-2">
-              <HiMiniArrowPath size={22} /> Easy Returns
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Checkout;
