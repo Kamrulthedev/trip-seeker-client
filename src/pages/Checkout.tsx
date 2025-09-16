@@ -97,7 +97,7 @@ const Checkout = () => {
                         <BreadcrumbSeparator className="text-gray-500 text-2xl" />
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                        <BreadcrumbPage className="text-primary md:text-xl text-lg">
+                        <BreadcrumbPage className="text-green-500 md:text-xl text-lg">
                             চেকআউট
                         </BreadcrumbPage>
                     </BreadcrumbItem>
