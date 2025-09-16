@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -46,6 +46,7 @@ const mockCartItems = [
 
 
 const Checkout = () => {
+    const navigate = useNavigate();
     const [paymentMethod, setPaymentMethod] = useState("COD");
     const [fullName, setFullName] = useState({ firstName: "", lastName: "" });
     const [contact, setContact] = useState("");
@@ -72,10 +73,26 @@ const Checkout = () => {
             return;
         }
 
-        // Simulating a successful order placement
-        toast.success("আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে!");
-        // You can add your actual order placement logic here
-        // navigate('/order-confirmation');
+        // Simulating order placement and navigating to confirmation page
+        // For a real app, this would be an API call
+        const orderSuccess = true; // Assume success for this example
+
+        if (orderSuccess) {
+            navigate('/order-confrom', {
+                state: {
+                    status: 'success',
+                    paymentMethod,
+                    total: total,
+                    items
+                }
+            });
+        } else {
+            navigate('/order-confrom', {
+                state: {
+                    status: 'error',
+                }
+            });
+        }
     };
 
     return (
@@ -97,7 +114,7 @@ const Checkout = () => {
                         <BreadcrumbSeparator className="text-gray-500 text-2xl" />
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                        <BreadcrumbPage className="text-green-500 md:text-xl text-lg">
+                        <BreadcrumbPage className="text-primary md:text-xl text-lg">
                             চেকআউট
                         </BreadcrumbPage>
                     </BreadcrumbItem>
@@ -144,7 +161,7 @@ const Checkout = () => {
                             </div>
                             <div>
                                 <Label className="block mb-2 text-gray-700">ঠিকানা</Label>
-                                <Textarea placeholder="বাড়ির নম্বর, ভবন, রাস্তা, এলাকা" required value={address} onChange={(e) => setAddress(e.target.value)} />
+                                <Textarea placeholder="বাড়ির নম্বর, ভবন, রাস্তা, এলাকা" required value={address} onChange={(e) => setAddress(e.target.value)} />
                             </div>
                         </motion.div>
                         
