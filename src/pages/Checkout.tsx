@@ -23,6 +23,8 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Textarea } from "../components/ui/textarea";
+import PageCover from "../components/pageCover/PageCover";
+import checkoutBannar from "../assets/images/banner/bg_page.jpg";
 
 
 const Checkout = () => {
@@ -68,6 +70,7 @@ const Checkout = () => {
   }
   return (
     <section>
+      <PageCover image={checkoutBannar} title=""></PageCover>
       <Breadcrumb className="my-5 py-6 bg-gray-100">
         <BreadcrumbList className="container mx-auto">
           <BreadcrumbItem className="md:text-xl text-lg text-black">
