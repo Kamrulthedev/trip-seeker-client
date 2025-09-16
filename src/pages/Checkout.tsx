@@ -129,7 +129,7 @@ const Checkout = () => {
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
                             <Label className="block mb-2 text-gray-700">যোগাযোগ</Label>
                             <Input
-                                type="text"
+                                type="email"
                                 placeholder="ইমেল অথবা মোবাইল ফোন নাম্বার"
                                 className="mb-5"
                                 value={contact}
@@ -156,12 +156,12 @@ const Checkout = () => {
                                 </div>
                                 <div>
                                     <Label className="block mb-2 text-gray-700">পোস্টাল কোড</Label>
-                                    <Input type="text" placeholder="পোস্টাল কোড" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
+                                    <Input type="number" placeholder="পোস্টাল কোড" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
                                 </div>
                             </div>
                             <div>
                                 <Label className="block mb-2 text-gray-700">ঠিকানা</Label>
-                                <Textarea placeholder="বাড়ির নম্বর, ভবন, রাস্তা, এলাকা" required value={address} onChange={(e) => setAddress(e.target.value)} />
+                                <Textarea name="address" placeholder="বাড়ির নম্বর, ভবন, রাস্তা, এলাকা" required value={address} onChange={(e) => setAddress(e.target.value)} />
                             </div>
                         </motion.div>
                         
