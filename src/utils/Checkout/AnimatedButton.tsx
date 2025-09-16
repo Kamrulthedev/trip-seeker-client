@@ -1,4 +1,7 @@
-// Custom Animated Button Component
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { motion } from "framer-motion";
+
+
 const AnimatedButton = ({ disabled, children, onClick }: any) => {
     const baseButtonClasses = `
         text-base font-bold tracking-wider rounded-md
