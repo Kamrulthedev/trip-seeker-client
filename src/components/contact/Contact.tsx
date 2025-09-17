@@ -4,7 +4,7 @@ import bgBanner from "../../assets/images/contact/contact-banner.jpg";
 import PageCover from "../pageCover/PageCover";
 import { motion } from 'framer-motion';
 import { ContactCard } from "./ContactCard";
-import Faq from "./Faq";
+import Faq from "./Faq/Faq";
 
 
 
