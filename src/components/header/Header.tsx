@@ -16,14 +16,12 @@ const Header = () => {
   const cartItemCount = 2;
   const userMenuRef = useRef<HTMLDivElement>(null);
 
-  // Effect to handle scroll
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Effect to handle click outside for UserMenu
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
@@ -56,7 +54,6 @@ const Header = () => {
               <SearchIcon />
             </button>
 
-            {/* --- Updated User Icon Button with Menu Logic --- */}
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setIsUserMenuOpen(prev => !prev)}
@@ -82,7 +79,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* --- Component Integrations --- */}
       <CartSheet isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <Search isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
