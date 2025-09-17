@@ -7,14 +7,12 @@ import ActiveLink from "../../../utils/ActiveLink";
 const ResponsiveNav = () => {
     const [isOpen, setIsOpen] = React.useState(false);
 
-    // Menu Icon SVG
     const MenuIcon = () => (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
         </svg>
     );
     
-    // Close Icon SVG for better styling
     const CloseIcon = () => (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-7 h-7">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -24,7 +22,6 @@ const ResponsiveNav = () => {
 
     return (
         <div className="md:hidden block">
-            {/* --- Updated Menu Button --- */}
             <button 
                 onClick={() => setIsOpen(!isOpen)} 
                 className="p-1  text-white hover:text-blue-500 hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
@@ -35,14 +32,11 @@ const ResponsiveNav = () => {
                </div>
             </button>
             
-            {/* --- Fading Overlay --- */}
             <div 
                 onClick={() => setIsOpen(false)} 
                 className={`fixed inset-0 bg-black/60 z-[90] transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             ></div>
 
-            {/* --- Drawer --- */}
-            {/* CHANGED: Added 'h-screen' to make the drawer full height */}
             <div className={`fixed top-0 left-0 w-72 h-screen bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} z-[100]`}>
                 <div className="flex flex-col h-full">
                     {/* --- Drawer Header --- */}
@@ -69,7 +63,6 @@ const ResponsiveNav = () => {
                         </ul>
                     </nav>
                     
-                    {/* --- Drawer Footer --- */}
                     <div className="p-4 border-t text-center text-sm text-gray-500">
                         <p>&copy; {new Date().getFullYear()}K Dev / Trip Seeker BD</p>
                     </div>

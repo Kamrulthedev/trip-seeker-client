@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { LogIn, UserPlus } from 'lucide-react';
 import { MenuButton } from '../../ui/BtnPrimary';
 
-// --- Framer Motion Variants ---
 const menuVariants: any = {
     hidden: { opacity: 0, y: -10, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 350, damping: 30 } },
@@ -23,7 +22,6 @@ const UserMenu = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void })
                     animate="visible"
                     exit="exit"
                 >
-                    {/* Arrow Tip */}
                     <div className="absolute -top-2 right-5 w-4 h-4 bg-white/30 backdrop-blur-xl transform rotate-45 border-l border-t border-white/20"></div>
 
                     <div className="relative z-10 p-3">
