@@ -4,7 +4,6 @@ import { PlayCircle, X } from "lucide-react";
 import { useState } from "react";
 import virtualVideoUrl from "../../assets/images/discover/virtual (1).mp4" 
 
-// --- Framer Motion Variants ---
 const containerVariants:any = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,9 +36,7 @@ const Virtualtour = () => {
 
     return (
         <>
-            {/* UPDATED: Responsive height */}
             <div className="relative py-28 h-[80vh] md:h-[96vh] flex items-center justify-center text-center text-white overflow-hidden">
-                {/* Background Video */}
                 <video
                     src={virtualVideoUrl}
                     className="absolute inset-0 w-full h-full object-cover"
@@ -57,7 +54,6 @@ const Virtualtour = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.5 }}
                 >
-                    {/* UPDATED: Animated Gradient Title */}
                     <motion.h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg" variants={itemVariants}>
                         <motion.span
                             className="bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text"
@@ -84,7 +80,6 @@ const Virtualtour = () => {
                 </motion.div>
             </div>
 
-            {/* Video Player Modal */}
             <AnimatePresence>
                 {isModalOpen && (
                     <motion.div
