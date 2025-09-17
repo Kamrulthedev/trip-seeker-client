@@ -39,7 +39,6 @@ const ResponsiveNav = () => {
 
             <div className={`fixed top-0 left-0 w-72 h-screen bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} z-[100]`}>
                 <div className="flex flex-col h-full">
-                    {/* --- Drawer Header --- */}
                     <div className="flex justify-between items-center p-4 border-b">
                         <h2 className="text-xl font-bold  text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">TRIP SEEKER</h2>
                         {/* --- Updated Close Button --- */}
@@ -52,7 +51,6 @@ const ResponsiveNav = () => {
                         </button>
                     </div>
 
-                    {/* --- Navigation Links --- */}
                     <nav className="flex-grow p-4">
                         <ul className="flex flex-col gap-2 font-medium text-gray-700 uppercase text-md">
                             {naveItems.map((item) => (
