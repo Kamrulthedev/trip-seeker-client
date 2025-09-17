@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ServiceCardLoader } from "../../ui/loader/ServiceCardLoader";
 import { ServiceCard } from "./HomeServices";
 import { useState } from 'react';
-import { ServiceDetailModal } from './HomeService';
+import { ServiceDetailModal } from './ServiceDetailModal';
 import Beach1 from "../../../assets/images/Service/Beach1.jpg";
 import Beach2 from "../../../assets/images/Service/Beach2.jpg";
 import Beach3 from "../../../assets/images/Service/Beach3.jpg";

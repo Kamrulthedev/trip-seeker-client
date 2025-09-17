@@ -4,7 +4,7 @@ import { ChevronDown, Filter, Search, Star, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { ServiceCard } from '../components/home/homeServices/HomeServices';
 import PageCover from '../components/pageCover/PageCover';
-import { ServiceDetailModal } from '../components/home/homeServices/HomeService';
+import { ServiceDetailModal } from '../components/home/homeServices/ServiceDetailModal';
 
 import servicesBg from "../assets/images/Service/inaniImage1.jpg";
 import Beach1 from "../assets/images/Service/Beach1.jpg";
