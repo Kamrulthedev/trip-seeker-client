@@ -12,9 +12,9 @@ const ActiveLink = ({ to, children }: IActiveLinkProps) => {
             className={({ isActive }) => {
                 const baseClasses = `
                     relative font-semibold uppercase text-md
-                    block p-1 rounded-lg transition-all ease-in-out duration-300
-                    hover:bg-gradient-to-r hover:from-green-100 hover:to-blue-100
-                    shadow-md hover:shadow-lg
+                    block p-2 rounded-xl transition-all ease-in-out duration-300
+                    shadow-md hover:shadow-xl
+                    hover:scale-105 transform-gpu
                     after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1
                     after:bg-gradient-to-r after:from-blue-600 after:via-green-500 after:to-blue-600 after:transition-all after:duration-300
                 `;
@@ -23,6 +23,7 @@ const ActiveLink = ({ to, children }: IActiveLinkProps) => {
                     text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-green-500 to-blue-600 bg-[length:200%_200%] animate-gradient-x
                     after:w-full
                     border border-green-500
+                    hover:animate-bounce
                 `;
 
                 const inactiveClasses = `
