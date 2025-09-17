@@ -2,11 +2,8 @@
 import { motion } from 'framer-motion';
 import { Map, PackageSearch, PhoneCall, Send, Smile, Heart } from 'lucide-react';
 
-// --- Mocking assets for a runnable example ---
-// Replace this with your actual image import
 const backgroundImage = "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto-format&fit=crop";
 
-// --- Framer Motion Variants ---
 const containerVariants:any = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -55,7 +52,6 @@ const Plan = () => {
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl p-8 md:p-12">
-          {/* Title */}
           <motion.h2 
             className="text-4xl md:text-5xl font-extrabold text-center mb-16"
             variants={itemVariants}
@@ -73,7 +69,7 @@ const Plan = () => {
           {/* Steps - Updated Grid Layout */}
           <motion.div 
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 items-start"
-            variants={containerVariants} // Stagger children inside the grid
+            variants={containerVariants} 
           >
             {steps.map((step, index) => (
               <motion.div 
