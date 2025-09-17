@@ -7,9 +7,6 @@ import { BtnPrimary } from '../../ui/BtnPrimary';
 import { Link } from 'react-router-dom';
 
 
-
-
-// --- Main Winners Component ---
 const containerVariants: any = {
     initial: { opacity: 0, y: 50 },
     whileInView: {
