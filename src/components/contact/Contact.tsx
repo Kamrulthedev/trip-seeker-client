@@ -65,7 +65,6 @@ const Contact = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Left Column: Contact Info */}
           <motion.aside variants={itemVariants}>
             <h2 className="text-3xl font-bold mb-2 text-gray-800">যোগাযোগের তথ্য</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mb-6"></div>
@@ -79,7 +78,6 @@ const Contact = () => {
             </div>
           </motion.aside>
 
-          {/* Right Column: Contact Form */}
           <motion.aside
             className="bg-white p-8 rounded-xl shadow-lg"
             variants={itemVariants}
