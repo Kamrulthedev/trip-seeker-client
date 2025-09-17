@@ -4,7 +4,6 @@ import { Lightbulb, MapPin, ShieldCheck, ShoppingCart } from "lucide-react";
 
 const tipsBgImage = "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?q=80&w=2070&auto=format&fit=crop";
 
-// --- Framer Motion Variants ---
 const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,7 +27,6 @@ const itemVariants: any = {
 };
 
 const TravelTips = () => {
-    // Adding a fourth tip as requested
     const tips = [
         { icon: <MapPin size={28} />, title: "সেরা সময়", description: "অক্টোবর থেকে মার্চ মাস কক্সবাজার ভ্রমণের জন্য সবচেয়ে উপযুক্ত সময়।" },
         { icon: <ShieldCheck size={28} />, title: "নিরাপত্তা", description: "সর্বদা নির্ধারিত জোনে সাঁতার কাটুন এবং লাইফগার্ডের নির্দেশনা মেনে চলুন।" },
@@ -81,14 +79,12 @@ const TravelTips = () => {
                             variants={itemVariants}
                             whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
                         >
-                             {/* Animated Icon Background */}
                             <div className="mx-auto w-20 h-20 flex items-center justify-center rounded-full mb-6 relative overflow-hidden bg-white/20 transition-all duration-300 group-hover:scale-110">
                                 <motion.div
                                     className="absolute inset-[-10px] bg-[conic-gradient(#60a5fa,#16a34a,#60a5fa)]"
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                                 />
-                                {/* UPDATED: This div now becomes transparent on hover to reveal the gradient */}
                                 <div className="relative z-10 w-[72px] h-[72px] bg-slate-800/50 rounded-full flex items-center justify-center text-white group-hover:bg-transparent transition-colors duration-300">
                                    <div className="relative z-20 w-full h-full flex items-center justify-center bg-transparent rounded-full">
                                       {tip.icon}

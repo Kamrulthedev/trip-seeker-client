@@ -3,7 +3,6 @@ import { Hotel, Sailboat, Utensils, Waves } from "lucide-react";
 import { motion } from "framer-motion";
 import keyBgImage from "../../assets/images/discover/key-bg-1.jpg"
 
-// --- Framer Motion Variants ---
 const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
@@ -38,7 +37,6 @@ const Keyhighlight = () => {
     return (
         <div className="bg-slate-50 py-20 sm:py-24">
             <div className="container mx-auto px-4">
-                {/* Section Title - Now outside the image background */}
                 <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: -20 }}
@@ -61,9 +59,7 @@ const Keyhighlight = () => {
                     </p>
                 </motion.div>
 
-                {/* Container for the image and the cards */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    {/* Background Image with Overlay */}
                     <div className="absolute inset-0">
                         <img src={keyBgImage} alt="Cox's Bazar Beach" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/40"></div>
