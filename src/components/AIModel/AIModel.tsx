@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { AnimatePresence, motion } from "framer-motion";
+import { MessageCircle, Send, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
 // AI Modal (New, smarter design with simulated AI chat)
 const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
     const [messages, setMessages] = useState<any[]>([]);
