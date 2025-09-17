@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Trash2 } from 'lucide-react';
 
 
-// --- Helper Components ---
 export const CartItem = ({ item, onUpdateQuantity, onRemove }: any) => (
     <motion.div
         layout
