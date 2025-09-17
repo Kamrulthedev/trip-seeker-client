@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Home } from "lucide-react";
 import { ImageLoader } from "../ui/loader/ImageLoader";
 
-// --- Framer Motion Variants ---
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
