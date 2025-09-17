@@ -32,7 +32,6 @@ const itemVariants:any = {
 };
 
 export const BannerSlide = ({ videoSrc, title, subtitle, buttonLink, textAlignment = 'start', contentAlignment = 'start' }: any) => {
-  // A single class to control alignment of all items in the content block
   const contentBlockAlignmentClass = () => {
     switch(textAlignment) {
       case 'center':

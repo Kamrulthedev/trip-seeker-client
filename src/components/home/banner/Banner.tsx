@@ -1,23 +1,17 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
-// import required modules
 import { Pagination, Autoplay, EffectFade, Navigation } from "swiper/modules";
 
-// Import your newly animated banner items
 import { BannerItem1, BannerItem2, BannerItem3 } from "./BannerItems";
 
-// This component now holds the Swiper configuration
 export default function Banner() {
   return (
     <>
-      {/* You can add these styles to your global CSS file instead */}
     <style>
         {`
           .mySwiper .swiper-pagination-bullet { background-color: #ffffff; width: 10px; height: 10px; opacity: 0.7; transition: all 0.3s ease; }
