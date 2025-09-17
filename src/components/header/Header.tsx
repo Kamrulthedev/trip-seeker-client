@@ -49,7 +49,7 @@ const Header = () => {
 
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50"
+              className="p-2 rounded-full text-gray-700 transition-colors duration-300 shadow-xl hover:text-green-700 hover:bg-green-50"
             >
               <SearchIcon />
             </button>
@@ -57,7 +57,7 @@ const Header = () => {
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setIsUserMenuOpen(prev => !prev)}
-                className="p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50"
+                className="p-2 rounded-full text-gray-700 transition-colors duration-300 shadow-xl hover:text-green-700 hover:bg-green-50"
               >
                 <User />
               </button>
@@ -66,7 +66,7 @@ const Header = () => {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 rounded-full text-gray-700 transition-colors duration-300 hover:text-green-700 hover:bg-green-50"
+              className="relative p-2 rounded-full text-gray-700 transition-colors duration-300 shadow-xl hover:text-green-700 hover:bg-green-50"
             >
               <ShoppingCart />
               {cartItemCount > 0 && (
