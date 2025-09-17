@@ -12,7 +12,6 @@ import g6 from "../../../assets/images/gallery/g4.jpg";
 import g7 from "../../../assets/images/gallery/g7.jpg";
 
 
-// A new, smarter layout configuration
 const photos = [
   { src: g1, alt: "Cox's Bazar Beach", className: "col-span-12 md:col-span-6 row-span-2" }, 
   { src: g2, alt: "Sajek Valley", className: "col-span-12 md:col-span-6" }, 
@@ -22,7 +21,6 @@ const photos = [
   { src: g6, alt: "Sundarbans Mangrove Forest", className: "col-span-12 md:col-span-6" },
 ];
 
-// --- Framer Motion Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -43,10 +41,8 @@ const itemVariants:any = {
 
 const PhotoGallery = () => {
   return (
-    // UPDATED: Reduced padding for better look
     <div className="bg-slate-50 py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
@@ -62,10 +58,8 @@ const PhotoGallery = () => {
           </p>
         </motion.div>
 
-        {/* Photo Grid - Updated for responsiveness */}
         <PhotoProvider>
           <motion.div
-            // UPDATED: Grid layout now responsive
             className="grid lg:grid-cols-12 auto-rows-[250px] gap-4"
             variants={containerVariants}
             initial="hidden"
