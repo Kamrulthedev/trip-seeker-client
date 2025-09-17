@@ -16,7 +16,6 @@ const initialCartItems = [
 ];
 
 
-// --- Main CartSheet Component ---
 export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
     const [cartItems, setCartItems] = useState(initialCartItems);
 
@@ -48,7 +47,6 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Header */}
                         <div className="flex items-center justify-between p-6 border-b border-slate-200">
                             <h2 className="text-2xl font-bold text-slate-800">বুকিং সার্ভিস</h2>
                             <button onClick={onClose} className="p-1 rounded-full hover:bg-slate-200 transition-colors">
@@ -56,7 +54,6 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                             </button>
                         </div>
 
-                        {/* Cart Content */}
                         <div className="flex-grow overflow-y-auto p-6">
                             {cartItems.length > 0 ? (
                                 <AnimatePresence>
@@ -71,7 +68,6 @@ export const CartSheet = ({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
                             )}
                         </div>
 
-                        {/* Footer */}
                         {cartItems.length > 0 && (
                             <div className="p-6 border-t border-slate-200 bg-white/70">
                                 <div className="flex justify-between items-center mb-4 text-lg">
