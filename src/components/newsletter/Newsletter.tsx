@@ -3,11 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Send } from 'lucide-react';
 
-// --- Mocking assets for a runnable example ---
-// Replace this with your actual image import
 const backgroundImage = "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto-format&fit=crop";
 
-// --- Framer Motion Variants ---
 const containerVariants: any = {
   hidden: { opacity: 0, y: 50 },
   visible: {
