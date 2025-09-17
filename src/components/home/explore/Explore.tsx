@@ -6,8 +6,6 @@ import { motion } from 'framer-motion';
 import { BtnPrimary } from '../../ui/BtnPrimary';
 
 
-
-// --- Animation Variants ---
 const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
@@ -46,7 +44,6 @@ const Explore = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    {/* --- Text Content (Order 2 on mobile, 1 on desktop) --- */}
                     <motion.article className="flex flex-col lg:items-start text-center lg:text-left order-2 lg:order-1">
                         <motion.h1
                             className="text-3xl font-extrabold tracking-tight leading-snug text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl md:text-5xl lg:text-start text-center"
@@ -77,7 +74,6 @@ const Explore = () => {
                     </motion.article>
 
 
-                    {/* --- Image Container (Order 1 on mobile, 2 on desktop) --- */}
                     <motion.article
                         className="relative w-full max-w-lg mx-auto lg:max-w-none h-[400px] sm:h-[500px] order-1 lg:order-2"
                         variants={imageContainerVariants}
