@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import expriences1 from "../../assets/images/discover/Experiences/Winner.jpg";
-import expriences2 from "../../assets/images/discover/Experiences/key-bg.jpg";
+import expriences1 from "../../../assets/images/discover/Experiences/Winner.jpg";
+import expriences2 from "../../../assets/images/discover/Experiences/key-bg.jpg";
 
 
-// Mock Data in Bengali
 const experiences = [
     { title: "সৈকতের কার্যকলাপ", description: "সূর্যস্নান, সাঁতার এবং ঘোড়ার পিঠে চড়ার আনন্দ নিন। কক্সবাজারের সোনালী বালিতে প্রতিটি মুহূর্ত উপভোগ করুন।", image: expriences1 },
     { title: "রিসোর্ট ও হোটেল", description: "আপনার বাজেট এবং পছন্দ অনুযায়ী সেরা থাকার জায়গা খুঁজুন। আমরা আন্তর্জাতিক মানের হোটেল এবং রিসোর্টের নিশ্চয়তা দিচ্ছি।", image: expriences2 },
@@ -14,8 +13,6 @@ const experiences = [
 ];
 
 
-
-// Reusable component for each experience item to create parallax effect
 const ExperienceItem = ({ experience, imagePosition }: { experience: any, imagePosition: 'left' | 'right' }) => {
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -36,7 +33,6 @@ const ExperienceItem = ({ experience, imagePosition }: { experience: any, imageP
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            {/* Image Container with Parallax */}
             <div className={`overflow-hidden rounded-xl shadow-2xl ${imageOrder}`}>
                 <motion.img
                     src={experience.image}
@@ -46,7 +42,6 @@ const ExperienceItem = ({ experience, imagePosition }: { experience: any, imageP
                 />
             </div>
 
-            {/* Text Content */}
             <div className={`flex flex-col justify-center ${textOrder}`}>
                 <h3 className="text-3xl font-bold text-gray-800 mb-4">{experience.title}</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">{experience.description}</p>
