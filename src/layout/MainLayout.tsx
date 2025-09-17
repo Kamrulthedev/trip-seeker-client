@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 
-// --- New Animated Scroll-to-Top Button ---
 const ScrollToTopButton = ({ onClick, title }: { onClick: () => void; title: string }) => {
   return (
     <motion.button
