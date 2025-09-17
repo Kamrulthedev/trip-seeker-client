@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { ImageLoader } from "../../ui/loader/ImageLoader";
 
-// Component 4: ServiceCard
 export const ServiceCard = ({ service, onDetailsClick }: { service: any, onDetailsClick: (service: any) => void }) => {
   const { name, price, thumbnail, rating, location } = service || {};
 

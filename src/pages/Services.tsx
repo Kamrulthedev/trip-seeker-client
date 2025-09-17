@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Filter, Search, Star, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { ServiceCard } from '../components/home/homeServices/HomeServices';
+import { ServiceCard } from '../components/home/homeServices/ServiceCard';
 import PageCover from '../components/pageCover/PageCover';
 import { ServiceDetailModal } from '../components/home/homeServices/ServiceDetailModal';
 
@@ -25,7 +25,6 @@ import inaniImage4 from "../assets/images/Service/inaniImage4.jpg";
 import inaniTamil from "../assets/images/Service/inaniTamil.png";
 
 
-// Mock Data for Travel Services in Bengali
 const allTravelServices = [
     {
         id: "cpl01", name: "Romantic Beach Gateway", price: 14500, thumbnail: Beach1, images: [Beach1, Beach2, Beach3, Beach4], rating: 4.8, location: "লাবণী ও কলাতলী পয়েন্ট, কক্সবাজার", category: "Couple & Friends Escape", description: "প্রিয়জন বা বন্ধুর সাথে কক্সবাজারের মনোরম সমুদ্রসৈকতে একান্ত সময় কাটান।", features: ["৩ তারকা হোটেল (১ রাত, ২ দিন)", "সকালের নাস্তা ও রাতের খাবার", "এসি গাড়ি দ্বারা যাতায়াত", "লাবণী ও কলাতলী সৈকতে ভ্রমণ"]
@@ -72,7 +71,6 @@ const allTravelServices = [
 const categories = ["সব", "Couple & Friends Escape", "Explorer’s Special", "Family & Group Trips"];
 
 
-// --- Reusable Components for the Services Page ---
 
 // Accordion for Filters
 const AccordionItem = ({ title, children, defaultOpen = false }: any) => {
@@ -121,7 +119,6 @@ const PriceRangeSlider = ({ value, onChange }: any) => (
     </div>
 );
 
-// --- Main Services Page Component ---
 const Services = () => {
     const [services, setServices] = useState(allTravelServices);
     const [searchQuery, setSearchQuery] = useState("");

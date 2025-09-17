@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 // import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { ServiceCardLoader } from "../../ui/loader/ServiceCardLoader";
-import { ServiceCard } from "./HomeServices";
+import { ServiceCard } from "./ServiceCard";
 import { useState } from 'react';
 import { ServiceDetailModal } from './ServiceDetailModal';
 import Beach1 from "../../../assets/images/Service/Beach1.jpg";
