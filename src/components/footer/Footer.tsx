@@ -9,7 +9,6 @@ import payCopyrightUrl from '../../assets/images/pay_copyright.png';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { CiTwitter, CiYoutube } from 'react-icons/ci';
 
-// --- Framer Motion Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -27,7 +26,6 @@ const itemVariants:any = {
   },
 };
 
-// --- Helper Component for Footer Links with a new hover effect ---
 const FooterLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
   <Link to={to} className="text-gray-500 hover:text-green-600 transition-colors duration-300 group inline-flex items-center gap-2">
     <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"/>
@@ -53,14 +51,11 @@ const Footer = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Top Section of Footer */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
           
-          {/* Column 1: Logo, Contact and Socials */}
           <motion.div className="space-y-6" variants={itemVariants}>
             <Logo />
             <p className="text-gray-500">আপনার স্বপ্নের ভ্রমণকে বাস্তবে রূপ দিতে আমরা আছি আপনার পাশে।</p>
-            {/* Contact Info */}
             <div className="space-y-3 text-gray-500">
                 <div className="flex items-center gap-3">
                     <MapPin size={18} className="text-blue-500"/>
@@ -84,7 +79,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Column 2: About Us */}
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold text-gray-800">আমাদের সম্পর্কে</h3>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
@@ -96,7 +90,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Column 3: Popular Destinations */}
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold text-gray-800">জনপ্রিয় গন্তব্য</h3>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
@@ -110,7 +103,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Column 4: Quick Links */}
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold text-gray-800">দ্রুত লিঙ্ক</h3>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 mt-2 mb-6"></div>
@@ -123,7 +115,6 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Section of Footer */}
         <div className="border-t py-6 flex flex-col-reverse sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 mt-4 sm:mt-0">
             &copy; {new Date().getFullYear()} <Link to={"/"}>Trip Seeker</Link> | সর্বস্বত্ব সংরক্ষিত | Created By <Link to={'https://kamrul-hassan-org.vercel.app/'}>Kamrul Hassan</Link>
