@@ -41,6 +41,7 @@ const ResponsiveNav = () => {
                 <div className="flex flex-col h-full">
                     <div className="flex justify-between items-center p-4 border-b">
                         <h2 className="text-xl font-bold  text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">TRIP SEEKER</h2>
+                        {/* --- Updated Close Button --- */}
                         <button 
                             onClick={() => setIsOpen(false)} 
                             className="p-2 rounded-full text-gray-500 hover:bg-red-100 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition-all duration-300"
