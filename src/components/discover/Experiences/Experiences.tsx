@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import expriences1 from "../../../assets/images/discover/Experiences/Winner.jpg";
 import expriences2 from "../../../assets/images/discover/Experiences/key-bg.jpg";
+import ExperienceItem from './ExperienceItem';
 
 
 const experiences = [

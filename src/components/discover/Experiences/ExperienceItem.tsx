@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
+
 
 const ExperienceItem = ({ experience, imagePosition }: { experience: any, imagePosition: 'left' | 'right' }) => {
     const ref = useRef<HTMLDivElement>(null);
