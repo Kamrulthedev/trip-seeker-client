@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// import required modules
 import agensy1 from "../../../assets/images/Agensys/1.png";
 import agensy2 from "../../../assets/images/Agensys/2.png";
 import agensy3 from "../../../assets/images/Agensys/3.png";
@@ -24,7 +23,6 @@ const Agensys = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
-        {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl p-3 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 sm:text-4xl lg:text-5xl">
             বাংলাদেশ ভ্রমণে নির্ভরযোগ্য এজেন্সি
@@ -36,7 +34,6 @@ const Agensys = () => {
           </p>
         </div>
 
-        {/* Wrapper to control width and center the marquee */}
         <div className="w-full md:w-5/6 lg:w-3/4 mx-auto p-4 rounded-2xl bg-gradient-to-r from-blue-200 to-green-200 shadow-inner border border-gray-200/80">
           <Marquee
             pauseOnHover={true}
