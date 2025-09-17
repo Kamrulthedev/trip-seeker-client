@@ -9,16 +9,15 @@ import AIGuideButton from "../components/AIModel/AIGuideButton";
 import AIModal from "../components/AIModel/AIModel";
 import ScrollToTopButton from "../utils/ScrollToTopButton";
 
-
 // Main Layout Component
 const MainLayout = () => {
   const location = useLocation();
-  const [showButton, setShowButton] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowButton(window.scrollY > 200);
+      setShowScrollButton(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -53,12 +52,20 @@ const MainLayout = () => {
       </main>
       <Newsletter />
       <Footer />
-      {showButton && (
-        <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+
+      {/* AI Travel Guide Button (Always Visible) */}
+      <div className="fixed bottom-24 right-8 z-50">
+        <AIGuideButton title="AI Travel Guide" onClick={toggleModal} />
+      </div>
+
+      {/* Scroll to Top Button (Visible on Scroll) */}
+      {showScrollButton && (
+        <div className="fixed bottom-8 right-8 z-50">
           <ScrollToTopButton title="Scroll to top" onClick={scrollToTop} />
-          <AIGuideButton title="AI Travel Guide" onClick={toggleModal} />
         </div>
       )}
+
+      {/* AI Modal */}
       <AIModal isOpen={isModalOpen} onClose={toggleModal} />
     </div>
   );
