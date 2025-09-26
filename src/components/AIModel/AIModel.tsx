@@ -76,7 +76,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 20, mass: 1 }}
                 >
-                  <p>হ্যালো, আমি আপনার এআই ট্র্যাভেল গাইড। বাংলাদেশের পর্যটন সম্পর্কে কোনো প্রশ্ন থাকলে আমাকে জিজ্ঞাসা করতে পারেন।</p>
+                  <p>হ্যালো, আমি আপনার AI ট্র্যাভেল গাইড। বাংলাদেশের পর্যটন সম্পর্কে কোনো প্রশ্ন থাকলে আমাকে জিজ্ঞাসা করতে পারেন।</p>
                 </motion.div>
               </div>
               
