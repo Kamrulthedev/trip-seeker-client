@@ -36,7 +36,6 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     };
 
 
-
     return (
         <AnimatePresence>
             {isOpen && (
@@ -90,7 +89,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* ইনপুট এরিয়া */}
+                        {/* input area */}
                         <form onSubmit={handleSendMessage} className="flex items-center gap-2 border-t p-4">
                             <textarea
                                 className="flex-grow resize-none rounded-full border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
