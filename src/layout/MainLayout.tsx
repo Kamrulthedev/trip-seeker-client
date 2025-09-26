@@ -58,6 +58,7 @@ const MainLayout = () => {
         <AIGuideButton title="AI Travel Guide" onClick={toggleModal} />
       </div>
 
+
       {/* Scroll to Top Button (Visible on Scroll) */}
       {showScrollButton && (
         <div className="fixed bottom-8 right-8 z-50">
