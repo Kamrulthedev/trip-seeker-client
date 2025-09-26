@@ -38,10 +38,14 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     const text = userText.toLowerCase();
     if (text.includes("কক্সবাজার")) {
       return "কক্সবাজারের সমুদ্র সৈকত বিশ্বের দীর্ঘতম প্রাকৃতিক সমুদ্র সৈকত। সেখানে আপনি সূর্যাস্ত দেখতে পারেন, ইনানী বীচে যেতে পারেন এবং হিমছড়ির ঝরনা উপভোগ করতে পারেন।";
+
     } else if (text.includes("সেন্ট মার্টিন")) {
       return "সেন্ট মার্টিন বাংলাদেশের একমাত্র প্রবাল দ্বীপ। সেখানে যেতে হলে আপনাকে টেকনাফ থেকে জাহাজে করে যেতে হবে। এটি নারকেল বাগান এবং স্ফটিক স্বচ্ছ জলের জন্য বিখ্যাত।";
+
     } else if (text.includes("সুন্দরবন")) {
       return "সুন্দরবন বিশ্বের বৃহত্তম ম্যানগ্রোভ বন, যা রয়েল বেঙ্গল টাইগার এবং অন্যান্য বন্যপ্রাণীর আবাসস্থল। এখানে নৌকায় করে ঘোরার অভিজ্ঞতা অসাধারণ।";
+    } else if(text.includes("Contact Number") || text.includes("contact numver") || text.includes("contact no") || text.includes("contact") || text.includes("number") || text.includes("phone") || text.includes("phone number") || text.includes("মোবাইল নাম্বার")){
+       return "আমাদের হেল্পলাইন নাম্বার 01827754168। আপনে আমাদের এই নাম্বারে যেকোনো সময় যোগাযোগ করতে পারেন। ধন্যবাদ।"
     } else {
       return "আমি আপনার প্রশ্নের উত্তর দিতে পারছি না। আমাকে কোন স্থান এর নাম বলুন, আমি সেই জায়গা সম্পর্কে আপডেট দিচ্ছি";
     }
