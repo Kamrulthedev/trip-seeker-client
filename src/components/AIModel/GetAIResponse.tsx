@@ -4,7 +4,7 @@ const GetAIResponse = (userText: string) => {
     const text = userText.toLowerCase();
 
     // অভিবাদন
-    if (text.includes("hi") || text.includes("hello") || text.includes("হাই") || text.includes("হ্যালো") || text.includes("সালাম")) {
+    if (text.includes("hi") || text.includes("hello") || text.includes("হাই") || text.includes("হ্যালো") || text.includes("সালাম")|| text.includes("oi")) {
         return "হ্যালো! 😊 আমি আপনার AI ট্র্যাভেল গাইড। আপনি যেকোনো ভ্রমণ সম্পর্কিত প্রশ্ন করতে পারেন।";
     }
 
