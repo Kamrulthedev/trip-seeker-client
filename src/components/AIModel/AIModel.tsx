@@ -47,7 +47,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                     transition={{ duration: 0.3 }}
                 >
                     <div className="flex h-[70vh] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
-                        {/* মডেল হেডার */}
+                        {/* model hedar */}
                         <div className="flex items-center justify-between border-b bg-gradient-to-r from-blue-500 to-green-500 p-4 text-white shadow-sm">
                             <h2 className="text-lg font-bold">AI ট্র্যাভেল গাইড</h2>
                             <button onClick={onClose} className="p-1 text-white opacity-80 transition-opacity hover:opacity-100">
@@ -55,7 +55,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                             </button>
                         </div>
 
-                        {/* চ্যাট বডি */}
+                        {/* chat body */}
                         <div className="flex-grow space-y-4 overflow-y-auto p-4">
                             <div className="flex items-start gap-2">
                                 <MessageCircle size={32} className="flex-shrink-0 text-green-500" />
