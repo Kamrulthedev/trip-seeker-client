@@ -15,10 +15,9 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // যখনই কোনো নতুন বার্তা আসে, স্ক্রোল নিচে নামবে
+  // scroll this function when messages change
   useEffect(scrollToBottom, [messages]);
 
-  // বার্তা পাঠানোর ফাংশন
   const handleSendMessage = (e: any) => {
     e.preventDefault();
     if (input.trim() === '') return;
