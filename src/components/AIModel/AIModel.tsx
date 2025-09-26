@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 
 
 
-
 const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const [messages, setMessages] = useState<any[]>([]);
   const [input, setInput] = useState('');
@@ -26,7 +25,6 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setInput('');
 
-    // কৃত্রিমভাবে এআই-এর প্রতিক্রিয়া তৈরি করা
     setTimeout(() => {
       const botResponse = {
         sender: 'ai',
@@ -36,7 +34,6 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     }, 1500);
   };
 
-  // ইনপুট টেক্সটের উপর ভিত্তি করে প্রতিক্রিয়া তৈরি করার ফাংশন
   const getAIResponse = (userText: string) => {
     const text = userText.toLowerCase();
     if (text.includes("কক্সবাজার")) {
@@ -46,7 +43,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     } else if (text.includes("সুন্দরবন")) {
       return "সুন্দরবন বিশ্বের বৃহত্তম ম্যানগ্রোভ বন, যা রয়েল বেঙ্গল টাইগার এবং অন্যান্য বন্যপ্রাণীর আবাসস্থল। এখানে নৌকায় করে ঘোরার অভিজ্ঞতা অসাধারণ।";
     } else {
-      return "আমি আপনার প্রশ্নের উত্তর দিতে পারছি না। অনুগ্রহ করে পর্যটন সম্পর্কিত অন্য কোনো প্রশ্ন করুন।";
+      return "আমি আপনার প্রশ্নের উত্তর দিতে পারছি না। আমাকে কোন স্থান এর নাম বলুন, আমি সেই জায়গা সম্পর্কে আপডেট দিচ্ছি";
     }
   };
 
@@ -63,7 +60,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
           <div className="flex h-[70vh] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white">
             {/* মডেল হেডার */}
             <div className="flex items-center justify-between border-b bg-gradient-to-r from-blue-500 to-green-500 p-4 text-white shadow-sm">
-              <h2 className="text-lg font-bold">এআই ট্র্যাভেল গাইড</h2>
+              <h2 className="text-lg font-bold">AI ট্র্যাভেল গাইড</h2>
               <button onClick={onClose} className="p-1 text-white opacity-80 transition-opacity hover:opacity-100">
                 <X size={24} />
               </button>
