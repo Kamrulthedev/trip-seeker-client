@@ -37,7 +37,7 @@ const AIModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
   const getAIResponse = (userText: string) => {
     const text = userText.toLowerCase();
 
-    // ওয়েবসাইট সম্পর্কিত প্রশ্ন
+
     if (text.includes("ওয়েবসাইট") || text.includes("আপনার ওয়েবসাইট") || text.includes("কে তৈরি করেছে") || text.includes("website")) {
       return "আমাদের ওয়েবসাইটটি তৈরি করা হয়েছে বাংলাদেশের পর্যটন কেন্দ্রগুলি সম্পর্কে বিস্তারিত তথ্য, ভ্রমণ টিপস এবং গাইডলাইন প্রদান করার জন্য।";
     }
