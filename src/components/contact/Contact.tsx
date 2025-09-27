@@ -7,7 +7,6 @@ import { ContactCard } from "./ContactCard";
 import Faq from "./Faq/Faq";
 
 
-
 // --- Framer Motion Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,7 +15,6 @@ const containerVariants = {
     transition: { staggerChildren: 0.2 }
   }
 };
-
 
 const itemVariants: any = {
   hidden: { opacity: 0, y: 20 },
@@ -32,9 +30,6 @@ const itemVariants: any = {
 
 
 const Contact = () => {
-
-
-
   const contactDetails = [
     { icon: <MapPin size={24} />, title: "ঠিকানা", description: "কক্সবাজার, চট্টগ্রাম, বাংলাদেশ" },
     { icon: <Phone size={24} />, title: "ফোন", description: "+৮৮০ ১২৩৪ ৫৬৭৮৯০", href: "tel:+8801234567890" },
@@ -43,16 +38,11 @@ const Contact = () => {
   ];
 
 
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert("আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।");
     e.currentTarget.reset();
   };
-
-
-
-
 
   return (
     <div className="bg-slate-50">

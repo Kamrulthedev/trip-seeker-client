@@ -64,7 +64,7 @@ const MainLayout = () => {
           <ScrollToTopButton title="Scroll to top" onClick={scrollToTop} />
         </div>
       )}
-
+      
       {/* AI Modal */}
       <AIModal isOpen={isModalOpen} onClose={toggleModal} />
     </div>
