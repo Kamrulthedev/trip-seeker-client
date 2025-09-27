@@ -4,11 +4,8 @@ import * as React from "react";
 import { cn } from "../../lib/utils";
 
 const Dialog = DialogPrimitive.Root;
-
 const DialogTrigger = DialogPrimitive.Trigger;
-
 const DialogPortal = DialogPrimitive.Portal;
-
 const DialogClose = DialogPrimitive.Close;
 
 const DialogOverlay = React.forwardRef<
@@ -31,7 +28,6 @@ const DialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
-    {/* <DialogOverlay /> */}
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
