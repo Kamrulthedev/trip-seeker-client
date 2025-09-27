@@ -21,8 +21,7 @@ const containerVariants: any = {
 const itemVariants: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
-    opacity: 1,
-    y: 0,
+    opacity: 1, y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
@@ -57,21 +56,21 @@ const Newsletter = () => {
           <Mail className="text-white h-8 w-8" />
         </motion.div>
 
-        <motion.h2 
+        <motion.h2
           className="text-3xl md:text-4xl font-extrabold text-white drop-shadow-md"
           variants={itemVariants}
         >
           আমাদের নিউজলেটারে সাইন আপ করুন
         </motion.h2>
 
-        <motion.p 
+        <motion.p
           className="mt-4 max-w-2xl mx-auto text-lg text-slate-200 drop-shadow-sm"
           variants={itemVariants}
         >
           সর্বশেষ আপডেট এবং আকর্ষণীয় অফার পেতে আমাদের সাপ্তাহিক নিউজলেটারে সাবস্ক্রাইব করুন।
         </motion.p>
 
-        <motion.form 
+        <motion.form
           className="mt-8 max-w-lg mx-auto"
           variants={itemVariants}
           onSubmit={handleSubmit}
@@ -84,7 +83,7 @@ const Newsletter = () => {
               placeholder="আপনার ইমেইল দিন..."
               className="w-full sm:w-2/3 bg-transparent text-white placeholder-slate-300 outline-none h-12 px-5"
             />
-            <motion.button 
+            <motion.button
               type="submit"
               className="w-full sm:w-1/3 h-12 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-lg mt-2 sm:mt-0 flex items-center justify-center gap-2"
               whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(37, 99, 235, 0.5)" }}
