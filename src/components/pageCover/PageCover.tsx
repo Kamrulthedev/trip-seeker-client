@@ -21,6 +21,7 @@ const itemVariants: any = {
   }
 };
 
+// Main Page Cover Component
 const PageCover = ({ title, image }: { title: string; image: any; }) => {
   return (
     <div className="relative w-full h-96 overflow-hidden">
