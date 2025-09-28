@@ -26,6 +26,7 @@ const itemVariants:any = {
   },
 };
 
+// Main Plan Component
 const Plan = () => {
     const steps = [
         { icon: <Map size={32} />, text: "আপনার পরিকল্পনা করুন" },
