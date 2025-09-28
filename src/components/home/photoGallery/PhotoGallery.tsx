@@ -39,6 +39,7 @@ const itemVariants:any = {
   },
 };
 
+// Main Photo Gallery Component
 const PhotoGallery = () => {
   return (
     <div className="bg-slate-50 py-20">
