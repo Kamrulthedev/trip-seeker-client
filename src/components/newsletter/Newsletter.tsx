@@ -26,6 +26,7 @@ const itemVariants: any = {
   },
 };
 
+// Main News Letter Component
 const Newsletter = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
