@@ -25,6 +25,7 @@ const itemVariants: any = {
     whileInView: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
+// Main Winners Component
 const Winners = () => {
     return (
         <div className="bg-slate-50 p-4 sm:py-14 md:py-16 lg:mb-4 my-16 lg:my-2">
